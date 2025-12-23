@@ -1,32 +1,32 @@
 export const howItWorksSteps = [
   {
     number: 1,
-    title: 'Define Your Goal',
+    title: 'Define the Outcome',
     description:
-      'Describe what you want to automate in plain English. No technical jargon needed.',
+      'We start by aligning on the business result you want to improve, along with success metrics and risk boundaries.',
   },
   {
     number: 2,
-    title: 'Connect Your Tools',
+    title: 'Design the Workflow',
     description:
-      'Link your existing apps and services. We support 1000+ integrations out of the box.',
+      'We map your existing process into a clear, production-ready workflow with automation, guardrails, and human review where needed.',
   },
   {
     number: 3,
-    title: 'Deploy Your Agent',
+    title: 'Launch in Production',
     description:
-      'Our AI configures and optimizes your agent automatically. Review and launch in one click.',
+      'The workflow goes live in a controlled rollout, operating on real data with full visibility and auditability.',
   },
   {
     number: 4,
-    title: 'Monitor & Optimize',
+    title: 'Operate & Improve',
     description:
-      'Track performance in real-time and let your agents learn and improve continuously.',
+      'We continuously tune logic, thresholds, and automation levels based on real performance and feedback.',
   },
   {
     number: 5,
-    title: 'Scale & Grow',
+    title: 'Expand with Confidence',
     description:
-      "Add more agents, automate new workflows, and watch your team's productivity soar.",
+      'Once proven, we safely scale the workflow across more scope, volume, or additional use cases.',
   },
 ];
