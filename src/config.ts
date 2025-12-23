@@ -8,21 +8,24 @@ export const siteConfig = {
   // ============================================
   site: {
     name: 'Fulcrum Agentics',
-    title: 'Fulcrum Agentics - AI Agents for Ops, Catalog, and Evidence Work',
+    title: 'Fulcrum Agentics – AI-Powered Operational Workflows',
     description:
-      'Transform your business with autonomous AI agents. Automate workflows, integrate seamlessly, and scale effortlessly with Fulcrum Agentics.',
+      'Fulcrum Agentics designs and operates AI-powered workflows for real business operations. We combine automation, human oversight, and continuous optimization to run catalog, pricing, and evidence-heavy processes at scale.',
     keywords:
-      'agentic AI, AI agents, business automation, e-commerce automation, BigCommerce automation, catalog ops, pricing automation, data workflows, evidence analysis, operations automation',
+      'AI workflows, operational automation, AI for operations, catalog operations, pricing operations, e-commerce automation, BigCommerce workflows, evidence review systems, human-in-the-loop AI, decision automation',
     email: 'hello@fulcrumagentics.com',
 
     // Open Graph / Twitter
-    ogTitle: 'Fulcrum Agentics - AI Agents for Real Operations',
+    ogTitle: 'Fulcrum Agentics – AI for Real Operations',
     ogDescription:
-      'Production-ready AI agents for catalog + pricing ops, back-office workflows, and evidence-heavy review—built to integrate, measure, and scale.',
+      'AI-powered operational workflows for catalog, pricing, and evidence-heavy work. Built for production, accountability, and continuous improvement—not one-off agents.',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Fulcrum Agentics',
-    twitterDescription: 'AI agents that ship outcomes—not demos.',
+    twitterDescription:
+      'Operational AI workflows with human oversight—designed to run, adapt, and improve over time.',
   },
+};
+
 
   // ============================================
   // NAVIGATION
