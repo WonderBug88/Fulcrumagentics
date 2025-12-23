@@ -1,7 +1,8 @@
-import { defineConfig } from 'astro/config';
-import icon from 'astro-icon';
+// @ts-check
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://fulcrumagentics.com",
   base: "/",
-
+  integrations: [],
+});
