@@ -8,20 +8,20 @@ export const siteConfig = {
   // ============================================
   site: {
     name: 'Fulcrum Agentics',
-    title: 'Fulcrum Agentics - Operational AI for Catalog, Pricing, and Evidence Work',
+    title: 'Fulcrum Agentics - AI Agents for Ops, Catalog, and Evidence Work',
     description:
-      'Fulcrum Agentics designs, deploys, and operates AI-powered workflows for real business operations—catalog + pricing sync, back-office automation, and evidence-heavy review. Fast to launch, measurable in production, safe to scale.',
+      'Fulcrum Agentics builds production-ready AI agents that automate operations: e-commerce catalog + pricing, back-office workflows, and evidence-heavy review. Fast to launch, measurable to run, safe to scale.',
     keywords:
-      'operational AI, agentic workflows, business automation, e-commerce automation, BigCommerce automation, catalog operations, pricing automation, sku matching, case pack automation, data workflows, evidence review, operations automation',
+      'agentic AI, AI agents, business automation, e-commerce automation, BigCommerce automation, catalog ops, pricing automation, data workflows, evidence analysis, operations automation',
     email: 'hello@fulcrumagentics.com',
 
     // Open Graph / Twitter
-    ogTitle: 'Fulcrum Agentics - Operational AI That Ships Outcomes',
+    ogTitle: 'Fulcrum Agentics - AI Agents for Real Operations',
     ogDescription:
-      'AI-powered workflows for catalog + pricing ops, back-office automation, and evidence-heavy review—integrated into your tools with monitoring, approvals, and measurable performance.',
+      'Production-ready AI agents for catalog + pricing ops, back-office workflows, and evidence-heavy review—built to integrate, measure, and scale.',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Fulcrum Agentics',
-    twitterDescription: 'Operational AI that ships outcomes—not demos.',
+    twitterDescription: 'AI agents that ship outcomes—not demos.',
   },
 
   // ============================================
@@ -44,10 +44,10 @@ export const siteConfig = {
   // HERO SECTION
   // ============================================
   hero: {
-    headline: 'Operational AI for Teams That Run the Business',
-    subheadline: 'Automate the recurring work that drains time, creates mistakes, and limits scale',
+    headline: 'AI Agents for Real Operations',
+    subheadline: 'Automate the work that keeps your business running',
     description:
-      'Fulcrum Agentics takes ownership of high-friction workflows—connecting to your tools, enforcing your rules, and delivering measurable results with monitoring, approvals, and audit trails. Start with a Sprint to prove value fast, then run it reliably month to month.',
+      'Fulcrum Agentics designs and deploys production-ready AI agents that connect to your tools, follow your rules, and deliver measurable results. Start with a proven package—or commission a custom agent built for your workflow.',
     cta: {
       primary: {
         text: 'Book a Call',
@@ -60,8 +60,8 @@ export const siteConfig = {
     },
     stats: [
       { value: 'Days', label: 'to a working prototype' },
-      { value: 'Weeks', label: 'to production-ready deployment' },
-      { value: 'Human-in-loop', label: 'approvals + audit trails' },
+      { value: 'Weeks', label: 'to production deployment' },
+      { value: 'Human-in-loop', label: 'controls + audit trails' },
     ],
   },
 
@@ -69,19 +69,19 @@ export const siteConfig = {
   // FEATURES SECTION (POSITION AS "SOLUTIONS")
   // ============================================
   features: {
-    title: 'What We Own End-to-End',
+    title: 'What We Build',
     subtitle:
-      'Three proven workflow categories—plus custom builds when your process is unique',
+      'Three proven agent categories—plus custom builds when your workflow is unique',
     items: [
-      { icon: 'layers', title: 'Catalog Ops Automation' }, // enrichment, metadata, mapping, cleanup
-      { icon: 'zap', title: 'Pricing + SKU Reconciliation' }, // vendor sheets, aliasing, case packs, margin rules, exceptions
-      { icon: 'chart', title: 'Search + Content Operations' }, // GSC/GA4 routing, internal linking, refresh cycles
-      { icon: 'shield', title: 'Approvals, Guardrails, and Audit Trails' }, // permissions + review gates
-      { icon: 'clock', title: 'Monitoring + Exception Handling' }, // alerts, retries, run logs, drift detection
+      { icon: 'layers', title: 'E-commerce Catalog Agents' }, // title/SEO, product metadata, enrichment
+      { icon: 'zap', title: 'Pricing + SKU Sync Agents' }, // vendor sheets, aliasing, case packs, margin rules
+      { icon: 'chart', title: 'Search + SEO Content Agents' }, // GSC/GA4 routing, internal linking, content refresh
       { icon: 'code', title: 'Tool & API Integrations' }, // BigCommerce, Google, DBs, ticketing, CRM
+      { icon: 'clock', title: 'Always-On Monitoring' }, // alerts, retries, run logs
+      { icon: 'shield', title: 'Guardrails & Approvals' }, // human-in-loop, permissions
+      { icon: 'chat', title: 'Natural Language Control' }, // “do this job” interface
       { icon: 'lightning', title: 'Workflow Automation' }, // intake → decide → act → report
-      { icon: 'chat', title: 'Natural-Language Control' }, // “run the sync”, “show exceptions”, “draft evidence summary”
-      { icon: 'brush', title: 'Custom Operational Builds' }, // unique processes, regulated flows, special rules
+      { icon: 'brush', title: 'Custom Agent Builds' }, // your unique process
     ],
   },
 
@@ -91,59 +91,36 @@ export const siteConfig = {
   howItWorks: {
     title: 'How It Works',
     subtitle:
-      'We prove value quickly, then take responsibility for reliable production performance',
-    // If your UI supports steps, these are useful:
-    steps: [
-      {
-        title: 'Scope the workflow',
-        description:
-          'We map your tools, inputs/outputs, rules, and failure modes. You get a clear “done” definition and ROI target.',
-      },
-      {
-        title: 'Ship a Sprint',
-        description:
-          'A working prototype that runs the workflow end-to-end with logging, approvals, and exception reporting.',
-      },
-      {
-        title: 'Harden for production',
-        description:
-          'We add reliability: evals/tests, permissions, monitoring, retries, and safe rollout to production.',
-      },
-      {
-        title: 'Run + improve monthly',
-        description:
-          'We stay accountable: tune edge cases, handle drift, expand scope, and report performance.',
-      },
-    ],
+      'We scope the workflow, ship an agent fast, then harden it for reliable production use',
   },
 
   // ============================================
-  // TESTIMONIALS
+  // TESTIMONIALS (HOLD PLACEHOLDERS BUT MATCH VOICE)
   // ============================================
   testimonials: {
     title: 'Built for Operators',
     subtitle:
-      'Teams use Fulcrum Agentics to reduce manual work, prevent costly mistakes, and scale without adding headcount',
+      'Teams use Fulcrum Agentics to reduce manual work, prevent mistakes, and move faster with confidence',
     companyLogos: ['CATALOGOPS', 'FULFILLMENT', 'FINOPS', 'REVOPS', 'COMPLIANCE'],
   },
 
   // ============================================
-  // PRICING (PACKAGES / PRODUCTIZED SERVICES)
+  // PRICING (REPOSITION AS PACKAGES / PRODUCTIZED SERVICES)
   // ============================================
   pricing: {
-    title: 'Packages That Ship (and Keep Shipping)',
+    title: 'Packages That Ship',
     subtitle:
-      'Start with a Sprint to prove value fast. Then move to a monthly plan where we own reliability, monitoring, and continuous improvement.',
+      'Start with a proven package. Add custom integrations and enhancements as needed.',
     plans: [
       {
         name: 'Starter Audit',
         price: '$0',
         period: '',
-        description: 'We review your workflow and recommend the fastest operational win',
+        description: 'We review your workflow and recommend the fastest agent win',
         features: [
           '30-minute discovery call',
           'Workflow + tool map',
-          '1–2 recommended automations',
+          '1–2 agent recommendations',
           'Rough scope + timeline',
         ],
         cta: {
@@ -153,17 +130,17 @@ export const siteConfig = {
         featured: false,
       },
       {
-        name: 'Ops Sprint',
+        name: 'Ops Agent Sprint',
         price: '$2,500',
         period: ' one-time',
-        description: 'A working prototype for one workflow—built to prove value quickly',
+        description: 'A working agent prototype built for one workflow',
         badge: 'FASTEST PATH',
         features: [
           'One workflow automated end-to-end',
-          'Integrations with 1–2 systems',
+          'Tool/API integration (1–2 systems)',
           'Run logs + basic monitoring',
           'Human-in-loop approvals',
-          'Exception report + next-step roadmap',
+          'Handoff + next-step roadmap',
         ],
         cta: {
           text: 'Start a Sprint',
@@ -172,52 +149,17 @@ export const siteConfig = {
         featured: true,
       },
       {
-        name: 'Foundation',
-        price: '$2,000',
-        period: '/mo',
-        description: 'We own one core workflow in production: monitoring, fixes, and steady improvement',
+        name: 'Production Deployment',
+        price: 'Custom',
+        period: '',
+        description: 'Harden, secure, and scale agents into production',
         features: [
-          'Production monitoring + alerts',
-          'Monthly performance review',
-          'Edge-case tuning + rule updates',
-          'Basic cost controls',
-          'Run logs + audit trail',
-        ],
-        cta: {
-          text: 'Run in Production',
-          href: '#contact',
-        },
-        featured: false,
-      },
-      {
-        name: 'Growth',
-        price: '$5,000',
-        period: '/mo',
-        description: 'Multiple workflows, KPI tracking, and continuous optimization as volume scales',
-        features: [
-          '2–4 workflows supported',
-          'KPI reporting + exception trends',
-          'Human-in-loop queue + approvals',
-          'Integrations and enhancements',
-          'Priority fixes + faster iterations',
-        ],
-        cta: {
-          text: 'Scale the System',
-          href: '#contact',
-        },
-        featured: false,
-      },
-      {
-        name: 'Scale',
-        price: '$10,000+',
-        period: '/mo',
-        description: 'Mission-critical operations with governance, auditability, and SLA options',
-        features: [
-          'SLA support options',
-          'Permissions + governance model',
-          'Evaluation + regression testing',
+          'Security + permissions model',
+          'Evaluation + regression tests',
           'Observability dashboards',
-          'Multi-agent / multi-step workflows',
+          'Retries + failure handling',
+          'SLA support options',
+          'Multi-agent workflows',
         ],
         cta: {
           text: 'Talk to Us',
@@ -226,9 +168,6 @@ export const siteConfig = {
         featured: false,
       },
     ],
-    // Optional micro-copy that helps buyers:
-    note:
-      'Most teams start with an Ops Sprint, then move to Foundation or Growth for ongoing ownership and improvement.',
   },
 
   // ============================================
@@ -237,26 +176,7 @@ export const siteConfig = {
   faq: {
     title: 'Frequently Asked Questions',
     subtitle:
-      'What to expect when deploying operational AI into real workflows',
-    // If your FAQ component supports items, consider adding:
-    items: [
-      {
-        q: 'Why is there a monthly fee?',
-        a: 'Because real operations change: new edge cases, new data, and new constraints. The monthly plan covers monitoring, fixes, and continuous improvement so the workflow stays reliable—and doesn’t fall back on your team.',
-      },
-      {
-        q: 'Do you charge per “agent” or per run?',
-        a: 'No. We price around ownership of the workflow and the production outcomes: reliability, accuracy, and measurable performance.',
-      },
-      {
-        q: 'What tools do you integrate with?',
-        a: 'Common integrations include BigCommerce, Google (GSC/GA4), databases, spreadsheets, email/ticketing systems, and internal APIs.',
-      },
-      {
-        q: 'Can we start small?',
-        a: 'Yes. Start with one workflow in an Ops Sprint, prove ROI, then expand as the system pays for itself.',
-      },
-    ],
+      'What to expect when deploying AI agents into real business workflows',
   },
 
   // ============================================
@@ -265,11 +185,11 @@ export const siteConfig = {
   contact: {
     title: 'Tell Us the Workflow',
     subtitle:
-      'Share the tools you use and the manual process you want off your plate. We’ll recommend a proven package—or design a custom solution that fits your environment.',
+      'Share your tools and the manual process you want to eliminate. We’ll recommend a proven package—or design a custom agent that fits your environment.',
     benefits: [
       'No obligation discovery call',
       'Built around your tools and rules',
-      'Approvals + audit trails',
+      'Human-in-the-loop approvals',
       'Clear ROI targets + reporting',
     ],
     email: 'hello@fulcrumagentics.com',
@@ -292,9 +212,9 @@ export const siteConfig = {
           required: false,
         },
         message: {
-          label: 'What workflow should we own?',
+          label: 'What workflow should we automate?',
           placeholder:
-            'Example: “Sync vendor pricing sheets to BigCommerce weekly, reconcile SKUs/case packs, and generate an exceptions queue for review.”',
+            'Example: “Sync vendor pricing sheets to BigCommerce weekly, reconcile SKUs/case packs, and generate exceptions for review.”',
           required: false,
         },
       },
@@ -306,15 +226,15 @@ export const siteConfig = {
   // ============================================
   footer: {
     tagline:
-      'Operational AI for catalog, pricing, and evidence-heavy workflows—integrated into your tools with monitoring, approvals, and measurable performance.',
+      'Production-ready AI agents for ops, catalog, and evidence-heavy workflows—built to integrate, measure, and scale.',
     columns: [
       {
         title: 'Solutions',
         links: [
-          { name: 'Catalog Ops Automation', href: '#features' },
-          { name: 'Pricing + SKU Reconciliation', href: '#features' },
-          { name: 'Search + Content Operations', href: '#features' },
-          { name: 'Custom Builds', href: '#contact' },
+          { name: 'Catalog Agents', href: '#features' },
+          { name: 'Pricing + SKU Sync', href: '#features' },
+          { name: 'SEO + Content Ops', href: '#features' },
+          { name: 'Custom Agents', href: '#contact' },
           { name: 'How It Works', href: '#how-it-works' },
         ],
       },
