@@ -10,7 +10,7 @@ export const siteConfig = {
     name: 'Fulcrum Agentics',
     title: 'Fulcrum Agentics - AI Agents for Ops, Catalog, and Evidence Work',
     description:
-      'Fulcrum Agentics builds production-ready AI agents that automate operations: e-commerce catalog + pricing, back-office workflows, and evidence-heavy review. Fast to launch, measurable to run, safe to scale.',
+      'Transform your business with autonomous AI agents. Automate workflows, integrate seamlessly, and scale effortlessly with Fulcrum Agentics.',
     keywords:
       'agentic AI, AI agents, business automation, e-commerce automation, BigCommerce automation, catalog ops, pricing automation, data workflows, evidence analysis, operations automation',
     email: 'hello@fulcrumagentics.com',
