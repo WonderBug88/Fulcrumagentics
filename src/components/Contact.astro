@@ -18,10 +18,13 @@ import { siteConfig } from '../config.ts';
           {
             siteConfig.contact.benefits.map((benefit) => (
               <li class="flex items-center">
-                <Icon
-                  name="heroicons:check"
-                  class="text-mono-black mr-4 h-6 w-6 flex-shrink-0"
-                />
+                <span
+                  class="text-mono-black mr-4 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+
                 <span class="text-mono-dark">{benefit}</span>
               </li>
             ))
