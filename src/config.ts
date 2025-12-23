@@ -16,15 +16,13 @@ export const siteConfig = {
     email: 'hello@fulcrumagentics.com',
 
     // Open Graph / Twitter
-    ogTitle: 'Fulcrum Agentics – AI for Real Operations',
+    ogTitle: 'Fulcrum Agentics - AI Agents for Real Operations',
     ogDescription:
-      'AI-powered operational workflows for catalog, pricing, and evidence-heavy work. Built for production, accountability, and continuous improvement—not one-off agents.',
+      'Production-ready AI agents for catalog + pricing ops, back-office workflows, and evidence-heavy review—built to integrate, measure, and scale.',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Fulcrum Agentics',
-    twitterDescription:
-      'Operational AI workflows with human oversight—designed to run, adapt, and improve over time.',
+    twitterDescription: 'AI agents that ship outcomes—not demos.',
   },
-};
 
 
   // ============================================
