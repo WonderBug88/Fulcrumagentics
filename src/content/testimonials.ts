@@ -1,55 +1,55 @@
 export const testimonialsData = [
   {
     quote:
-      'This platform transformed our customer support. We automated 80% of routine inquiries and our team can focus on complex issues. Game changer!',
+      'What Fulcrum built for us isn’t a tool—it’s an operational system. The logic, guardrails, and review paths capture how our best people think, and that knowledge compounds every month.',
     author: 'Sarah Johnson',
     role: 'Head of Operations',
-    company: 'Stripe',
+    company: 'Enterprise Commerce Co.',
     initials: 'SJ',
     rating: 5,
   },
   {
     quote:
-      'The ROI was immediate. We deployed our first agent in under an hour and saved 20 hours per week. The analytics dashboard is incredibly powerful.',
+      'We stopped re-solving the same problems over and over. The workflows became institutional memory—explicit, testable, and improvable—rather than tribal knowledge locked in a few people.',
     author: 'Michael Park',
     role: 'CTO',
-    company: 'Shopify',
+    company: 'Mid-Market SaaS',
     initials: 'MP',
     rating: 5,
   },
   {
     quote:
-      'Setup was surprisingly easy. We went from idea to production in less than a week. The support team is exceptional and always available.',
+      'The biggest difference is control. Decisions are no longer implicit or hidden inside prompts. We can see why something happened, adjust it, and trust the system as it scales.',
     author: 'Emily Chen',
     role: 'Product Lead',
-    company: 'Notion',
+    company: 'Digital Platform Team',
     initials: 'EC',
     rating: 5,
   },
   {
     quote:
-      'Our sales team uses AI agents to qualify leads and schedule meetings. Conversion rates increased by 45% in the first month. Absolutely worth it.',
+      'This became a durable asset for the company. As the workflow evolved, it absorbed edge cases, exceptions, and reviewer judgment—making future runs safer and faster.',
     author: 'David Martinez',
-    role: 'VP of Sales',
-    company: 'HubSpot',
+    role: 'VP of Operations',
+    company: 'Multi-Brand Retailer',
     initials: 'DM',
     rating: 5,
   },
   {
     quote:
-      "We scaled our support from 50 to 5,000 daily conversations without hiring additional staff. The AI understands context better than any tool we've tried.",
+      'Fulcrum’s approach let us automate aggressively without losing confidence. Human oversight didn’t disappear—it became smarter, more focused, and far less repetitive.',
     author: 'Rachel Green',
-    role: 'Customer Success Director',
-    company: 'Intercom',
+    role: 'Director of Compliance',
+    company: 'Regulated Services Firm',
     initials: 'RG',
     rating: 5,
   },
   {
     quote:
-      'Integration with our existing tools was seamless. The agents handle everything from data entry to complex workflows. Our team productivity doubled.',
+      'Months in, the system is more valuable than when we launched. The workflows encode our rules, constraints, and judgment in a way that new hires can immediately rely on.',
     author: 'James Wilson',
     role: 'Engineering Manager',
-    company: 'Linear',
+    company: 'Complex Ops Team',
     initials: 'JW',
     rating: 5,
   },
