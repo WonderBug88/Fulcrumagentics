@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://wonderbug88.github.io',
-  base: '/Fulcrumagentics',
+  site: "https://fulcrumagentics.com",
+  base: "/",
   integrations: [icon()],
   server: {
     host: '0.0.0.0',
