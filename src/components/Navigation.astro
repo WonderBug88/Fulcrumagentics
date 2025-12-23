@@ -2,25 +2,21 @@
 import { siteConfig } from '../config.ts';
 ---
 
-<nav
-  class="border-mono-lighter fixed top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm"
->
+<nav class="border-mono-lighter fixed top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <div class="flex items-center">
-        <a href="/" class="text-mono-black text-xl font-bold"
-          >{siteConfig.site.name}</a
-        >
+        <a href="/" class="text-mono-black text-xl font-bold">
+          {siteConfig.site.name}
+        </a>
       </div>
 
       <div class="hidden items-center space-x-8 md:flex">
-        {
-          siteConfig.navigation.links.map((link) => (
-            <a href={link.href} class="text-mono-dark">
-              {link.name}
-            </a>
-          ))
-        }
+        {siteConfig.navigation.links.map((link) => (
+          <a href={link.href} class="text-mono-dark hover:text-mono-black">
+            {link.name}
+          </a>
+        ))}
         <a
           href={siteConfig.navigation.cta.href}
           class="bg-mono-black rounded-lg px-6 py-2 text-white"
@@ -36,19 +32,17 @@ import { siteConfig } from '../config.ts';
         aria-expanded="false"
         aria-label="Toggle navigation menu"
       >
-        <Icon name="heroicons:bars-3" class="text-mono-black h-6 w-6" />
+        <span class="text-mono-black text-2xl leading-none" aria-hidden="true">☰</span>
       </button>
     </div>
 
     <div id="mobileMenu" class="hidden pb-4 md:hidden" aria-hidden="true">
       <div class="flex flex-col space-y-3">
-        {
-          siteConfig.navigation.links.map((link) => (
-            <a href={link.href} class="text-mono-dark py-2">
-              {link.name}
-            </a>
-          ))
-        }
+        {siteConfig.navigation.links.map((link) => (
+          <a href={link.href} class="text-mono-dark py-2 hover:text-mono-black">
+            {link.name}
+          </a>
+        ))}
         <a
           href={siteConfig.navigation.cta.href}
           class="bg-mono-black rounded-lg px-6 py-3 text-center text-white"
@@ -67,8 +61,7 @@ import { siteConfig } from '../config.ts';
 
     if (mobileMenuButton && mobileMenu) {
       mobileMenuButton.addEventListener('click', () => {
-        const isExpanded =
-          mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
         mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
         mobileMenu.setAttribute('aria-hidden', String(isExpanded));
         mobileMenu.classList.toggle('hidden');
