@@ -8,11 +8,11 @@ export const siteConfig = {
   // ============================================
   site: {
     name: 'Fulcrum Agentics',
-    title: 'Fulcrum Agentics - AI Agents for Ops, Catalog, and Evidence Work',
+    title: 'Fulcrum Agentics – AI-Powered Operational Workflows',
     description:
-      'Fulcrum Agentics builds production-ready AI agents that automate operations: e-commerce catalog + pricing, back-office workflows, and evidence-heavy review. Fast to launch, measurable to run, safe to scale.',
+      'Fulcrum Agentics designs and operates AI-powered workflows for real business operations. We combine automation, human oversight, and continuous optimization to run catalog, pricing, and evidence-heavy processes at scale.',
     keywords:
-      'agentic AI, AI agents, business automation, e-commerce automation, BigCommerce automation, catalog ops, pricing automation, data workflows, evidence analysis, operations automation',
+      'AI workflows, operational automation, AI for operations, catalog operations, pricing operations, e-commerce automation, BigCommerce workflows, evidence review systems, human-in-the-loop AI, decision automation',
     email: 'hello@fulcrumagentics.com',
 
     // Open Graph / Twitter
