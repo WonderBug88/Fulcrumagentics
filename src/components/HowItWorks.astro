@@ -43,10 +43,13 @@ import { howItWorksSteps } from '../content/how-it-works';
             </div>
             {index < howItWorksSteps.length - 1 && (
               <div class="absolute top-1/2 -right-4 hidden -translate-y-1/2 transform lg:block">
-                <Icon
-                  name="heroicons:chevron-right"
-                  class="text-mono-gray h-8 w-8"
-                />
+                <span
+                  class="text-mono-gray inline-flex h-8 w-8 items-center justify-center text-2xl leading-none"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+
               </div>
             )}
           </div>
