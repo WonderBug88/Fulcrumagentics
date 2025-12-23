@@ -1,56 +1,56 @@
 export const featuresContent = [
   {
-    icon: 'lightning',
-    title: 'Autonomous Execution',
+    icon: 'layers',
+    title: 'Agentic Workflow Architecture',
     description:
-      'AI agents that understand context, make decisions, and execute tasks without constant supervision.',
-  },
-  {
-    icon: 'code',
-    title: 'Smart Integration',
-    description:
-      'Seamlessly connect with your tools: Slack, email, databases, APIs, and 1000+ platforms.',
-  },
-  {
-    icon: 'chart',
-    title: 'Real-Time Analytics',
-    description:
-      'Monitor performance, track success rates, and optimize workflows with detailed insights.',
-  },
-  {
-    icon: 'chat',
-    title: 'Natural Language',
-    description:
-      'Configure agents using plain English. No complex programming or technical expertise required.',
-  },
-  {
-    icon: 'shield',
-    title: 'Enterprise Security',
-    description:
-      'Bank-level encryption, SOC 2 compliance, and complete data privacy. Your data stays secure.',
-  },
-  {
-    icon: 'clock',
-    title: '24/7 Operation',
-    description:
-      'Agents work around the clock, handling tasks while you sleep. Reliable uptime guaranteed.',
+      'We design agentic systems as explicit workflows with defined states, routing logic, failure handling, and auditability—built to operate reliably in production.',
   },
   {
     icon: 'brush',
-    title: 'Custom Workflows',
+    title: 'Complex Task Decomposition',
     description:
-      'Build tailored automation flows that match your unique business processes and requirements.',
+      'Large, ambiguous jobs are broken into structured steps with clear decision points, allowing AI and humans to collaborate safely on high-stakes work.',
   },
   {
-    icon: 'layers',
-    title: 'Multi-Agent Teams',
+    icon: 'shield',
+    title: 'Guardrails & Human Oversight',
     description:
-      'Coordinate multiple specialized agents working together to solve complex, multi-step challenges.',
+      'Human review is designed as a first-class component, with approval queues, escalation paths, and traceability for every decision.',
+  },
+  {
+    icon: 'code',
+    title: 'Deep System Integration',
+    description:
+      'Our workflows integrate directly with your databases, APIs, and internal tools—designed around your data models, permissions, and operational constraints.',
+  },
+  {
+    icon: 'chart',
+    title: 'Performance Feedback Loops',
+    description:
+      'Every workflow is instrumented to measure outcomes, capture exceptions, and feed results back into continuous improvement.',
+  },
+  {
+    icon: 'clock',
+    title: 'Always-On Operations',
+    description:
+      'Agentic workflows run continuously, handling routine execution while surfacing edge cases and anomalies for review.',
+  },
+  {
+    icon: 'chat',
+    title: 'Operator-Friendly Controls',
+    description:
+      'Teams interact with workflows through clear inputs, review queues, and documented logic—not opaque prompts or black boxes.',
+  },
+  {
+    icon: 'lightning',
+    title: 'Incremental Automation',
+    description:
+      'Automation increases gradually as confidence grows—reducing manual effort without sacrificing control or quality.',
   },
   {
     icon: 'zap',
-    title: 'Instant Scaling',
+    title: 'Reusable Intellectual Property',
     description:
-      'Scale from 1 to 1000+ agents instantly. Handle peak loads without infrastructure headaches.',
+      'Each system is built to compound value over time, with reusable logic, heuristics, and operational knowledge embedded into the workflow.',
   },
 ];
