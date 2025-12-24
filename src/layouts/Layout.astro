@@ -1,5 +1,6 @@
 ---
 const { title = "Fulcrum Agentics", description = "" } = Astro.props;
+import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 ---
 
 <!doctype html>
@@ -24,11 +25,19 @@ const { title = "Fulcrum Agentics", description = "" } = Astro.props;
         root.classList.remove("theme-light", "theme-dark");
         if (saved === "light") root.classList.add("theme-light");
         if (saved === "dark") root.classList.add("theme-dark");
-        // system => no class; your prefers-color-scheme CSS handles it
       })();
     </script>
   </head>
+
   <body>
+    <!-- Global header (shows on every page) -->
+    <header class="flex items-center justify-between px-6 py-4">
+      <!-- put your logo/nav here -->
+      <div class="font-semibold">Fulcrum Agentics</div>
+
+      <ThemeSwitcher />
+    </header>
+
     <slot />
   </body>
 </html>
