@@ -1,53 +1,75 @@
-<button
-  id="themeBtn"
-  class="rounded-xl border px-3 py-2 text-sm transition-smooth"
-  style="border-color: var(--color-border); background: var(--color-surface); color: var(--color-text);"
-  type="button"
-  aria-label="Theme toggle"
->
-  Theme: <span id="themeLabel">System</span>
-</button>
+---
+/**
+ * ThemeSwitcher.astro
+ * Tailwind-only toggle switch for light/dark.
+ * Stores preference in localStorage "fa-theme" as: 'light' | 'dark'
+ */
+---
+
+<div class="flex items-center gap-2">
+  <span class="hidden sm:inline text-xs text-slate-500 theme:text-white/60">Day</span>
+
+  <button
+    id="fa-theme-toggle"
+    type="button"
+    class="relative inline-flex h-8 w-14 items-center rounded-full border border-slate-200 bg-slate-100 shadow-sm transition hover:bg-slate-200
+           theme:border-white/10 theme:bg-white/10 theme:hover:bg-white/15"
+    aria-label="Toggle theme"
+    aria-pressed="false"
+  >
+    <span
+      id="fa-theme-knob"
+      class="inline-block h-6 w-6 translate-x-1 rounded-full bg-white shadow transition
+             theme:bg-white"
+    ></span>
+
+    <!-- Optional icons -->
+    <span class="pointer-events-none absolute left-2 text-[10px] text-slate-500 theme:text-white/60">☀</span>
+    <span class="pointer-events-none absolute right-2 text-[10px] text-slate-500 theme:text-white/60">☾</span>
+  </button>
+
+  <span class="hidden sm:inline text-xs text-slate-500 theme:text-white/60">Night</span>
+</div>
 
 <script is:inline>
   (() => {
-    const key = "fa-theme";
+    const key = "fa-theme"; // 'light' | 'dark' | 'system' (we store light/dark here)
     const root = document.documentElement;
-    const btn = document.getElementById("themeBtn");
-    const label = document.getElementById("themeLabel");
+    const btn = document.getElementById("fa-theme-toggle");
+    const knob = document.getElementById("fa-theme-knob");
 
-    const order = ["system", "dark", "light"];
+    if (!btn || !knob) return;
 
-    function getMode() {
-      try {
-        return localStorage.getItem(key) || "system";
-      } catch {
-        return "system";
-      }
-    }
+    const setPressed = (isDark) => {
+      btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+      // Move knob
+      knob.classList.toggle("translate-x-1", !isDark);
+      knob.classList.toggle("translate-x-7", isDark);
+      // Slightly change knob color in dark to match vibe
+      knob.classList.toggle("bg-white", true);
+    };
 
-    function apply(mode) {
+    const apply = (mode) => {
       root.classList.remove("theme-light", "theme-dark");
-      if (mode === "light") root.classList.add("theme-light");
       if (mode === "dark") root.classList.add("theme-dark");
-      if (label) label.textContent = mode[0].toUpperCase() + mode.slice(1);
-    }
+      else root.classList.add("theme-light");
+      setPressed(mode === "dark");
+    };
 
-    function cycle() {
-      const cur = getMode();
-      const next = order[(order.indexOf(cur) + 1) % order.length];
-      try {
-        localStorage.setItem(key, next);
-      } catch {}
+    // Initial state from current classes (set by layout's pre-paint script)
+    const initialDark = root.classList.contains("theme-dark");
+    setPressed(initialDark);
+
+    btn.addEventListener("click", () => {
+      const isDark = root.classList.contains("theme-dark");
+      const next = isDark ? "light" : "dark";
+      try { localStorage.setItem(key, next); } catch {}
       apply(next);
-    }
+    });
 
-    apply(getMode());
-    btn?.addEventListener("click", cycle);
-
-    // If in system mode, respond to OS theme changes
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    mq.addEventListener?.("change", () => {
-      if (getMode() === "system") apply("system");
+    // If other tabs change it
+    window.addEventListener("storage", (e) => {
+      if (e.key === key && e.newValue) apply(e.newValue);
     });
   })();
 </script>
