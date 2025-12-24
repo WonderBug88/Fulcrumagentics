@@ -50,7 +50,7 @@
       };
   
       const getSaved = () => {
-        try { return localStorage.getItem(key) || "system"; } catch { return "system"; }
+        try { return localStorage.getItem(key) || "light"; } catch { return "system"; }
       };
   
       const setSaved = (v) => {
