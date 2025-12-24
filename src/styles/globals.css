@@ -1,16 +1,50 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-mono-black: #000000;
-  --color-mono-darker: #171717;
-  --color-mono-dark: #404040;
-  --color-mono-gray: #737373;
-  --color-mono-light: #a3a3a3;
-  --color-mono-lighter: #e5e5e5;
-  --color-mono-white: #ffffff;
+/* =========================================================
+   FULCRUM AGENTICS — BRAND TOKENS (DAY + BLACKOUT)
+   - Default = Day
+   - Night / Blackout = prefers-color-scheme: dark
+   ========================================================= */
 
+@theme {
+  /* -----------------------------------------
+     Brand (Day) — authoritative + minimal
+     ----------------------------------------- */
+  --color-brand-navy: #0e1424; /* Midnight Navy */
+  --color-brand-amber: #d4a24c; /* Golden Amber (accent only) */
+  --color-brand-slate: #2c3659; /* Systems layer */
+
+  /* Neutrals (Day) */
+  --color-bg: #f7f8fa; /* Off-White */
+  --color-surface: #ffffff; /* Cards */
+  --color-surface-2: #f3f4f6; /* Subtle panels */
+  --color-border: rgba(14, 20, 36, 0.12);
+
+  --color-text: #1f2937; /* Charcoal */
+  --color-text-muted: #6b7280; /* Steel Gray */
+  --color-text-soft: #9ca3af; /* tertiary */
+
+  /* Semantic */
+  --color-ok: #3fa7a3; /* Teal (limited) */
+  --color-warn: #b8964a; /* night-safe amber tone */
+  --color-danger: #9b4a3c; /* Muted rust */
+
+  /* -----------------------------------------
+     Backward-compatible mono tokens (Day)
+     (maps your old names to the new system)
+     ----------------------------------------- */
+  --color-mono-black: var(--color-brand-navy);
+  --color-mono-darker: #121826;
+  --color-mono-dark: #2f3a5a;
+  --color-mono-gray: var(--color-text-muted);
+  --color-mono-light: #a3a3a3;
+  --color-mono-lighter: #e5e7eb;
+  --color-mono-white: var(--color-surface);
+
+  /* Typography */
   --font-sans: Geist, system-ui, -apple-system, sans-serif;
 
+  /* Motion */
   --animate-fade-in: fade-in 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-up: fade-up 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-down: fade-down 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -18,8 +52,118 @@
   --animate-fade-right: fade-right 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-pulse-slow: pulse-slow 3500ms cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-float: float 4500ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+
+  /* Surfaces + focus */
+  --shadow-soft: 0 10px 30px rgba(14, 20, 36, 0.08);
+  --ring: 0 0 0 3px rgba(212, 162, 76, 0.22); /* amber ring (subtle) */
 }
 
+/* -----------------------------------------
+   Blackout Mode (Night) — operator grade
+   ----------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    /* Backgrounds */
+    --color-bg: #0b0f1a; /* Deep Navy Black */
+    --color-surface: #12182b; /* Midnight Surface */
+    --color-surface-2: #151d33;
+
+    /* Text */
+    --color-text: #e6e8ef; /* Soft White */
+    --color-text-muted: #9aa3b2; /* Muted Gray */
+    --color-text-soft: #5f677a; /* Dim Gray */
+
+    /* Borders / dividers */
+    --color-border: rgba(230, 232, 239, 0.12);
+
+    /* Accent (muted at night) */
+    --color-brand-amber: #b8964a; /* Muted Amber */
+    --color-brand-slate: #2f3a5a; /* Slate Accent */
+
+    /* Semantic */
+    --color-ok: #3a8f8b; /* controlled teal */
+    --color-warn: #b8964a;
+    --color-danger: #8a3a32;
+
+    /* Backward-compatible mono tokens (Night) */
+    --color-mono-black: #0b0f1a;
+    --color-mono-darker: #12182b;
+    --color-mono-dark: #2f3a5a;
+    --color-mono-gray: #9aa3b2;
+    --color-mono-light: #5f677a;
+    --color-mono-lighter: rgba(230, 232, 239, 0.18);
+    --color-mono-white: #e6e8ef;
+
+    --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.55);
+    --ring: 0 0 0 3px rgba(184, 150, 74, 0.18);
+  }
+
+  /* Calm the mesh in blackout mode (less noise) */
+  .mono-mesh {
+    background:
+      radial-gradient(at 40% 20%, rgba(230, 232, 239, 0.03) 0px, transparent 55%),
+      radial-gradient(at 80% 0%, rgba(184, 150, 74, 0.03) 0px, transparent 55%),
+      radial-gradient(at 0% 50%, rgba(230, 232, 239, 0.02) 0px, transparent 55%),
+      radial-gradient(at 80% 50%, rgba(230, 232, 239, 0.02) 0px, transparent 55%),
+      radial-gradient(at 0% 100%, rgba(230, 232, 239, 0.02) 0px, transparent 55%),
+      radial-gradient(at 80% 100%, rgba(230, 232, 239, 0.02) 0px, transparent 55%);
+  }
+}
+
+/* =========================================================
+   Base helpers (safe defaults)
+   ========================================================= */
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+.transition-smooth {
+  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Day gradient stays light; night handled via bg tokens */
+.mono-gradient {
+  background: linear-gradient(to bottom, var(--color-surface) 0%, var(--color-bg) 100%);
+}
+
+.mono-mesh {
+  background:
+    radial-gradient(at 40% 20%, rgba(0, 0, 0, 0.02) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(0, 0, 0, 0.03) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(0, 0, 0, 0.02) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(0, 0, 0, 0.01) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(0, 0, 0, 0.02) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(0, 0, 0, 0.01) 0px, transparent 50%);
+}
+
+/* Optional utility classes (you can use in markup) */
+.bg-app {
+  background: var(--color-bg);
+}
+.bg-surface {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+.border-subtle {
+  border-color: var(--color-border);
+}
+.ring-brand:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* =========================================================
+   Animations (unchanged)
+   ========================================================= */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -106,24 +250,6 @@
   }
 }
 
-.transition-smooth {
-  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mono-gradient {
-  background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
-}
-
-.mono-mesh {
-  background:
-    radial-gradient(at 40% 20%, rgba(0, 0, 0, 0.02) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(0, 0, 0, 0.03) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(0, 0, 0, 0.02) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(0, 0, 0, 0.01) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(0, 0, 0, 0.02) 0px, transparent 50%),
-    radial-gradient(at 80% 100%, rgba(0, 0, 0, 0.01) 0px, transparent 50%);
-}
-
 .fade-in {
   animation: var(--animate-fade-in);
   opacity: 0;
@@ -157,6 +283,7 @@
   animation: var(--animate-pulse-slow);
 }
 
+/* Scroll transitions (unchanged) */
 .scroll-fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -179,101 +306,4 @@
 }
 
 .scroll-fade-down.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scroll-fade-left {
-  opacity: 0;
-  transform: translateX(30px);
-  transition:
-    opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-fade-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-fade-right {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition:
-    opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-fade-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-#mobileMenu {
-  animation: slide-down 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.faq-icon {
-  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* New: rotate icon when details is open */
-details[open] .faq-icon {
-  transform: rotate(180deg);
-}
-
-.faq-content {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition:
-    max-height 500ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 400ms ease,
-    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
-    padding 400ms ease;
-}
-
-/* New: expand content when details is open */
-details[open] .faq-content {
-  max-height: 500px;
-  opacity: 1;
-  transform: translateY(0);
-  padding-bottom: 1.25rem;
-}
-
-.stagger-1 {
-  transition-delay: 100ms;
-}
-
-.stagger-2 {
-  transition-delay: 200ms;
-}
-
-.stagger-3 {
-  transition-delay: 300ms;
-}
-
-.stagger-4 {
-  transition-delay: 400ms;
-}
-
-.stagger-5 {
-  transition-delay: 500ms;
-}
-
-.stagger-6 {
-  transition-delay: 600ms;
-}
-
-.stagger-7 {
-  transition-delay: 700ms;
-}
-
-.stagger-8 {
-  transition-delay: 800ms;
-}
-
-.stagger-9 {
-  transition-delay: 900ms;
-}
+  opacity:
