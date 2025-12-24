@@ -17,27 +17,20 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 
     <!-- Theme: apply before first paint (prevents flash) -->
     <script is:inline>
-      (() => {
-        const key = "fa-theme"; // 'light' | 'dark' | 'system'
-        const root = document.documentElement;
+  (() => {
+    const key = "fa-theme"; // 'light' | 'dark'
+    const root = document.documentElement;
 
-        let saved = "system";
-        try {
-          saved = localStorage.getItem(key) || "system";
-        } catch {}
+    let saved = "light";
+    try {
+      saved = localStorage.getItem(key) === "dark" ? "dark" : "light";
+    } catch {}
 
-        // If system, resolve to OS preference for first paint
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.classList.remove("theme-light", "theme-dark");
+    root.classList.add(saved === "dark" ? "theme-dark" : "theme-light");
+  })();
+</script>
 
-        root.classList.remove("theme-light", "theme-dark");
-
-        if (saved === "light") root.classList.add("theme-light");
-        else if (saved === "dark") root.classList.add("theme-dark");
-        else root.classList.add(prefersDark ? "theme-dark" : "theme-light");
-      })();
-    </script>
   </head>
 
   <body class="min-h-screen bg-white text-slate-900 antialiased theme:bg-slate-950 theme:text-slate-100">
