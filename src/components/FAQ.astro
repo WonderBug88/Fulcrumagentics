@@ -15,24 +15,26 @@ import { faqItems } from '../content/faq';
     </div>
 
     <div class="space-y-4">
-      {faqItems.map((item, index) => (
-        <div
-          class={`scroll-fade-up border-mono-lighter rounded-lg border stagger-${(index % 9) + 1}`}
-        >
-          <button
-            class="faq-button flex w-full items-center justify-between px-6 py-5 text-left"
-            aria-expanded="false"
-          >
-            <span class="text-mono-black pr-8 font-semibold">
-              {item.question}
-            </span>
-
-            <span
-              class="faq-icon text-mono-gray h-5 w-5 flex-shrink-0"
-              aria-hidden="true"
+        {
+          faqItems.map((item, index) => (
+            <details
+              class={`scroll-fade-up border-mono-lighter rounded-lg border stagger-${(index % 9) + 1}`}
             >
-              ▼
-            </span>
+              <summary class="faq-button flex cursor-pointer list-none items-center justify-between px-6 py-5 text-left">
+                <span class="text-mono-black pr-8 font-semibold">{item.question}</span>
+                <Icon
+                  name="heroicons:chevron-down"
+                  class="faq-icon text-mono-gray h-5 w-5 flex-shrink-0 transition-transform duration-200"
+                />
+              </summary>
+      
+              <div class="faq-content text-mono-dark px-6 pb-6 leading-relaxed">
+                {item.answer}
+              </div>
+            </details>
+          ))
+        }
+      </div>
           </button>
 
           <div class="faq-content text-mono-dark px-6 leading-relaxed">
