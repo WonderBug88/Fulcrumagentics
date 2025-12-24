@@ -43,9 +43,24 @@ import { faqItems } from '../content/faq';
 </section>
 
 <style>
+  /* Ensure the answer area can actually render */
+  .faq-content {
+    display: block;
+  }
+
+  /* If older CSS is collapsing content, this restores it when open */
+  details:not([open]) .faq-content {
+    display: none;
+  }
+
+  details[open] .faq-content {
+    display: block;
+  }
+
   details[open] .faq-icon {
     transform: rotate(180deg);
   }
+
   summary::-webkit-details-marker {
     display: none;
   }
