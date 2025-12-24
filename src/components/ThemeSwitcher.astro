@@ -1,85 +1,101 @@
 ---
 /**
  * ThemeSwitcher.astro
- * Tailwind dark-mode toggle.
- * Uses <html class="dark"> for dark mode.
- * Stores preference in localStorage "fa-theme" as: 'light' | 'dark'
+ * Token theme toggle (system/light/dark).
+ * Uses <html class="theme-light"> / <html class="theme-dark">
+ * Stores preference in localStorage "fa-theme" as: 'light' | 'dark' | 'system'
  */
 ---
 
 <div class="flex items-center gap-2">
   <span
     id="faThemeLabel"
-    class="hidden sm:inline text-xs text-slate-500 dark:text-white/60"
+    class="hidden sm:inline text-xs"
+    style="color: var(--color-text-muted);"
   >
     Day
   </span>
 
   <button
     id="faThemeToggle"
+    class="theme-toggle"
     type="button"
-    class="relative inline-flex h-9 w-14 items-center rounded-full border border-slate-200 bg-slate-100 shadow-sm transition hover:bg-slate-200
-           dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15"
     aria-label="Toggle theme"
     title="Toggle theme"
+    data-mode="system"
     aria-pressed="false"
   >
-    <span class="pointer-events-none absolute left-2 text-[10px] text-slate-500 dark:text-white/60" aria-hidden="true">☀</span>
-    <span class="pointer-events-none absolute right-2 text-[10px] text-slate-500 dark:text-white/60" aria-hidden="true">☾</span>
+    <span class="theme-toggle__icon" aria-hidden="true">☀</span>
 
-    <span
-      id="faThemeKnob"
-      class="inline-block h-7 w-7 translate-x-1 rounded-full bg-white shadow transition dark:translate-x-6"
-      aria-hidden="true"
-    ></span>
+    <span class="theme-toggle__track" aria-hidden="true">
+      <span class="theme-toggle__knob"></span>
+    </span>
+
+    <span class="theme-toggle__icon" aria-hidden="true">☾</span>
   </button>
 
   <script is:inline>
     (() => {
-      const key = "fa-theme"; // 'light' | 'dark'
+      const key = "fa-theme"; // 'light' | 'dark' | 'system'
       const root = document.documentElement;
-
       const btn = document.getElementById("faThemeToggle");
       const label = document.getElementById("faThemeLabel");
+
       if (!btn) return;
 
-      const normalize = (v) => (v === "dark" ? "dark" : "light");
+      const prefersDark = () =>
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
 
       const getSaved = () => {
         try {
-          return normalize(localStorage.getItem(key));
+          return localStorage.getItem(key) || "system";
         } catch {
-          return "light";
+          return "system";
         }
       };
 
-      const apply = (mode) => {
-        const m = normalize(mode);
-        const isDark = m === "dark";
+      const apply = (saved) => {
+        const effective =
+          saved === "system" ? (prefersDark() ? "dark" : "light") : saved;
 
-        root.classList.toggle("dark", isDark);
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(effective === "dark" ? "theme-dark" : "theme-light");
 
-        btn.setAttribute("data-mode", m);
-        btn.setAttribute("aria-pressed", String(isDark));
-        if (label) label.textContent = isDark ? "Night" : "Day";
+        btn.setAttribute("data-mode", saved);
+        btn.setAttribute("aria-pressed", String(effective === "dark"));
+        if (label) label.textContent = effective === "dark" ? "Night" : "Day";
       };
 
-      const setSaved = (mode) => {
-        const m = normalize(mode);
-        try {
-          localStorage.setItem(key, m);
-        } catch {}
-        apply(m);
+      const setSaved = (v) => {
+        try { localStorage.setItem(key, v); } catch {}
+        apply(v);
+      };
+
+      // Cycle: system -> light -> dark -> system
+      const nextMode = (current) => {
+        if (current === "system") return "light";
+        if (current === "light") return "dark";
+        return "system";
       };
 
       // Init
       apply(getSaved());
 
-      // Toggle
+      // Click
       btn.addEventListener("click", () => {
-        const next = root.classList.contains("dark") ? "light" : "dark";
-        setSaved(next);
+        setSaved(nextMode(getSaved()));
       });
+
+      // React to OS changes if in system mode
+      try {
+        const mql = window.matchMedia("(prefers-color-scheme: dark)");
+        const onChange = () => {
+          if (getSaved() === "system") apply("system");
+        };
+        if (mql.addEventListener) mql.addEventListener("change", onChange);
+        else if (mql.addListener) mql.addListener(onChange);
+      } catch {}
 
       // Sync across tabs
       window.addEventListener("storage", (e) => {
