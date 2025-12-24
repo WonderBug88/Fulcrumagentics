@@ -8,12 +8,15 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
     <div class="flex h-16 items-center justify-between">
       <!-- Brand -->
       <div class="flex items-center">
-        <a
-          href="/"
-          class="text-xl font-bold"
-          style="color: var(--color-text);"
-        >
-          {siteConfig.site.name}
+        <a href="/" class="flex items-center gap-3">
+          <img
+            src={siteConfig.site.logo.src}
+            alt={siteConfig.site.logo.alt}
+            height={siteConfig.site.logo.height}
+            class="h-8 w-auto"
+            loading="eager"
+            decoding="async"
+          />
         </a>
       </div>
 
