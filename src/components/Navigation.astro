@@ -1,56 +1,33 @@
 ---
-import { siteConfig } from '../config.ts';
----
-import ThemeSwitcher from './ThemeSwitcher.astro';
----
-
+import { siteConfig } from "../config.ts";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 ---
 
-<nav class="fixed top-0 z-50 w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-sm dark:border-white/10 dark:bg-slate-950/70">
+<nav class="fixed top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm border-mono-lighter">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Brand -->
       <div class="flex items-center">
-        <a href="/" class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <a href="/" class="text-mono-black text-xl font-bold">
           {siteConfig.site.name}
         </a>
       </div>
 
       <!-- Desktop nav -->
-      <div class="hidden items-center gap-4 md:flex">
-        <div class="flex items-center space-x-8">
-          {siteConfig.navigation.links.map((link) => (
-            <a
-              href={link.href}
-              class="text-sm text-slate-600 hover:text-slate-900 dark:text-white/75 dark:hover:text-white"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
+      <div class="hidden items-center space-x-6 md:flex">
+        {siteConfig.navigation.links.map((link) => (
+          <a href={link.href} class="text-mono-dark hover:text-mono-black">
+            {link.name}
+          </a>
+        ))}
 
-        <!-- Theme toggle (Tailwind switch) -->
-        <button
-          id="fa-theme-toggle"
-          type="button"
-          class="relative inline-flex h-9 w-14 items-center rounded-full border border-slate-200 bg-slate-100 shadow-sm transition hover:bg-slate-200
-                 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15"
-          aria-label="Toggle theme"
-        >
-          <span class="pointer-events-none absolute left-2 text-[10px] text-slate-500 dark:text-white/60">☀</span>
-          <span class="pointer-events-none absolute right-2 text-[10px] text-slate-500 dark:text-white/60">☾</span>
-
-          <span
-            id="fa-theme-knob"
-            class="inline-block h-7 w-7 translate-x-1 rounded-full bg-white shadow transition dark:translate-x-6"
-          ></span>
-        </button>
+        <!-- Theme toggle -->
+        <ThemeSwitcher />
 
         <!-- CTA -->
         <a
           href={siteConfig.navigation.cta.href}
-          class="rounded-lg bg-slate-900 px-6 py-2 text-sm font-medium text-white hover:bg-slate-800
-                 dark:bg-white dark:text-slate-900 dark:hover:bg-white/90"
+          class="bg-mono-black rounded-lg px-6 py-2 text-white"
         >
           {siteConfig.navigation.cta.text}
         </a>
@@ -58,22 +35,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
       <!-- Mobile controls -->
       <div class="flex items-center gap-3 md:hidden">
-        <!-- Theme toggle (mobile) -->
-        <button
-          id="fa-theme-toggle-mobile"
-          type="button"
-          class="relative inline-flex h-9 w-14 items-center rounded-full border border-slate-200 bg-slate-100 shadow-sm transition hover:bg-slate-200
-                 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15"
-          aria-label="Toggle theme"
-        >
-          <span class="pointer-events-none absolute left-2 text-[10px] text-slate-500 dark:text-white/60">☀</span>
-          <span class="pointer-events-none absolute right-2 text-[10px] text-slate-500 dark:text-white/60">☾</span>
-
-          <span
-            id="fa-theme-knob-mobile"
-            class="inline-block h-7 w-7 translate-x-1 rounded-full bg-white shadow transition dark:translate-x-6"
-          ></span>
-        </button>
+        <ThemeSwitcher />
 
         <button
           id="mobileMenuButton"
@@ -82,7 +44,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
           aria-expanded="false"
           aria-label="Toggle navigation menu"
         >
-          <span class="text-2xl leading-none text-slate-900 dark:text-white" aria-hidden="true">☰</span>
+          <span class="text-mono-black text-2xl leading-none" aria-hidden="true">☰</span>
         </button>
       </div>
     </div>
@@ -91,17 +53,14 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     <div id="mobileMenu" class="hidden pb-4 md:hidden" aria-hidden="true">
       <div class="flex flex-col space-y-3">
         {siteConfig.navigation.links.map((link) => (
-          <a
-            href={link.href}
-            class="py-2 text-slate-700 hover:text-slate-900 dark:text-white/80 dark:hover:text-white"
-          >
+          <a href={link.href} class="text-mono-dark py-2 hover:text-mono-black">
             {link.name}
           </a>
         ))}
+
         <a
           href={siteConfig.navigation.cta.href}
-          class="rounded-lg bg-slate-900 px-6 py-3 text-center text-white hover:bg-slate-800
-                 dark:bg-white dark:text-slate-900 dark:hover:bg-white/90"
+          class="bg-mono-black rounded-lg px-6 py-3 text-center text-white"
         >
           {siteConfig.navigation.cta.text}
         </a>
@@ -112,34 +71,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
 <script is:inline>
   (() => {
-    const key = "fa-theme"; // 'light' | 'dark' | 'system'
-    const root = document.documentElement;
-
-    const toggle = () => {
-      const isDark = root.classList.contains("dark");
-      const next = isDark ? "light" : "dark";
-      root.classList.toggle("dark", next === "dark");
-      try { localStorage.setItem(key, next); } catch {}
-    };
-
-    const syncKnobs = () => {
-      const isDark = root.classList.contains("dark");
-      // knob positions are handled by dark:translate-x-6 via the root class
-      // but this ensures aria is correct if you add it later
-      return isDark;
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-      // Theme toggles
-      const t1 = document.getElementById("fa-theme-toggle");
-      const t2 = document.getElementById("fa-theme-toggle-mobile");
-
-      if (t1) t1.addEventListener("click", toggle);
-      if (t2) t2.addEventListener("click", toggle);
-
-      syncKnobs();
-
-      // Mobile menu behavior (your original)
+    const init = () => {
       const mobileMenuButton = document.getElementById("mobileMenuButton");
       const mobileMenu = document.getElementById("mobileMenu");
 
@@ -151,8 +83,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
           mobileMenu.classList.toggle("hidden");
         });
 
-        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-        mobileMenuLinks.forEach((link) => {
+        mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", () => {
             mobileMenuButton.setAttribute("aria-expanded", "false");
             mobileMenu.setAttribute("aria-hidden", "true");
@@ -160,6 +91,12 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
           });
         });
       }
-    });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
   })();
 </script>
