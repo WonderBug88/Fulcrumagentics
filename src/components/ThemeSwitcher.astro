@@ -10,66 +10,86 @@
   <span class="hidden sm:inline text-xs text-slate-500 theme:text-white/60">Day</span>
 
   <button
-    id="fa-theme-toggle"
-    type="button"
-    class="relative inline-flex h-8 w-14 items-center rounded-full border border-slate-200 bg-slate-100 shadow-sm transition hover:bg-slate-200
-           theme:border-white/10 theme:bg-white/10 theme:hover:bg-white/15"
-    aria-label="Toggle theme"
-    aria-pressed="false"
-  >
-    <span
-      id="fa-theme-knob"
-      class="inline-block h-6 w-6 translate-x-1 rounded-full bg-white shadow transition
-             theme:bg-white"
-    ></span>
-
-    <!-- Optional icons -->
-    <span class="pointer-events-none absolute left-2 text-[10px] text-slate-500 theme:text-white/60">☀</span>
-    <span class="pointer-events-none absolute right-2 text-[10px] text-slate-500 theme:text-white/60">☾</span>
-  </button>
-
-  <span class="hidden sm:inline text-xs text-slate-500 theme:text-white/60">Night</span>
-</div>
+  id="faThemeBtn"
+  type="button"
+  class="theme-toggle"
+  aria-label="Toggle theme"
+  title="Toggle theme"
+>
+  <span id="faThemeIcon" aria-hidden="true">☾</span>
+</button>
 
 <script is:inline>
   (() => {
-    const key = "fa-theme"; // 'light' | 'dark' | 'system' (we store light/dark here)
+    const key = "fa-theme"; // 'light' | 'dark' | 'system'
     const root = document.documentElement;
-    const btn = document.getElementById("fa-theme-toggle");
-    const knob = document.getElementById("fa-theme-knob");
+    const btn = document.getElementById("faThemeBtn");
+    const icon = document.getElementById("faThemeIcon");
 
-    if (!btn || !knob) return;
+    if (!btn || !icon) return;
 
-    const setPressed = (isDark) => {
-      btn.setAttribute("aria-pressed", isDark ? "true" : "false");
-      // Move knob
-      knob.classList.toggle("translate-x-1", !isDark);
-      knob.classList.toggle("translate-x-7", isDark);
-      // Slightly change knob color in dark to match vibe
-      knob.classList.toggle("bg-white", true);
-    };
+    const prefersDark = () =>
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const apply = (mode) => {
+    const apply = (saved) => {
+      const effective =
+        saved === "system" ? (prefersDark() ? "dark" : "light") : saved;
+
       root.classList.remove("theme-light", "theme-dark");
-      if (mode === "dark") root.classList.add("theme-dark");
-      else root.classList.add("theme-light");
-      setPressed(mode === "dark");
+      root.classList.add(effective === "dark" ? "theme-dark" : "theme-light");
+
+      // Icon reflects the *effective* mode; title reflects the *saved* mode
+      icon.textContent = effective === "dark" ? "☾" : "☀";
+      btn.setAttribute("data-mode", saved);
+      btn.setAttribute(
+        "title",
+        saved === "system"
+          ? "Theme: System (click to switch)"
+          : `Theme: ${saved[0].toUpperCase()}${saved.slice(1)} (click to switch)`
+      );
     };
 
-    // Initial state from current classes (set by layout's pre-paint script)
-    const initialDark = root.classList.contains("theme-dark");
-    setPressed(initialDark);
+    const getSaved = () => {
+      try { return localStorage.getItem(key) || "system"; } catch { return "system"; }
+    };
 
+    const setSaved = (v) => {
+      try { localStorage.setItem(key, v); } catch {}
+      apply(v);
+    };
+
+    // Cycle: system -> light -> dark -> system
+    const nextMode = (current) => {
+      if (current === "system") return "light";
+      if (current === "light") return "dark";
+      return "system";
+    };
+
+    // Initial
+    apply(getSaved());
+
+    // Click
     btn.addEventListener("click", () => {
-      const isDark = root.classList.contains("theme-dark");
-      const next = isDark ? "light" : "dark";
-      try { localStorage.setItem(key, next); } catch {}
-      apply(next);
+      const current = getSaved();
+      setSaved(nextMode(current));
     });
 
-    // If other tabs change it
+    // React to OS changes when in system mode
+    try {
+      const mql = window.matchMedia("(prefers-color-scheme: dark)");
+      const onChange = () => {
+        const saved = getSaved();
+        if (saved === "system") apply(saved);
+      };
+      if (mql.addEventListener) mql.addEventListener("change", onChange);
+      else if (mql.addListener) mql.addListener(onChange);
+    } catch {}
+
+    // React to other tabs
     window.addEventListener("storage", (e) => {
-      if (e.key === key && e.newValue) apply(e.newValue);
+      if (e.key === key) apply(getSaved());
     });
   })();
 </script>
+
