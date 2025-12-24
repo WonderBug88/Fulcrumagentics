@@ -58,12 +58,9 @@
         apply(v);
       };
   
-      // Cycle: system -> light -> dark -> system
-      const nextMode = (current) => {
-        if (current === "system") return "light";
-        if (current === "light") return "dark";
-        return "system";
-      };
+      // Cycle: light -> dark -> light
+      const nextMode = (current) => (current === "dark" ? "light" : "dark");
+
   
       // Init
       apply(getSaved());
