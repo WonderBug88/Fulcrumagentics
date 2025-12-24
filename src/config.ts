@@ -12,6 +12,7 @@ export const siteConfig = {
     src: "/assets/fulcrum-logo.png", // or "/fulcrum-logo.png" if you put it in /public root
     alt: "Fulcrum Agentics",
     height: 32,
+  },
   title: 'Fulcrum Agentics – AI-Powered Operational Workflows',
     description:
       'Fulcrum Agentics designs and operates AI-powered workflows for real business operations. We combine automation, human oversight, and continuous improvement to run catalog, pricing, and evidence-heavy processes reliably at scale.',
