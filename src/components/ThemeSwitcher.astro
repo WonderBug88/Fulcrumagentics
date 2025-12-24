@@ -1,13 +1,20 @@
 ---
 /**
  * ThemeSwitcher.astro
- * Tailwind-only toggle switch for light/dark.
+ * Reliable light/dark toggle using your token classes:
+ *   <html class="theme-light"> or <html class="theme-dark">
  * Stores preference in localStorage "fa-theme" as: 'light' | 'dark'
  */
 ---
 
 <div class="flex items-center gap-2">
-  <span class="hidden sm:inline text-xs text-slate-500 theme:text-white/60">Day</span>
+  <span
+    id="faThemeLabel"
+    class="hidden sm:inline text-xs text-slate-500"
+    style="color: var(--color-text-muted);"
+  >
+    Day
+  </span>
 
   <button
     id="faThemeToggle"
@@ -15,76 +22,69 @@
     type="button"
     aria-label="Toggle theme"
     title="Toggle theme"
+    aria-pressed="false"
   >
     <span class="theme-toggle__icon theme-toggle__sun" aria-hidden="true">☀</span>
-  
+
     <span class="theme-toggle__track" aria-hidden="true">
       <span class="theme-toggle__knob"></span>
     </span>
-  
+
     <span class="theme-toggle__icon theme-toggle__moon" aria-hidden="true">☾</span>
   </button>
-  
+
   <script is:inline>
     (() => {
-      const key = "fa-theme"; // 'light' | 'dark' | 'system'
+      const key = "fa-theme"; // 'light' | 'dark'
       const root = document.documentElement;
-      const btn = document.getElementById("faThemeToggle");
-  
-      if (!btn) return;
-  
-      const prefersDark = () =>
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-  
-      const apply = (saved) => {
-        const effective =
-          saved === "system" ? (prefersDark() ? "dark" : "light") : saved;
-  
-        root.classList.remove("theme-light", "theme-dark");
-        root.classList.add(effective === "dark" ? "theme-dark" : "theme-light");
-  
-        // Store state on the button for styling/debug
-        btn.setAttribute("data-mode", saved);
-        btn.setAttribute("aria-pressed", String(effective === "dark"));
-      };
-  
-      const getSaved = () => {
-        try { return localStorage.getItem(key) || "light"; } catch { return "system"; }
-      };
-  
-      const setSaved = (v) => {
-        try { localStorage.setItem(key, v); } catch {}
-        apply(v);
-      };
-  
-      // Cycle: light -> dark -> light
-      const nextMode = (current) => (current === "dark" ? "light" : "dark");
 
-  
+      const btn = document.getElementById("faThemeToggle");
+      const label = document.getElementById("faThemeLabel");
+      if (!btn) return;
+
+      const normalize = (v) => (v === "dark" ? "dark" : "light");
+
+      const getSaved = () => {
+        try {
+          return normalize(localStorage.getItem(key));
+        } catch {
+          return "light";
+        }
+      };
+
+      const apply = (mode) => {
+        const m = normalize(mode);
+        const isDark = m === "dark";
+
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(isDark ? "theme-dark" : "theme-light");
+
+        btn.setAttribute("data-mode", m);
+        btn.setAttribute("aria-pressed", String(isDark));
+        if (label) label.textContent = isDark ? "Night" : "Day";
+      };
+
+      const setSaved = (mode) => {
+        const m = normalize(mode);
+        try {
+          localStorage.setItem(key, m);
+        } catch {}
+        apply(m);
+      };
+
       // Init
       apply(getSaved());
-  
-      // Click
+
+      // Click: light <-> dark
       btn.addEventListener("click", () => {
-        setSaved(nextMode(getSaved()));
+        const next = root.classList.contains("theme-dark") ? "light" : "dark";
+        setSaved(next);
       });
-  
-      // If OS theme changes and we're in system mode
-      try {
-        const mql = window.matchMedia("(prefers-color-scheme: dark)");
-        const onChange = () => {
-          if (getSaved() === "system") apply("system");
-        };
-        if (mql.addEventListener) mql.addEventListener("change", onChange);
-        else if (mql.addListener) mql.addListener(onChange);
-      } catch {}
-  
-      // If another tab changes localStorage
+
+      // Sync across tabs
       window.addEventListener("storage", (e) => {
         if (e.key === key) apply(getSaved());
       });
     })();
   </script>
-  
-  
+</div>
