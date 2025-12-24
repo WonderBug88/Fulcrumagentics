@@ -1,8 +1,8 @@
 ---
 /**
  * ThemeSwitcher.astro
- * Reliable light/dark toggle using your token classes:
- *   <html class="theme-light"> or <html class="theme-dark">
+ * Tailwind dark-mode toggle.
+ * Uses <html class="dark"> for dark mode.
  * Stores preference in localStorage "fa-theme" as: 'light' | 'dark'
  */
 ---
@@ -10,27 +10,28 @@
 <div class="flex items-center gap-2">
   <span
     id="faThemeLabel"
-    class="hidden sm:inline text-xs text-slate-500"
-    style="color: var(--color-text-muted);"
+    class="hidden sm:inline text-xs text-slate-500 dark:text-white/60"
   >
     Day
   </span>
 
   <button
     id="faThemeToggle"
-    class="theme-toggle"
     type="button"
+    class="relative inline-flex h-9 w-14 items-center rounded-full border border-slate-200 bg-slate-100 shadow-sm transition hover:bg-slate-200
+           dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15"
     aria-label="Toggle theme"
     title="Toggle theme"
     aria-pressed="false"
   >
-    <span class="theme-toggle__icon theme-toggle__sun" aria-hidden="true">☀</span>
+    <span class="pointer-events-none absolute left-2 text-[10px] text-slate-500 dark:text-white/60" aria-hidden="true">☀</span>
+    <span class="pointer-events-none absolute right-2 text-[10px] text-slate-500 dark:text-white/60" aria-hidden="true">☾</span>
 
-    <span class="theme-toggle__track" aria-hidden="true">
-      <span class="theme-toggle__knob"></span>
-    </span>
-
-    <span class="theme-toggle__icon theme-toggle__moon" aria-hidden="true">☾</span>
+    <span
+      id="faThemeKnob"
+      class="inline-block h-7 w-7 translate-x-1 rounded-full bg-white shadow transition dark:translate-x-6"
+      aria-hidden="true"
+    ></span>
   </button>
 
   <script is:inline>
@@ -56,8 +57,7 @@
         const m = normalize(mode);
         const isDark = m === "dark";
 
-        root.classList.remove("theme-light", "theme-dark");
-        root.classList.add(isDark ? "theme-dark" : "theme-light");
+        root.classList.toggle("dark", isDark);
 
         btn.setAttribute("data-mode", m);
         btn.setAttribute("aria-pressed", String(isDark));
@@ -75,9 +75,9 @@
       // Init
       apply(getSaved());
 
-      // Click: light <-> dark
+      // Toggle
       btn.addEventListener("click", () => {
-        const next = root.classList.contains("theme-dark") ? "light" : "dark";
+        const next = root.classList.contains("dark") ? "light" : "dark";
         setSaved(next);
       });
 
