@@ -74,9 +74,9 @@
   --color-surface: #12182b;
   --color-surface-2: #151d33;
 
-  --color-text: #e6e8ef;
-  --color-text-muted: #9aa3b2;
-  --color-text-soft: #5f677a;
+  --color-text: #e6e8ef;       /* soft white (default text) */
+  --color-text-muted: #9aa3b2; /* secondary */
+  --color-text-soft: #5f677a;  /* tertiary */
 
   --color-border: rgba(230, 232, 239, 0.12);
 
@@ -202,10 +202,10 @@ a {
   color: var(--color-text);
 }
 .fa-muted {
-  color: var(--color-text-muted);
+  color: var(--color-text-muted) !important;
 }
 .fa-soft {
-  color: var(--color-text-soft);
+  color: var(--color-text-soft) !important;
 }
 .fa-border {
   border-color: var(--color-border);
@@ -249,77 +249,150 @@ a {
 }
 
 /* =========================================================
-   5) "STOP THE BLINDING" SAFETY OVERRIDES
-   These neutralize common template classes that hardcode white
-   so dark mode is truly dark immediately.
-   (You can remove later once components are tokenized.)
+   5) BLACKOUT TEXT + "STOP THE BLINDING" OVERRIDES
+   Goal: in dark mode, text is readable (soft white) by default.
    ========================================================= */
 
-/* Blackout mode: force any hard white backgrounds to dark surfaces */
+/* System dark (when not forced light) */
 @media (prefers-color-scheme: dark) {
-  :root:not(.theme-light) body,
-  :root:not(.theme-light) main,
-  :root:not(.theme-light) section,
-  :root:not(.theme-light) header,
-  :root:not(.theme-light) footer {
-    background: transparent;
+  :root:not(.theme-light) body {
+    color: var(--color-text);
   }
 
+  /* Make common elements readable by default */
+  :root:not(.theme-light) h1,
+  :root:not(.theme-light) h2,
+  :root:not(.theme-light) h3,
+  :root:not(.theme-light) h4,
+  :root:not(.theme-light) h5,
+  :root:not(.theme-light) h6,
+  :root:not(.theme-light) p,
+  :root:not(.theme-light) li,
+  :root:not(.theme-light) span,
+  :root:not(.theme-light) label,
+  :root:not(.theme-light) small,
+  :root:not(.theme-light) strong,
+  :root:not(.theme-light) a,
+  :root:not(.theme-light) button {
+    color: var(--color-text);
+  }
+
+  /* Kill hard-coded white sections/cards */
   :root:not(.theme-light) .bg-white,
   :root:not(.theme-light) .bg-neutral-50,
   :root:not(.theme-light) .bg-gray-50,
   :root:not(.theme-light) .bg-slate-50,
-  :root:not(.theme-light) .bg-zinc-50 {
+  :root:not(.theme-light) .bg-zinc-50,
+  :root:not(.theme-light) .bg-neutral-100,
+  :root:not(.theme-light) .bg-gray-100,
+  :root:not(.theme-light) .bg-slate-100,
+  :root:not(.theme-light) .bg-zinc-100 {
     background-color: var(--color-surface) !important;
   }
 
+  /* Fix common dark text utilities that break readability */
   :root:not(.theme-light) .text-black,
+  :root:not(.theme-light) .text-neutral-950,
   :root:not(.theme-light) .text-neutral-900,
+  :root:not(.theme-light) .text-gray-950,
   :root:not(.theme-light) .text-gray-900,
+  :root:not(.theme-light) .text-slate-950,
   :root:not(.theme-light) .text-slate-900,
-  :root:not(.theme-light) .text-zinc-900 {
+  :root:not(.theme-light) .text-zinc-950,
+  :root:not(.theme-light) .text-zinc-900,
+  :root:not(.theme-light) .text-neutral-800,
+  :root:not(.theme-light) .text-gray-800,
+  :root:not(.theme-light) .text-slate-800,
+  :root:not(.theme-light) .text-zinc-800,
+  :root:not(.theme-light) .text-neutral-700,
+  :root:not(.theme-light) .text-gray-700,
+  :root:not(.theme-light) .text-slate-700,
+  :root:not(.theme-light) .text-zinc-700 {
     color: var(--color-text) !important;
   }
 
+  /* Borders that stay too light/dark */
   :root:not(.theme-light) .border-gray-200,
   :root:not(.theme-light) .border-neutral-200,
   :root:not(.theme-light) .border-slate-200,
-  :root:not(.theme-light) .border-zinc-200 {
+  :root:not(.theme-light) .border-zinc-200,
+  :root:not(.theme-light) .border-gray-300,
+  :root:not(.theme-light) .border-neutral-300,
+  :root:not(.theme-light) .border-slate-300,
+  :root:not(.theme-light) .border-zinc-300 {
     border-color: var(--color-border) !important;
   }
 }
 
-/* Manual dark override: same safety rules */
+/* Manual dark override: same readability rules */
+:root.theme-dark body {
+  color: var(--color-text);
+}
+
+:root.theme-dark h1,
+:root.theme-dark h2,
+:root.theme-dark h3,
+:root.theme-dark h4,
+:root.theme-dark h5,
+:root.theme-dark h6,
+:root.theme-dark p,
+:root.theme-dark li,
+:root.theme-dark span,
+:root.theme-dark label,
+:root.theme-dark small,
+:root.theme-dark strong,
+:root.theme-dark a,
+:root.theme-dark button {
+  color: var(--color-text);
+}
+
 :root.theme-dark .bg-white,
 :root.theme-dark .bg-neutral-50,
 :root.theme-dark .bg-gray-50,
 :root.theme-dark .bg-slate-50,
-:root.theme-dark .bg-zinc-50 {
+:root.theme-dark .bg-zinc-50,
+:root.theme-dark .bg-neutral-100,
+:root.theme-dark .bg-gray-100,
+:root.theme-dark .bg-slate-100,
+:root.theme-dark .bg-zinc-100 {
   background-color: var(--color-surface) !important;
 }
 
 :root.theme-dark .text-black,
+:root.theme-dark .text-neutral-950,
 :root.theme-dark .text-neutral-900,
+:root.theme-dark .text-gray-950,
 :root.theme-dark .text-gray-900,
+:root.theme-dark .text-slate-950,
 :root.theme-dark .text-slate-900,
-:root.theme-dark .text-zinc-900 {
+:root.theme-dark .text-zinc-950,
+:root.theme-dark .text-zinc-900,
+:root.theme-dark .text-neutral-800,
+:root.theme-dark .text-gray-800,
+:root.theme-dark .text-slate-800,
+:root.theme-dark .text-zinc-800,
+:root.theme-dark .text-neutral-700,
+:root.theme-dark .text-gray-700,
+:root.theme-dark .text-slate-700,
+:root.theme-dark .text-zinc-700 {
   color: var(--color-text) !important;
 }
 
 :root.theme-dark .border-gray-200,
 :root.theme-dark .border-neutral-200,
 :root.theme-dark .border-slate-200,
-:root.theme-dark .border-zinc-200 {
+:root.theme-dark .border-zinc-200,
+:root.theme-dark .border-gray-300,
+:root.theme-dark .border-neutral-300,
+:root.theme-dark .border-slate-300,
+:root.theme-dark .border-zinc-300 {
   border-color: var(--color-border) !important;
 }
 
 /* =========================================================
-   6) ANIMATIONS (your originals, unchanged)
+   6) ANIMATIONS (unchanged)
    ========================================================= */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(30px); }
