@@ -1,5 +1,9 @@
 ---
-const { title = "Fulcrum Agentics", description = "" } = Astro.props;
+const {
+  title = "Fulcrum Agentics",
+  description = "AI agents for real operations—catalog, pricing, and workflow automation built to integrate, measure, and scale.",
+} = Astro.props;
+
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 ---
 
@@ -22,22 +26,124 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
           saved = localStorage.getItem(key) || "system";
         } catch {}
 
+        // If system, resolve to OS preference for first paint
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+
         root.classList.remove("theme-light", "theme-dark");
+
         if (saved === "light") root.classList.add("theme-light");
-        if (saved === "dark") root.classList.add("theme-dark");
+        else if (saved === "dark") root.classList.add("theme-dark");
+        else root.classList.add(prefersDark ? "theme-dark" : "theme-light");
       })();
     </script>
   </head>
 
-  <body>
+  <body class="min-h-screen bg-white text-slate-900 antialiased theme:bg-slate-950 theme:text-slate-100">
     <!-- Global header (shows on every page) -->
-    <header class="flex items-center justify-between px-6 py-4">
-      <!-- put your logo/nav here -->
-      <div class="font-semibold">Fulcrum Agentics</div>
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-white/80 backdrop-blur theme:border-white/10 theme:bg-slate-950/70">
+      <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <!-- Brand -->
+        <a href="/" class="flex items-center gap-2 font-semibold tracking-tight text-slate-900 theme:text-white">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white theme:bg-white theme:text-slate-900">
+            F
+          </span>
+          <span>Fulcrum Agentics</span>
+        </a>
 
-      <ThemeSwitcher />
+        <!-- Nav -->
+        <nav class="hidden items-center gap-6 md:flex">
+          <a href="#features" class="text-sm text-slate-600 hover:text-slate-900 theme:text-white/75 theme:hover:text-white">
+            Solutions
+          </a>
+          <a href="#how-it-works" class="text-sm text-slate-600 hover:text-slate-900 theme:text-white/75 theme:hover:text-white">
+            How It Works
+          </a>
+          <a href="#pricing" class="text-sm text-slate-600 hover:text-slate-900 theme:text-white/75 theme:hover:text-white">
+            Packages
+          </a>
+          <a href="#faq" class="text-sm text-slate-600 hover:text-slate-900 theme:text-white/75 theme:hover:text-white">
+            FAQ
+          </a>
+        </nav>
+
+        <!-- Right controls -->
+        <div class="flex items-center gap-3">
+          <!-- Theme toggle (keep it visible in both modes) -->
+          <ThemeSwitcher />
+
+          <!-- CTA -->
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-slate-800 theme:bg-white theme:text-slate-900 theme:hover:bg-white/90"
+          >
+            Book a Call
+          </a>
+        </div>
+      </div>
     </header>
 
-    <slot />
+    <!-- Page content wrapper -->
+    <main class="mx-auto w-full max-w-7xl px-4 sm:px-6">
+      <slot />
+    </main>
+
+    <!-- Simple footer (optional but nice for layout completeness) -->
+    <footer class="mx-auto mt-16 max-w-7xl border-t border-slate-200/60 px-4 py-10 text-sm text-slate-600 theme:border-white/10 theme:text-white/70 sm:px-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <div class="font-medium text-slate-900 theme:text-white">Fulcrum Agentics</div>
+          <div class="mt-1">
+            Production-ready AI agents for ops, catalog, and workflow automation.
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <a href="#features" class="hover:text-slate-900 theme:hover:text-white">Solutions</a>
+          <a href="#pricing" class="hover:text-slate-900 theme:hover:text-white">Packages</a>
+          <a href="#contact" class="hover:text-slate-900 theme:hover:text-white">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Keep system theme in sync when user sets 'system' -->
+    <script is:inline>
+      (() => {
+        const key = "fa-theme";
+        const root = document.documentElement;
+
+        const applySystem = () => {
+          const saved = (() => {
+            try {
+              return localStorage.getItem(key) || "system";
+            } catch {
+              return "system";
+            }
+          })();
+
+          if (saved !== "system") return;
+
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+          root.classList.remove("theme-light", "theme-dark");
+          root.classList.add(prefersDark ? "theme-dark" : "theme-light");
+        };
+
+        try {
+          const mql = window.matchMedia("(prefers-color-scheme: dark)");
+          // Safari fallback uses addListener
+          if (mql.addEventListener) mql.addEventListener("change", applySystem);
+          else if (mql.addListener) mql.addListener(applySystem);
+        } catch {}
+
+        window.addEventListener("storage", (e) => {
+          if (e.key === key) applySystem();
+        });
+
+        applySystem();
+      })();
+    </script>
   </body>
 </html>
