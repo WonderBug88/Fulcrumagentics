@@ -217,7 +217,8 @@
   transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.faq-button[aria-expanded='true'] .faq-icon {
+/* New: rotate icon when details is open */
+details[open] .faq-icon {
   transform: rotate(180deg);
 }
 
@@ -233,7 +234,8 @@
     padding 400ms ease;
 }
 
-.faq-content.active {
+/* New: expand content when details is open */
+details[open] .faq-content {
   max-height: 500px;
   opacity: 1;
   transform: translateY(0);
