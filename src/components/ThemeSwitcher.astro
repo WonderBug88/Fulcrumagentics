@@ -10,86 +10,84 @@
   <span class="hidden sm:inline text-xs text-slate-500 theme:text-white/60">Day</span>
 
   <button
-  id="faThemeBtn"
-  type="button"
-  class="theme-toggle"
-  aria-label="Toggle theme"
-  title="Toggle theme"
->
-  <span id="faThemeIcon" aria-hidden="true">☾</span>
-</button>
-
-<script is:inline>
-  (() => {
-    const key = "fa-theme"; // 'light' | 'dark' | 'system'
-    const root = document.documentElement;
-    const btn = document.getElementById("faThemeBtn");
-    const icon = document.getElementById("faThemeIcon");
-
-    if (!btn || !icon) return;
-
-    const prefersDark = () =>
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    const apply = (saved) => {
-      const effective =
-        saved === "system" ? (prefersDark() ? "dark" : "light") : saved;
-
-      root.classList.remove("theme-light", "theme-dark");
-      root.classList.add(effective === "dark" ? "theme-dark" : "theme-light");
-
-      // Icon reflects the *effective* mode; title reflects the *saved* mode
-      icon.textContent = effective === "dark" ? "☾" : "☀";
-      btn.setAttribute("data-mode", saved);
-      btn.setAttribute(
-        "title",
-        saved === "system"
-          ? "Theme: System (click to switch)"
-          : `Theme: ${saved[0].toUpperCase()}${saved.slice(1)} (click to switch)`
-      );
-    };
-
-    const getSaved = () => {
-      try { return localStorage.getItem(key) || "system"; } catch { return "system"; }
-    };
-
-    const setSaved = (v) => {
-      try { localStorage.setItem(key, v); } catch {}
-      apply(v);
-    };
-
-    // Cycle: system -> light -> dark -> system
-    const nextMode = (current) => {
-      if (current === "system") return "light";
-      if (current === "light") return "dark";
-      return "system";
-    };
-
-    // Initial
-    apply(getSaved());
-
-    // Click
-    btn.addEventListener("click", () => {
-      const current = getSaved();
-      setSaved(nextMode(current));
-    });
-
-    // React to OS changes when in system mode
-    try {
-      const mql = window.matchMedia("(prefers-color-scheme: dark)");
-      const onChange = () => {
-        const saved = getSaved();
-        if (saved === "system") apply(saved);
+    id="faThemeToggle"
+    class="theme-toggle"
+    type="button"
+    aria-label="Toggle theme"
+    title="Toggle theme"
+  >
+    <span class="theme-toggle__icon theme-toggle__sun" aria-hidden="true">☀</span>
+  
+    <span class="theme-toggle__track" aria-hidden="true">
+      <span class="theme-toggle__knob"></span>
+    </span>
+  
+    <span class="theme-toggle__icon theme-toggle__moon" aria-hidden="true">☾</span>
+  </button>
+  
+  <script is:inline>
+    (() => {
+      const key = "fa-theme"; // 'light' | 'dark' | 'system'
+      const root = document.documentElement;
+      const btn = document.getElementById("faThemeToggle");
+  
+      if (!btn) return;
+  
+      const prefersDark = () =>
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+      const apply = (saved) => {
+        const effective =
+          saved === "system" ? (prefersDark() ? "dark" : "light") : saved;
+  
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(effective === "dark" ? "theme-dark" : "theme-light");
+  
+        // Store state on the button for styling/debug
+        btn.setAttribute("data-mode", saved);
+        btn.setAttribute("aria-pressed", String(effective === "dark"));
       };
-      if (mql.addEventListener) mql.addEventListener("change", onChange);
-      else if (mql.addListener) mql.addListener(onChange);
-    } catch {}
-
-    // React to other tabs
-    window.addEventListener("storage", (e) => {
-      if (e.key === key) apply(getSaved());
-    });
-  })();
-</script>
-
+  
+      const getSaved = () => {
+        try { return localStorage.getItem(key) || "system"; } catch { return "system"; }
+      };
+  
+      const setSaved = (v) => {
+        try { localStorage.setItem(key, v); } catch {}
+        apply(v);
+      };
+  
+      // Cycle: system -> light -> dark -> system
+      const nextMode = (current) => {
+        if (current === "system") return "light";
+        if (current === "light") return "dark";
+        return "system";
+      };
+  
+      // Init
+      apply(getSaved());
+  
+      // Click
+      btn.addEventListener("click", () => {
+        setSaved(nextMode(getSaved()));
+      });
+  
+      // If OS theme changes and we're in system mode
+      try {
+        const mql = window.matchMedia("(prefers-color-scheme: dark)");
+        const onChange = () => {
+          if (getSaved() === "system") apply("system");
+        };
+        if (mql.addEventListener) mql.addEventListener("change", onChange);
+        else if (mql.addListener) mql.addListener(onChange);
+      } catch {}
+  
+      // If another tab changes localStorage
+      window.addEventListener("storage", (e) => {
+        if (e.key === key) apply(getSaved());
+      });
+    })();
+  </script>
+  
+  
