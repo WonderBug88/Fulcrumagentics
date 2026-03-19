@@ -29,6 +29,7 @@ export const siteConfig = {
     twitterDescription: 'Operational workflows that reduce manual work—safely and measurably.',
   },
 
+  
   // ============================================
   // NAVIGATION
   // ============================================
@@ -38,6 +39,7 @@ export const siteConfig = {
       { name: 'How It Works', href: '#how-it-works' },
       { name: 'Packages', href: '#pricing' },
       { name: 'FAQ', href: '#faq' },
+      
     ],
     cta: {
       text: 'Book a Call',
@@ -97,7 +99,8 @@ export const siteConfig = {
   // TESTIMONIALS (PLACEHOLDERS, MATCH VOICE)
   // ============================================
   testimonials: {
-    title: 'Built for Operators',
+    tit
+      le: 'Built for Operators',
     subtitle:
       'Teams use Fulcrum Agentics to reduce manual work, prevent mistakes, and run workflows with confidence.',
     companyLogos: ['CATALOGOPS', 'FULFILLMENT', 'FINOPS', 'REVOPS', 'COMPLIANCE'],
@@ -127,6 +130,8 @@ export const siteConfig = {
       },
       {
         name: 'Ops Workflow Sprint',
+       
+        
         price: '$2,500',
         period: ' one-time',
         description: 'A working prototype for one operational workflow',
@@ -158,6 +163,7 @@ export const siteConfig = {
         featured: false,
       },
     ],
+    
   },
 
   // ============================================
@@ -220,7 +226,8 @@ export const siteConfig = {
         title: 'Company',
         links: [
           { name: 'About', href: '#' },
-          { name: 'Case Studies', href: '#' },
+          { name: ' Studies', href: '#'},
+          
           { name: 'Blog', href: '#' },
           { name: 'Contact', href: '#contact' },
         ],
@@ -242,3 +249,4 @@ export const siteConfig = {
     copyright: `${new Date().getFullYear()} Fulcrum Agentics. All rights reserved.`,
   },
 };
+
