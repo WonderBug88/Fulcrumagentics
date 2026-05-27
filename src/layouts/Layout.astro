@@ -1,10 +1,6 @@
 ---
-const {
-  title = "Fulcrum Agentics",
-  description = "AI agents for real operations—catalog, pricing, and workflow automation built to integrate, measure, and scale.",
-} = Astro.props;
-
-import Navigation from "@/components/Navigation.astro";
+const { title = 'Fulcrum Agentics', description = '' } = Astro.props;
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 ---
 
 <!doctype html>
@@ -15,40 +11,37 @@ import Navigation from "@/components/Navigation.astro";
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
 
-    <!-- Favicons (public/assets/...) -->
-    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-
-    <!-- Theme: apply before first paint (prevents flash) -->
     <script is:inline>
       (() => {
-        const key = "fa-theme"; // 'light' | 'dark' | 'system'
+        const key = 'fa-theme';
         const root = document.documentElement;
 
-        let saved = "system";
+        let saved = 'light';
         try {
-          saved = localStorage.getItem(key) || "system";
+          saved = localStorage.getItem(key) === 'dark' ? 'dark' : 'light';
         } catch {}
 
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        root.classList.remove("theme-light", "theme-dark");
-
-        if (saved === "light") root.classList.add("theme-light");
-        else if (saved === "dark") root.classList.add("theme-dark");
-        else root.classList.add(prefersDark ? "theme-dark" : "theme-light");
+        root.classList.remove('theme-light', 'theme-dark');
+        root.classList.add(saved === 'dark' ? 'theme-dark' : 'theme-light');
       })();
     </script>
   </head>
 
   <body>
-    <Navigation />
+    <header class="site-shell site-header">
+      <a href="/" class="site-brand" aria-label="Fulcrum Agentics home">
+        <img
+          src="/assets/fulcrum-mark.svg"
+          alt="Fulcrum Agentics"
+          width="48"
+          height="48"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
+      <ThemeSwitcher />
+    </header>
 
-    <main>
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>

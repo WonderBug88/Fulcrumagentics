@@ -1,252 +1,177 @@
-// ============================================
-// SITE CONFIGURATION (FULCRUM AGENTICS POSITIONING)
-// ============================================
+const contactEmail = 'hello@fulcrumagentics.com';
+const workflowMailto = `mailto:${contactEmail}?subject=Workflow discussion`;
 
 export const siteConfig = {
-  // ============================================
-  // SITE METADATA & SEO
-  // ============================================
   site: {
-  name: "Fulcrum Agentics",
-  logo: {
-    src: "/assets/fulcrum-logo.png", // or "/fulcrum-logo.png" if you put it in /public root
-    alt: "Fulcrum Agentics",
-    height: 32,
-  },
-  title: 'Fulcrum Agentics – AI-Powered Operational Workflows',
+    name: 'Fulcrum Agentics',
+    logo: {
+      src: '/assets/fulcrum-mark.svg',
+      alt: 'Fulcrum Agentics',
+      height: 32,
+    },
+    title: 'Fulcrum Agentics | Operator-Controlled Agentic Workflows',
     description:
-      'Fulcrum Agentics designs and operates AI-powered workflows for real business operations. We combine automation, human oversight, and continuous improvement to run catalog, pricing, and evidence-heavy processes reliably at scale.',
+      'Fulcrum Agentics turns messy operational and evidence-heavy processes into controlled agentic workflows with approvals, audit trails, and real business outputs.',
     keywords:
-      'AI workflows, operational automation, AI for operations, catalog operations, pricing operations, e-commerce automation, BigCommerce workflows, evidence review systems, human-in-the-loop AI, decision automation',
-    email: 'hello@fulcrumagentics.com',
-
-    // Open Graph / Twitter (keep consistent + literal)
-    ogTitle: 'Fulcrum Agentics - AI Workflows for Real Operations',
+      'operator controlled AI workflows, agentic workflow software, operational automation, BigCommerce automation, SKU review, fulfillment automation, legal evidence workflow, trial workbench, GSC GA4 workflows, human in the loop AI',
+    email: contactEmail,
+    workflowMailto,
+    ogTitle: 'Fulcrum Agentics - Operator-Controlled Agentic Workflows',
     ogDescription:
-      'Production-ready AI workflows for catalog + pricing ops and evidence-heavy review—built to integrate with your systems, include approvals, and track results.',
+      'Agentic workflow software and services for operations that need approvals, evidence, audit trails, and production outputs.',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Fulcrum Agentics',
-    twitterDescription: 'Operational workflows that reduce manual work—safely and measurably.',
+    twitterDescription:
+      'Turn messy operational work into controlled workflows operators can trust.',
   },
 
-  
-  // ============================================
-  // NAVIGATION
-  // ============================================
   navigation: {
     links: [
-      { name: 'Solutions', href: '#features' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Packages', href: '#pricing' },
+      { name: 'Proof', href: '#proof' },
+      { name: 'Trial Workbench', href: '/trialworkbench/' },
+      { name: 'Control', href: '#control' },
+      { name: 'Why Fulcrum', href: '#why-fulcrum' },
+      { name: 'Engagement', href: '#engagement' },
       { name: 'FAQ', href: '#faq' },
-      
     ],
     cta: {
-      text: 'Book a Call',
-      href: '#contact',
+      text: 'Discuss a Workflow',
+      href: workflowMailto,
     },
   },
 
-  // ============================================
-  // HERO SECTION
-  // ============================================
   hero: {
-    headline: 'AI Workflows for Real Operations',
-    subheadline: 'Automate repeatable work with oversight and measurable results',
+    eyebrow: 'Operator-controlled agentic workflows',
+    headline: 'Turn messy operations into workflows you can trust.',
+    headlineLines: ['Turn messy', 'operations into', 'workflows you', 'can trust.'],
     description:
-      'Fulcrum Agentics designs and runs operational workflows that connect to your tools, follow your rules, and produce auditable outputs. We start small, deploy safely, and improve performance over time.',
+      'Fulcrum Agentics builds software-backed operating systems for catalog, search, fulfillment, marketplace, and legal evidence work. The agent proposes, the workflow verifies, and the operator stays in control before anything important changes.',
     cta: {
-      primary: { text: 'Book a Call', href: '#contact' },
-      secondary: { text: 'See How It Works', href: '#how-it-works' },
+      primary: { text: 'Discuss a Workflow', href: workflowMailto },
+      secondary: { text: 'See Built Workflows', href: '#proof' },
     },
+    proofPoints: [
+      'Approval gates before high-impact writes',
+      'Evidence panels instead of black-box answers',
+      'Run logs, review queues, and audit artifacts',
+    ],
     stats: [
-      { value: 'Days', label: 'to a working prototype' },
-      { value: 'Weeks', label: 'to a production rollout' },
-      { value: 'Approvals + audit trails', label: 'built in' },
+      { value: 'Review-first', label: 'operators approve the risky step' },
+      { value: 'Evidence-led', label: 'source data is visible before action' },
+      { value: 'Production-shaped', label: 'built around real APIs and queues' },
     ],
-  },
-
-  // ============================================
-  // FEATURES SECTION (POSITION AS "SOLUTIONS")
-  // ============================================
-  features: {
-    title: 'What We Build',
-    subtitle:
-      'Operational workflows you can run repeatedly—with guardrails, approvals, and reporting',
-    items: [
-      { icon: 'layers', title: 'Catalog Operations Workflows' }, // titles/SEO, product metadata, enrichment
-      { icon: 'zap', title: 'Pricing + SKU Sync Workflows' }, // vendor sheets, aliasing, case packs, margin rules
-      { icon: 'chart', title: 'Search + SEO Content Workflows' }, // GSC/GA4 routing, internal linking, content refresh
-      { icon: 'code', title: 'Tool & API Integrations' }, // BigCommerce, Google, DBs, ticketing, CRM
-      { icon: 'clock', title: 'Monitoring + Run Logs' }, // alerts, retries, run history
-      { icon: 'shield', title: 'Guardrails & Approvals' }, // human-in-the-loop, permissions
-      { icon: 'chat', title: 'Operator-Friendly Controls' }, // clear inputs, safe defaults, review queues
-      { icon: 'lightning', title: 'Workflow Automation' }, // intake → decide → act → report
-      { icon: 'brush', title: 'Custom Workflow Builds' }, // your unique process
-    ],
-  },
-
-  // ============================================
-  // HOW IT WORKS
-  // ============================================
-  howItWorks: {
-    title: 'How It Works',
-    subtitle:
-      'We define the outcome, design the workflow, deploy safely, then improve it continuously',
-  },
-
-  // ============================================
-  // TESTIMONIALS (PLACEHOLDERS, MATCH VOICE)
-  // ============================================
-  testimonials: {
-    tit
-      le: 'Built for Operators',
-    subtitle:
-      'Teams use Fulcrum Agentics to reduce manual work, prevent mistakes, and run workflows with confidence.',
-    companyLogos: ['CATALOGOPS', 'FULFILLMENT', 'FINOPS', 'REVOPS', 'COMPLIANCE'],
-  },
-
-  // ============================================
-  // PRICING (PACKAGES / PRODUCTIZED SERVICES)
-  // ============================================
-  pricing: {
-    title: 'Packages That Ship',
-    subtitle:
-      'Start with a focused workflow. Expand scope once it’s working reliably in production.',
-    plans: [
-      {
-        name: 'Starter Audit',
-        price: '$0',
-        period: '',
-        description: 'We review your process and recommend the fastest, safest workflow win',
-        features: [
-          '30-minute discovery call',
-          'Workflow + tool map',
-          '1–2 workflow recommendations',
-          'Rough scope + rollout approach',
-        ],
-        cta: { text: 'Book a Call', href: '#contact' },
-        featured: false,
-      },
-      {
-        name: 'Ops Workflow Sprint',
-       
-        
-        price: '$2,500',
-        period: ' one-time',
-        description: 'A working prototype for one operational workflow',
-        badge: 'FASTEST PATH',
-        features: [
-          'One workflow from intake → output',
-          'Integrations to 1–2 systems',
-          'Run logs + basic monitoring',
-          'Approval / exception queue',
-          'Handoff + next-step roadmap',
-        ],
-        cta: { text: 'Start a Sprint', href: '#contact' },
-        featured: true,
-      },
-      {
-        name: 'Production Deployment',
-        price: 'Custom',
-        period: '',
-        description: 'Harden, secure, and scale workflows into production',
-        features: [
-          'Permissions + access controls',
-          'Evaluation + regression checks',
-          'Observability dashboards',
-          'Retries + failure handling',
-          'Support/SLA options',
-          'Multi-step workflows',
-        ],
-        cta: { text: 'Talk to Us', href: '#contact' },
-        featured: false,
-      },
-    ],
-    
-  },
-
-  // ============================================
-  // FAQ
-  // ============================================
-  faq: {
-    title: 'Frequently Asked Questions',
-    subtitle:
-      'What to expect when deploying AI into real business workflows',
-  },
-
-  // ============================================
-  // CONTACT
-  // ============================================
-  contact: {
-    title: 'Tell Us the Workflow',
-    subtitle:
-      'Share your tools and the manual process you want to reduce. We’ll recommend a proven package—or design a custom workflow that fits your environment.',
-    benefits: [
-      'No obligation discovery call',
-      'Built around your tools and rules',
-      'Approval steps when needed',
-      'Clear success metrics + reporting',
-    ],
-    email: 'hello@fulcrumagentics.com',
-    form: {
-      cta: 'Book a Call',
-      fields: {
-        name: { label: 'Full Name', placeholder: 'John Doe', required: true },
-        email: { label: 'Work Email', placeholder: 'john@company.com', required: true },
-        company: { label: 'Company', placeholder: 'Your Company Inc.', required: false },
-        message: {
-          label: 'What workflow should we improve?',
-          placeholder:
-            'Example: “Sync vendor pricing sheets to BigCommerce weekly, reconcile SKUs/case packs, and route exceptions for review.”',
-          required: false,
-        },
-      },
+    console: {
+      title: 'Controlled workflow run',
+      rows: [
+        { label: 'Source evidence', value: 'Vendor, catalog, analytics, order data' },
+        { label: 'Deterministic checks', value: 'Rules, contracts, thresholds, freshness' },
+        { label: 'Agent proposal', value: 'Recommended action with reasons' },
+        { label: 'Operator decision', value: 'Approve, reject, fix, or hold' },
+        { label: 'Audited output', value: 'Publish, stage, label, report, or sync' },
+      ],
     },
   },
 
-  // ============================================
-  // FOOTER
-  // ============================================
+  features: {
+    title: 'Control Surfaces, Not Prompt Demos',
+    subtitle:
+      'Every workflow is designed around how operators actually decide, approve, and prove work.',
+  },
+
+  proof: {
+    title: 'Proof From Built Workflows',
+    subtitle:
+      'These are the kinds of operating loops Fulcrum has already built: review-first, evidence-backed, and connected to real business systems or record sets.',
+    screenshots: [
+      {
+        src: '/assets/proof/route-authority-results.png',
+        alt: 'Route Authority results and review queue screen',
+        label: 'Route Authority',
+        caption: 'Results, review queue, routed targets, and agent diagnosis states.',
+      },
+      {
+        src: '/assets/proof/hermes-fedex-review-redacted.png',
+        alt: 'Hermes FedEx label review screen with ship-to details redacted',
+        label: 'Hermes',
+        caption: 'FedEx production rate evidence, approval state, and label readiness.',
+      },
+    ],
+  },
+
+  howItWorks: {
+    title: 'How The Work Is Controlled',
+    subtitle:
+      'The pattern is simple: make the messy process explicit, automate the repeatable parts, and keep approval where risk lives.',
+  },
+
+  engagement: {
+    title: 'Engagement Model',
+    subtitle:
+      'Start with one workflow that hurts. Prove it on real data. Expand only after the control loop works.',
+    steps: [
+      {
+        name: 'Diagnose',
+        summary:
+          'Map the process, inputs, failure modes, approval points, and the business output that matters.',
+        deliverable: 'Workflow map, risk boundary, and first controlled use case.',
+      },
+      {
+        name: 'Build Controlled Workflow',
+        summary:
+          'Ship the intake, evidence checks, agent proposal, operator review, and audited output path.',
+        deliverable: 'A working workflow connected to the systems it must read or write.',
+      },
+      {
+        name: 'Operate and Improve',
+        summary:
+          'Measure outcomes, review exceptions, tighten rules, and expand automation only when the proof supports it.',
+        deliverable: 'Run logs, exception history, and improvement plan for the next loop.',
+      },
+    ],
+  },
+
+  faq: {
+    title: 'Questions Operators Ask',
+    subtitle:
+      'The point is not to let AI run loose. The point is to make hard operational work safer, faster, and easier to review.',
+  },
+
+  contact: {
+    title: 'Bring the messy workflow.',
+    subtitle:
+      'Send the process you want controlled: the source files, the approval step, the system of record, and what should happen after review.',
+    benefits: [
+      'No fake form or chatbot intake',
+      'A real operator-first workflow discussion',
+      'Useful even when the first answer is "do not automate that yet"',
+    ],
+    email: contactEmail,
+    href: workflowMailto,
+    cta: 'Email Fulcrum Agentics',
+  },
+
   footer: {
     tagline:
-      'AI-powered operational workflows for catalog, pricing, and evidence-heavy review—built to integrate, approve, measure, and scale.',
+      'Operator-controlled agentic workflows for catalog, search, fulfillment, marketplace, legal evidence, and evidence-heavy operations.',
     columns: [
       {
-        title: 'Solutions',
+        title: 'Proof',
         links: [
-          { name: 'Catalog Operations', href: '#features' },
-          { name: 'Pricing + SKU Sync', href: '#features' },
-          { name: 'SEO + Content Ops', href: '#features' },
-          { name: 'Custom Workflows', href: '#contact' },
-          { name: 'How It Works', href: '#how-it-works' },
+          { name: 'Built Workflows', href: '#proof' },
+          { name: 'Trial Workbench', href: '/trialworkbench/' },
+          { name: 'Control Surfaces', href: '#control' },
+          { name: 'Why Fulcrum', href: '#why-fulcrum' },
+          { name: 'Engagement Model', href: '#engagement' },
         ],
       },
       {
-        title: 'Company',
+        title: 'Contact',
         links: [
-          { name: 'About', href: '#' },
-          { name: ' Studies', href: '#'},
-          
-          { name: 'Blog', href: '#' },
-          { name: 'Contact', href: '#contact' },
+          { name: contactEmail, href: workflowMailto },
+          { name: 'Discuss a Workflow', href: workflowMailto },
         ],
       },
-      {
-        title: 'Legal',
-        links: [
-          { name: 'Privacy Policy', href: '#' },
-          { name: 'Terms of Service', href: '#' },
-          { name: 'Security', href: '#' },
-        ],
-      },
-    ],
-    social: [
-      { name: 'Twitter', href: '#', icon: 'twitter' },
-      { name: 'GitHub', href: '#', icon: 'github' },
-      { name: 'LinkedIn', href: '#', icon: 'linkedin' },
     ],
     copyright: `${new Date().getFullYear()} Fulcrum Agentics. All rights reserved.`,
   },
 };
-

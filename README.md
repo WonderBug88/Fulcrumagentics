@@ -1,57 +1,31 @@
-# AI Agent Landing Page
+# Fulcrum Agentics Website
 
-![Demo](public/screenshot.jpeg)
+Astro site for Fulcrum Agentics, positioned around operator-controlled agentic workflow software and services.
 
-A modern, production-ready landing page template for AI and SaaS products. Built with Astro and Tailwind CSS.
+The homepage is proof-led. It explains how Fulcrum turns messy operational processes into controlled workflows with source evidence, approval gates, run logs, and audited outputs.
 
-## Features
+## Current Positioning
 
-- ⚡️ **Astro 5** - Fast, static site generation
-- 🎨 **Tailwind CSS 4** - Modern styling with CSS-first config
-- 📱 **Fully Responsive** - Mobile-first design
-- ♿ **Accessible** - Semantic HTML & ARIA compliant
-- 🎭 **Smooth Animations** - Scroll-triggered effects
-- 🎯 **SEO Ready** - Meta tags & Open Graph
-- 🧩 **Modular Components** - Easy to customize
+- Operator-controlled agentic workflows, not a generic AI agency
+- Proof from built workflows: Route Authority, PAM ETL/SKU authority, Hermes fulfillment, GSC/GA4 freshness, marketplace staging, and Trial Workbench
+- Email-first CTA: `hello@fulcrumagentics.com`
+- No fake testimonials, fake pricing, or fake form submission
+- Clear buyer-objection answer: use AI for isolated work; hire Fulcrum when the workflow needs real data, review gates, audit trails, and production boundaries
+- Dedicated "Why Fulcrum" section focused on buying back the learning curve from prior production workflow failure modes
 
-## Sections
-
-- Hero with stats
-- Features grid (9 cards)
-- How it works (4 steps)
-- Testimonials (6 with company logos)
-- Pricing tiers (3 plans)
-- FAQ accordion (6 questions)
-- Contact form
-- Footer
-
-## Quick Start
+## Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
 npm run dev
-
-# Build for production
 npm run build
 ```
 
-## Customization
+The site deploys to GitHub Pages from `master` through `.github/workflows/astro.yml`.
 
-Edit content in:
+## Main Content Files
 
-- `src/config.ts` - Site configuration
-- `src/content/*.ts` - Features, testimonials, FAQ
-- `src/styles/globals.css` - Colors & animations
-
-## Deploy
-
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-Works on Replit, Vercel, Netlify, and GitHub Pages.
-
-## License
-
-[MIT](LICENSE)
+- `src/config.ts` - site metadata, navigation, CTA, hero, engagement, contact, footer
+- `src/content/*.ts` - proof workflows, control features, process steps, FAQ
+- `src/components/*.astro` - rendered sections
+- `src/styles/globals.css` - brand tokens, theme support, responsive layout

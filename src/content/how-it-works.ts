@@ -1,32 +1,26 @@
 export const howItWorksSteps = [
   {
-    number: 1,
-    title: 'Define the Outcome',
+    number: '01',
+    title: 'Map the Existing Mess',
     description:
-      'We start by aligning on the business result you want to improve, along with success metrics and risk boundaries.',
+      'Identify the files, APIs, judgment calls, approval moments, and downstream systems that make the process risky today.',
   },
   {
-    number: 2,
-    title: 'Design the Workflow',
+    number: '02',
+    title: 'Turn Judgment Into Workflow',
     description:
-      'We map your existing process into a clear, production-ready workflow with automation, guardrails, and human review where needed.',
+      'Define source checks, match rules, proposal states, exception paths, and the exact boundary where a human must decide.',
   },
   {
-    number: 3,
-    title: 'Launch in Production',
+    number: '03',
+    title: 'Run With Proof',
     description:
-      'The workflow goes live in a controlled rollout, operating on real data with full visibility and auditability.',
+      'Operate on real data with visible evidence, logs, and review artifacts before any important write is allowed.',
   },
   {
-    number: 4,
-    title: 'Operate & Improve',
+    number: '04',
+    title: 'Tighten and Expand',
     description:
-      'We continuously tune logic, thresholds, and automation levels based on real performance and feedback.',
-  },
-  {
-    number: 5,
-    title: 'Expand with Confidence',
-    description:
-      'Once proven, we safely scale the workflow across more scope, volume, or additional use cases.',
+      'Use corrections, holds, and outcomes to improve the workflow, then expand only where the control loop is working.',
   },
 ];

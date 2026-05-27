@@ -1,162 +1,60 @@
-<<<<<<< HEAD
----
-/**
- * ThemeSwitcher.astro
- * Token theme toggle (system/light/dark).
- * Uses <html class="theme-light"> / <html class="theme-dark">
- * Stores preference in localStorage "fa-theme" as: 'light' | 'dark' | 'system'
- */
----
-
-<div class="flex items-center gap-2">
-  <span
-    id="faThemeLabel"
-    class="hidden sm:inline text-xs"
-    style="color: var(--color-text-muted);"
-  >
-    Day
-  </span>
-
-  <button
-    id="faThemeToggle"
-    class="theme-toggle"
-    type="button"
-    aria-label="Toggle theme"
-    title="Toggle theme"
-    data-mode="system"
-    aria-pressed="false"
-  >
-    <span class="theme-toggle__icon" aria-hidden="true">☀</span>
-
-    <span class="theme-toggle__track" aria-hidden="true">
-      <span class="theme-toggle__knob"></span>
-    </span>
-
-    <span class="theme-toggle__icon" aria-hidden="true">☾</span>
-  </button>
-
-  <script is:inline>
-    (() => {
-      const key = "fa-theme"; // 'light' | 'dark' | 'system'
-      const root = document.documentElement;
-      const btn = document.getElementById("faThemeToggle");
-      const label = document.getElementById("faThemeLabel");
-
-      if (!btn) return;
-
-      const prefersDark = () =>
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      const getSaved = () => {
-        try {
-          return localStorage.getItem(key) || "system";
-        } catch {
-          return "system";
-        }
-      };
-
-      const apply = (saved) => {
-        const effective =
-          saved === "system" ? (prefersDark() ? "dark" : "light") : saved;
-
-        root.classList.remove("theme-light", "theme-dark");
-        root.classList.add(effective === "dark" ? "theme-dark" : "theme-light");
-
-        btn.setAttribute("data-mode", saved);
-        btn.setAttribute("aria-pressed", String(effective === "dark"));
-        if (label) label.textContent = effective === "dark" ? "Night" : "Day";
-      };
-
-      const setSaved = (v) => {
-        try { localStorage.setItem(key, v); } catch {}
-        apply(v);
-      };
-
-      // Cycle: system -> light -> dark -> system
-      const nextMode = (current) => {
-        if (current === "system") return "light";
-        if (current === "light") return "dark";
-        return "system";
-      };
-
-      // Init
-      apply(getSaved());
-
-      // Click
-      btn.addEventListener("click", () => {
-        setSaved(nextMode(getSaved()));
-      });
-
-      // React to OS changes if in system mode
-      try {
-        const mql = window.matchMedia("(prefers-color-scheme: dark)");
-        const onChange = () => {
-          if (getSaved() === "system") apply("system");
-        };
-        if (mql.addEventListener) mql.addEventListener("change", onChange);
-        else if (mql.addListener) mql.addListener(onChange);
-      } catch {}
-
-      // Sync across tabs
-      window.addEventListener("storage", (e) => {
-        if (e.key === key) apply(getSaved());
-      });
-    })();
-  </script>
-</div>
-=======
 <button
   id="themeBtn"
-  class="rounded-xl border px-3 py-2 text-sm transition-smooth"
-  style="border-color: var(--color-border); background: var(--color-surface); color: var(--color-text);"
+  class="theme-toggle"
   type="button"
-  aria-label="Theme toggle"
+  aria-label="Toggle color theme"
+  aria-pressed="false"
 >
-  Theme: <span id="themeLabel">System</span>
+  <span class="theme-toggle__icon" aria-hidden="true">Day</span>
+  <span class="theme-toggle__track" aria-hidden="true">
+    <span class="theme-toggle__knob"></span>
+  </span>
+  <span class="theme-toggle__icon" aria-hidden="true">Night</span>
 </button>
 
 <script is:inline>
   (() => {
-    const key = "fa-theme";
+    const key = 'fa-theme';
     const root = document.documentElement;
-    const btn = document.getElementById("themeBtn");
-    const label = document.getElementById("themeLabel");
+    const btn = document.getElementById('themeBtn');
+    if (!btn) return;
 
-    const order = ["system", "dark", "light"];
+    const normalize = (value) => (value === 'dark' ? 'dark' : 'light');
 
-    function getMode() {
+    const getSaved = () => {
       try {
-        return localStorage.getItem(key) || "system";
+        return normalize(localStorage.getItem(key));
       } catch {
-        return "system";
+        return 'light';
       }
-    }
+    };
 
-    function apply(mode) {
-      root.classList.remove("theme-light", "theme-dark");
-      if (mode === "light") root.classList.add("theme-light");
-      if (mode === "dark") root.classList.add("theme-dark");
-      if (label) label.textContent = mode[0].toUpperCase() + mode.slice(1);
-    }
+    const apply = (mode) => {
+      const current = normalize(mode);
+      const isDark = current === 'dark';
 
-    function cycle() {
-      const cur = getMode();
-      const next = order[(order.indexOf(cur) + 1) % order.length];
+      root.classList.remove('theme-light', 'theme-dark');
+      root.classList.add(isDark ? 'theme-dark' : 'theme-light');
+      btn.setAttribute('aria-pressed', String(isDark));
+    };
+
+    const setSaved = (mode) => {
+      const current = normalize(mode);
       try {
-        localStorage.setItem(key, next);
+        localStorage.setItem(key, current);
       } catch {}
-      apply(next);
-    }
+      apply(current);
+    };
 
-    apply(getMode());
-    btn?.addEventListener("click", cycle);
+    apply(getSaved());
 
-    // If in system mode, respond to OS theme changes
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    mq.addEventListener?.("change", () => {
-      if (getMode() === "system") apply("system");
+    btn.addEventListener('click', () => {
+      const next = root.classList.contains('theme-dark') ? 'light' : 'dark';
+      setSaved(next);
+    });
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === key) apply(getSaved());
     });
   })();
 </script>
->>>>>>> parent of eec1356 (Update ThemeSwitcher.astro)

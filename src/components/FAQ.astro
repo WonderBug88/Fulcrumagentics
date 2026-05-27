@@ -3,65 +3,24 @@ import { siteConfig } from '../config.ts';
 import { faqItems } from '../content/faq';
 ---
 
-<section id="faq" class="relative bg-white px-4 py-20 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-4xl">
-    <div class="scroll-fade-up mb-16 text-center">
-      <h2 class="text-mono-black mb-4 text-4xl font-bold sm:text-5xl">
-        {siteConfig.faq.title}
-      </h2>
-      <p class="text-mono-dark text-xl">
-        {siteConfig.faq.subtitle}
-      </p>
+<section id="faq" class="section">
+  <div class="site-shell faq-shell">
+    <div class="section-heading">
+      <p class="eyebrow">FAQ</p>
+      <h2>{siteConfig.faq.title}</h2>
+      <p>{siteConfig.faq.subtitle}</p>
     </div>
 
-    <div class="space-y-4">
-      {
-        faqItems.map((item, index) => (
-          <details
-            class={`scroll-fade-up border-mono-lighter rounded-lg border stagger-${(index % 9) + 1}`}
-          >
-            <summary class="faq-button flex cursor-pointer list-none items-center justify-between px-6 py-5 text-left">
-              <span class="text-mono-black pr-8 font-semibold">
-                {item.question}
-              </span>
-              <span
-                class="faq-icon text-mono-gray h-5 w-5 flex-shrink-0 transition-transform duration-200"
-                aria-hidden="true"
-              >
-                ▼
-              </span>
-            </summary>
-
-            <div class="faq-content text-mono-dark px-6 pb-6 leading-relaxed">
-              {item.answer}
-            </div>
-          </details>
-        ))
-      }
+    <div class="faq-list">
+      {faqItems.map((item) => (
+        <details class="faq-item">
+          <summary>
+            <span>{item.question}</span>
+            <span aria-hidden="true">+</span>
+          </summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-  /* Ensure the answer area can actually render */
-  .faq-content {
-    display: block;
-  }
-
-  /* If older CSS is collapsing content, this restores it when open */
-  details:not([open]) .faq-content {
-    display: none;
-  }
-
-  details[open] .faq-content {
-    display: block;
-  }
-
-  details[open] .faq-icon {
-    transform: rotate(180deg);
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-</style>

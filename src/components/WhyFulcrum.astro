@@ -1,0 +1,30 @@
+---
+import { whyFulcrumLessons } from '../content/why-fulcrum';
+---
+
+<section id="why-fulcrum" class="section why-section">
+  <div class="site-shell why-grid">
+    <div class="why-copy">
+      <p class="eyebrow">Why Fulcrum</p>
+      <h2>Buy Back The Learning Curve</h2>
+      <p>
+        You can use ChatGPT or Claude yourself. The question is how much time
+        you want to spend discovering the failure modes.
+      </p>
+      <p>
+        Fulcrum brings the operating pattern from workflows already built:
+        source checks first, proposals second, operator approval before writes,
+        and audit output after action.
+      </p>
+    </div>
+
+    <div class="why-panel" aria-label="Production workflow lessons">
+      <h3>What day one experience should already know</h3>
+      <ul>
+        {whyFulcrumLessons.map((lesson) => (
+          <li>{lesson}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

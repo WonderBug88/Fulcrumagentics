@@ -1,94 +1,54 @@
 ---
-import { siteConfig } from "../config.ts";
-import ThemeSwitcher from "./ThemeSwitcher.astro";
+import { siteConfig } from '../config.ts';
+import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
-<nav class="fixed top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm border-mono-lighter">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <!-- Brand -->
-      <div class="flex items-center">
-        <a href="/" class="flex items-center gap-3">
-          <img
-            src={siteConfig.site.logo.src}
-            alt={siteConfig.site.logo.alt}
-            height={siteConfig.site.logo.height}
-            class="h-8 w-auto"
-            loading="eager"
-            decoding="async"
-          />
-        </a>
-      </div>
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="site-shell nav-inner">
+    <a href="/" class="brand-link" aria-label="Fulcrum Agentics home">
+      <img
+        src={siteConfig.site.logo.src}
+        alt={siteConfig.site.logo.alt}
+        height={siteConfig.site.logo.height}
+        class="brand-logo"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
 
-      <!-- Desktop nav -->
-      <div class="hidden items-center space-x-6 md:flex">
-        {siteConfig.navigation.links.map((link) => (
-          <a
-            href={link.href}
-            class="hover:opacity-100"
-            style="color: var(--color-text-muted);"
-            onmouseover="this.style.color='var(--color-text)'"
-            onmouseout="this.style.color='var(--color-text-muted)'"
-          >
-            {link.name}
-          </a>
-        ))}
-
-        <!-- Theme toggle -->
-        <ThemeSwitcher />
-
-        <!-- CTA -->
-        <a
-          href={siteConfig.navigation.cta.href}
-          class="bg-mono-black rounded-lg px-6 py-2 text-white"
-        >
-          {siteConfig.navigation.cta.text}
-        </a>
-      </div>
-
-      <!-- Mobile controls -->
-      <div class="flex items-center gap-3 md:hidden">
-        <ThemeSwitcher />
-
-        <button
-          id="mobileMenuButton"
-          class="rounded-lg p-2"
-          aria-controls="mobileMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation menu"
-        >
-          <span
-            class="text-2xl leading-none"
-            style="color: var(--color-text);"
-            aria-hidden="true"
-            >☰</span
-          >
-        </button>
-      </div>
+    <div class="nav-links" aria-label="Desktop navigation">
+      {siteConfig.navigation.links.map((link) => (
+        <a href={link.href}>{link.name}</a>
+      ))}
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden pb-4 md:hidden" aria-hidden="true">
-      <div class="flex flex-col space-y-3">
-        {siteConfig.navigation.links.map((link) => (
-          <a
-            href={link.href}
-            class="py-2"
-            style="color: var(--color-text-muted);"
-            onmouseover="this.style.color='var(--color-text)'"
-            onmouseout="this.style.color='var(--color-text-muted)'"
-          >
-            {link.name}
-          </a>
-        ))}
+    <button
+      id="mobileMenuButton"
+      class="mobile-menu-button"
+      type="button"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation menu"
+    >
+      Menu
+    </button>
 
-        <a
-          href={siteConfig.navigation.cta.href}
-          class="bg-mono-black rounded-lg px-6 py-3 text-center text-white"
-        >
-          {siteConfig.navigation.cta.text}
-        </a>
-      </div>
+    <div class="nav-actions">
+      <ThemeSwitcher />
+      <a href={siteConfig.navigation.cta.href} class="btn btn-primary btn-small">
+        {siteConfig.navigation.cta.text}
+      </a>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="site-shell mobile-menu-inner">
+      {siteConfig.navigation.links.map((link) => (
+        <a href={link.href}>{link.name}</a>
+      ))}
+      <a href={siteConfig.navigation.cta.href} class="btn btn-primary">
+        {siteConfig.navigation.cta.text}
+      </a>
     </div>
   </div>
 </nav>
@@ -96,29 +56,29 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
 <script is:inline>
   (() => {
     const init = () => {
-      const mobileMenuButton = document.getElementById("mobileMenuButton");
-      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
 
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener("click", () => {
-          const isExpanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
-          mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
-          mobileMenu.setAttribute("aria-hidden", String(isExpanded));
-          mobileMenu.classList.toggle("hidden");
-        });
+      if (!mobileMenuButton || !mobileMenu) return;
 
-        mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            mobileMenuButton.setAttribute("aria-expanded", "false");
-            mobileMenu.setAttribute("aria-hidden", "true");
-            mobileMenu.classList.add("hidden");
-          });
+      mobileMenuButton.addEventListener('click', () => {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+        mobileMenu.setAttribute('aria-hidden', String(isExpanded));
+        mobileMenu.classList.toggle('is-open', !isExpanded);
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          mobileMenu.classList.remove('is-open');
         });
-      }
+      });
     };
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
     } else {
       init();
     }

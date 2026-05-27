@@ -1,56 +1,32 @@
-export const featuresContent = [
+export const controlFeatures = [
   {
-    icon: 'layers',
-    title: 'Agentic Workflow Architecture',
+    title: 'Operator Approval Gates',
     description:
-      'We design agentic systems as explicit workflows with defined states, routing logic, failure handling, and auditability—built to operate reliably in production.',
+      'High-impact actions stop at a review point where a person can approve, reject, hold, or route the exception.',
   },
   {
-    icon: 'brush',
-    title: 'Complex Task Decomposition',
+    title: 'Evidence Before Action',
     description:
-      'Large, ambiguous jobs are broken into structured steps with clear decision points, allowing AI and humans to collaborate safely on high-stakes work.',
+      'The workflow shows the source values, matched records, freshness checks, and reason for the proposed output.',
   },
   {
-    icon: 'shield',
-    title: 'Guardrails & Human Oversight',
+    title: 'Deterministic Checks First',
     description:
-      'Human review is designed as a first-class component, with approval queues, escalation paths, and traceability for every decision.',
+      'Rules, contracts, thresholds, and source validation run before an agent recommendation is trusted.',
   },
   {
-    icon: 'code',
-    title: 'Deep System Integration',
+    title: 'System-of-Record Boundaries',
     description:
-      'Our workflows integrate directly with your databases, APIs, and internal tools—designed around your data models, permissions, and operational constraints.',
+      'Writes are separated from review screens so operators know exactly when BigCommerce, FedEx, eBay, or another system changes.',
   },
   {
-    icon: 'chart',
-    title: 'Performance Feedback Loops',
+    title: 'Run Logs and Audit Trails',
     description:
-      'Every workflow is instrumented to measure outcomes, capture exceptions, and feed results back into continuous improvement.',
+      'Each workflow leaves proof: what ran, what was proposed, who approved it, what changed, and what stayed blocked.',
   },
   {
-    icon: 'clock',
-    title: 'Always-On Operations',
+    title: 'Exception Learning',
     description:
-      'Agentic workflows run continuously, handling routine execution while surfacing edge cases and anomalies for review.',
-  },
-  {
-    icon: 'chat',
-    title: 'Operator-Friendly Controls',
-    description:
-      'Teams interact with workflows through clear inputs, review queues, and documented logic—not opaque prompts or black boxes.',
-  },
-  {
-    icon: 'lightning',
-    title: 'Incremental Automation',
-    description:
-      'Automation increases gradually as confidence grows—reducing manual effort without sacrificing control or quality.',
-  },
-  {
-    icon: 'zap',
-    title: 'Reusable Intellectual Property',
-    description:
-      'Each system is built to compound value over time, with reusable logic, heuristics, and operational knowledge embedded into the workflow.',
+      'Rejected or corrected work becomes structured feedback that improves the next run without hiding risk from the operator.',
   },
 ];

@@ -1,0 +1,60 @@
+---
+import { siteConfig } from '../config.ts';
+import { workflowProofItems } from '../content/workflows';
+---
+
+<section id="proof" class="section proof-section">
+  <div class="site-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Built workflows</p>
+      <h2>{siteConfig.proof.title}</h2>
+      <p>{siteConfig.proof.subtitle}</p>
+    </div>
+
+    <div class="screenshot-grid" aria-label="Screenshots from built workflows">
+      {siteConfig.proof.screenshots.map((screenshot) => (
+        <figure class="screenshot-card">
+          <img
+            src={screenshot.src}
+            alt={screenshot.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <strong>{screenshot.label}</strong>
+            <span>{screenshot.caption}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="proof-grid">
+      {workflowProofItems.map((item) => (
+        <article class="proof-card">
+          <div class="proof-card-header">
+            <span>{item.tag}</span>
+            <h3>{item.name}</h3>
+          </div>
+          <dl>
+            <div>
+              <dt>Problem</dt>
+              <dd>{item.problem}</dd>
+            </div>
+            <div>
+              <dt>Built</dt>
+              <dd>{item.built}</dd>
+            </div>
+            <div>
+              <dt>Control</dt>
+              <dd>{item.controls}</dd>
+            </div>
+            <div>
+              <dt>Output</dt>
+              <dd>{item.output}</dd>
+            </div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

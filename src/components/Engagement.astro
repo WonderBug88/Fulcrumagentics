@@ -1,0 +1,24 @@
+---
+import { siteConfig } from '../config.ts';
+---
+
+<section id="engagement" class="section section-quiet">
+  <div class="site-shell">
+    <div class="section-heading">
+      <p class="eyebrow">How we start</p>
+      <h2>{siteConfig.engagement.title}</h2>
+      <p>{siteConfig.engagement.subtitle}</p>
+    </div>
+
+    <div class="engagement-grid">
+      {siteConfig.engagement.steps.map((step, index) => (
+        <article class="engagement-card">
+          <span class="card-index">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{step.name}</h3>
+          <p>{step.summary}</p>
+          <strong>{step.deliverable}</strong>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
