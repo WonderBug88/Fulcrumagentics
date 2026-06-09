@@ -169,6 +169,10 @@ export const siteConfig = {
         links: [
           { name: contactEmail, href: workflowMailto },
           { name: 'Discuss a Workflow', href: workflowMailto },
+          { name: 'Privacy Policy', href: '/privacy/' },
+          { name: 'Terms of Service', href: '/terms/' },
+          { name: 'Hermes Installation', href: '/hermes-shipping-provider/installation/' },
+          { name: 'Hermes User Guide', href: '/hermes-shipping-provider/user-guide/' },
         ],
       },
     ],

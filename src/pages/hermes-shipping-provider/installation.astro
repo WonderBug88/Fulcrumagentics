@@ -1,0 +1,57 @@
+---
+import ResourceLayout from '../../layouts/ResourceLayout.astro';
+---
+
+<ResourceLayout
+  title="Hermes Shipping Provider Installation Guide | Fulcrum Agentics"
+  description="Installation guide for connecting the Hermes Shipping Provider to BigCommerce."
+>
+  <section class="site-shell resource-hero">
+    <p class="eyebrow">Hermes Shipping Provider</p>
+    <h1>Installation Guide</h1>
+    <p>
+      Connect Hermes to BigCommerce checkout shipping zones after BigCommerce
+      issues the shipping carrier ID for the provider app.
+    </p>
+  </section>
+
+  <section class="site-shell resource-body">
+    <h2>Provider URLs</h2>
+    <dl>
+      <dt>Quote URL</dt>
+      <dd><code>https://hermes.fulcrumagentics.com/rate</code></dd>
+      <dt>Check Connection Options URL</dt>
+      <dd><code>https://hermes.fulcrumagentics.com/check_connection_options</code></dd>
+    </dl>
+
+    <h2>Connection Option</h2>
+    <p>
+      Hermes expects an <code>api_token</code> connection option. The value
+      should match the provider token configured in the Hermes production
+      environment.
+    </p>
+
+    <h2>BigCommerce Setup</h2>
+    <ol>
+      <li>Create the Hermes Shipping Provider app in the BigCommerce Developer Portal.</li>
+      <li>Send the app name, quote URL, check-connection URL, and connection option to BigCommerce shipping provider support.</li>
+      <li>Wait for BigCommerce to issue the provider shipping carrier ID.</li>
+      <li>Connect the carrier to the store using the issued carrier ID and the Hermes <code>api_token</code>.</li>
+      <li>Add the Hermes method to the target shipping zone.</li>
+      <li>Test checkout with a known case-pack product before enabling broad traffic.</li>
+    </ol>
+
+    <h2>Product Data Required</h2>
+    <p>
+      Products should carry accurate case-pack quantity, package weight, and
+      package dimensions. Hermes uses that data so checkout can sell units while
+      rating the correct physical case count.
+    </p>
+
+    <h2>Support</h2>
+    <p>
+      For setup help, contact
+      <a href="mailto:hello@fulcrumagentics.com">hello@fulcrumagentics.com</a>.
+    </p>
+  </section>
+</ResourceLayout>

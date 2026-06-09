@@ -1,0 +1,63 @@
+---
+import ResourceLayout from '../../layouts/ResourceLayout.astro';
+---
+
+<ResourceLayout
+  title="Hermes Shipping Provider User Guide | Fulcrum Agentics"
+  description="User guide for merchants using the Hermes Shipping Provider for BigCommerce checkout rates."
+>
+  <section class="site-shell resource-hero">
+    <p class="eyebrow">Hermes Shipping Provider</p>
+    <h1>User Guide</h1>
+    <p>
+      Hermes returns checkout shipping quotes using case-pack package data and
+      carrier rates.
+    </p>
+  </section>
+
+  <section class="site-shell resource-body">
+    <h2>What Hermes Does</h2>
+    <p>
+      Hermes is a BigCommerce shipping provider that turns checkout cart items
+      into physical packages for rating. It is designed for products sold by the
+      each where the warehouse ships full cases, cartons, or packs.
+    </p>
+
+    <h2>Case-Pack Rating</h2>
+    <p>
+      A product can be sold as individual units in checkout while Hermes rates
+      the shipment using the physical shipping case. For example, a pillowcase
+      option sold as 72 eaches can be rated as one physical case when the product
+      data says the case pack is 72.
+    </p>
+
+    <h2>Checkout Behavior</h2>
+    <ul>
+      <li>BigCommerce controls the shopper cart and selected shipping address.</li>
+      <li>Hermes receives the shipping quote request from BigCommerce.</li>
+      <li>Hermes builds packages from product and variant shipping data.</li>
+      <li>Hermes returns available carrier quotes to checkout.</li>
+    </ul>
+
+    <h2>Required Product Fields</h2>
+    <ul>
+      <li>Case-pack quantity.</li>
+      <li>Case weight.</li>
+      <li>Case width, height, and depth.</li>
+      <li>Variant SKU or option data that identifies the sellable item.</li>
+    </ul>
+
+    <h2>Troubleshooting</h2>
+    <p>
+      If no shipping quote appears, confirm the shopper address has a valid
+      country, state or province, city, and postal code. Then confirm the product
+      variant has complete case-pack weight and dimension data.
+    </p>
+
+    <h2>Support</h2>
+    <p>
+      For support, contact
+      <a href="mailto:hello@fulcrumagentics.com">hello@fulcrumagentics.com</a>.
+    </p>
+  </section>
+</ResourceLayout>
