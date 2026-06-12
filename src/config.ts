@@ -41,11 +41,11 @@ export const siteConfig = {
   },
 
   hero: {
-    eyebrow: 'Stop babysitting AI',
-    headline: 'Turn AI experiments into workflows that hold up.',
-    headlineLines: ['Turn AI', 'experiments into', 'workflows that', 'hold up.'],
+    eyebrow: 'Operator-controlled agentic workflows',
+    headline: 'Turn messy operations into workflows you can trust.',
+    headlineLines: ['Turn messy', 'operations into', 'workflows you', 'can trust.'],
     description:
-      'Fulcrum Agentics builds review-first operating workflows for catalog, search, fulfillment, marketplace, and evidence-heavy case preparation. The agent proposes, the workflow verifies, and the operator stays in control before anything important changes.',
+      'Fulcrum Agentics builds software-backed operating systems for catalog, search, fulfillment, marketplace, and legal evidence work. The agent proposes, the workflow verifies, and the operator stays in control before anything important changes.',
     cta: {
       primary: { text: 'Discuss a Workflow', href: workflowMailto },
       secondary: { text: 'See Built Workflows', href: '#proof' },
