@@ -61,14 +61,14 @@ export const workflowProofItems = [
   },
   {
     name: 'Trial Workbench',
-    tag: 'Legal evidence and claim workflow',
+    tag: 'Case preparation and evidence readiness',
     problem:
-      'Legal work breaks down when claims, evidence, timelines, and drafts are scattered or unsupported.',
+      'Generic AI can make a user feel heard, but serious disputes require organized records, sourced research notes, clearly marked gaps, and a package a professional can review.',
     built:
-      'A workbench for intake, claim assessment, evidence review and pinning, prima facie analysis, and export-ready legal work product.',
+      'A semantic case workspace for evidence intake, chronology, research organization, claim-element review, and attorney handoff preparation.',
     controls:
-      'Humans decide what counts as evidence; the system keeps claims tied to pinned evidence and marks gaps instead of inventing support.',
+      'The workflow keeps claims tied to pinned evidence, marks unsupported points, separates research notes from advice, and keeps the user oriented around preparation rather than promises.',
     output:
-      'Claim workspaces, evidence bundles, review states, prima facie reports, and motion or trial-prep artifacts.',
+      'Semantic case memory, chronology, evidence map, gap list, research notes, case readiness report, and attorney handoff package.',
   },
 ];
