@@ -20,6 +20,7 @@
       </div>
       <nav class="hidden gap-8 text-sm text-slate-300 md:flex">
         <a href="#why" class="transition hover:text-white">Why It Matters</a>
+        <a href="#guardrails" class="transition hover:text-white">Guardrails</a>
         <a href="#workflow" class="transition hover:text-white">Workflow</a>
         <a href="#handoff" class="transition hover:text-white">Handoff</a>
         <a href="#pricing" class="transition hover:text-white">Pricing</a>
@@ -41,7 +42,7 @@
       </p>
       <div class="mt-10 flex flex-col gap-4 sm:flex-row">
         <a href="#pricing" class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">Start Case Readiness</a>
-        <a href="#workflow" class="rounded-2xl border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5">See Current Workflow</a>
+        <a href="#guardrails" class="rounded-2xl border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5">See The Guardrails</a>
       </div>
       <div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-4"><div class="text-2xl font-semibold text-white">1</div><div class="mt-1 text-sm text-slate-300">Intake and evidence upload or sync</div></div>
@@ -93,6 +94,7 @@
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Why it matters</p>
         <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Most AI chats create reassurance. Trial Workbench creates reviewable structure.</h2>
         <p class="mt-6 text-lg leading-8 text-slate-300">The app keeps source-backed evidence, timeline rows, actor records, claim review, research drafts, review flags, and exports inside one workflow instead of scattered conversations.</p>
+        <p class="mt-4 text-base leading-7 text-slate-400">Because the dangerous part is not the typo. It is the polished paragraph with nothing solid behind it.</p>
       </div>
       <div class="mt-12 grid gap-6 lg:grid-cols-3">
         <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Semantic case memory</h3><p class="mt-3 text-sm leading-6 text-slate-300">Hybrid evidence retrieval searches by meaning and keyword across citation-safe case evidence.</p></div>
@@ -102,70 +104,87 @@
     </div>
   </section>
 
-  <section id="workflow" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+  <section id="guardrails" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
     <div class="max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Current workflow</p>
-      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Grounded in the modules that exist today.</h2>
-      <p class="mt-6 text-lg leading-8 text-slate-300">The live workflow is Intake → Evidence → Research → Claims Review → Strategy → Attorney Handoff, with advanced review for Timeline, Actor Map, Contract Strategy, and Precedent.</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">AI verification guardrails</p>
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Confidence is not verification.</h2>
+      <p class="mt-6 text-lg leading-8 text-slate-300">Trial Workbench follows a record-first workflow: verify the source, preserve the evidence, flag the gaps, separate research notes from final judgment, and review before anything leaves the workspace.</p>
     </div>
-    <div class="mt-12 grid gap-6 lg:grid-cols-4">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Intake</h3><p class="mt-3 text-sm leading-6 text-slate-300">Athena intake, opening workflow, gap audit, contract understanding, actor/date scope, and candidate evidence queue.</p></div>
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Evidence</h3><p class="mt-3 text-sm leading-6 text-slate-300">Uploads, Gmail sync/reindex hooks, evidence graph search, proposals, and contract routing.</p></div>
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Research</h3><p class="mt-3 text-sm leading-6 text-slate-300">Research sessions, diagnostics, theory suggestions, memo drafts, CourtListener / RECAP metadata, and precedent items where records are present.</p></div>
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Handoff</h3><p class="mt-3 text-sm leading-6 text-slate-300">Best evidence, prima facie, attorney handoff, export downloads, case refresh, and staged output approval.</p></div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-5">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Verify sources</h3><p class="mt-3 text-sm leading-6 text-slate-300">Keep the source record visible before trusting a summary.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Preserve evidence</h3><p class="mt-3 text-sm leading-6 text-slate-300">Keep documents, timeline rows, actors, and exports together.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Flag gaps</h3><p class="mt-3 text-sm leading-6 text-slate-300">Show weak points and missing support instead of hiding them.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Separate notes</h3><p class="mt-3 text-sm leading-6 text-slate-300">Keep research notes separate from final professional judgment.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Review first</h3><p class="mt-3 text-sm leading-6 text-slate-300">Use the handoff package for review before outside use.</p></div>
     </div>
   </section>
 
-  <section id="handoff" class="border-y border-white/10 bg-slate-900/60">
+  <section id="workflow" class="border-y border-white/10 bg-slate-900/60">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Attorney handoff package</p>
-        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">What the current package actually contains.</h2>
-        <p class="mt-6 text-lg leading-8 text-slate-300">The handoff package consolidates active stored outputs: master case context, timeline highlights, actor summary, case strategy, incidents, attack table, best evidence, precedent, prima facie summary, review flags, and exportable JSON.</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Current workflow</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Grounded in the modules that exist today.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">The live workflow is Intake → Evidence → Research → Claims Review → Strategy → Attorney Handoff, with advanced review for Timeline, Actor Map, Contract Strategy, and Precedent.</p>
       </div>
-      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Matter summary</h3><p class="mt-3 text-sm leading-6 text-slate-300">Title, dispute type, summary, harm statement, and relief items from master case context.</p></div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Timeline highlights</h3><p class="mt-3 text-sm leading-6 text-slate-300">Verified timeline rows with labels and source types.</p></div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Actor summary</h3><p class="mt-3 text-sm leading-6 text-slate-300">Actor names, roles, sides, and confidence scores.</p></div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Attack table</h3><p class="mt-3 text-sm leading-6 text-slate-300">Attack points, priorities, and confidence scores.</p></div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Precedent summary</h3><p class="mt-3 text-sm leading-6 text-slate-300">Stored precedent labels and linked precedent items where available.</p></div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Review flags</h3><p class="mt-3 text-sm leading-6 text-slate-300">Known weaknesses and proof gaps for attorney or operator review.</p></div>
+      <div class="mt-12 grid gap-6 lg:grid-cols-4">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Intake</h3><p class="mt-3 text-sm leading-6 text-slate-300">Athena intake, opening workflow, gap audit, contract understanding, actor/date scope, and candidate evidence queue.</p></div>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Evidence</h3><p class="mt-3 text-sm leading-6 text-slate-300">Uploads, Gmail sync/reindex hooks, evidence graph search, proposals, and contract routing.</p></div>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Research</h3><p class="mt-3 text-sm leading-6 text-slate-300">Research sessions, diagnostics, theory suggestions, memo drafts, CourtListener / RECAP metadata, and precedent items where records are present.</p></div>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8"><h3 class="text-xl font-semibold text-white">Handoff</h3><p class="mt-3 text-sm leading-6 text-slate-300">Best evidence, prima facie, attorney handoff, export downloads, case refresh, and staged output approval.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+  <section id="handoff" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
     <div class="max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Pricing</p>
-      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">A practical bridge between scattered records and professional review.</h2>
-      <p class="mt-6 text-lg leading-8 text-slate-300">Trial Workbench helps users organize the record, prepare reviewable outputs, and understand what is already supported before next legal decisions are made.</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Attorney handoff package</p>
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">What the current package actually contains.</h2>
+      <p class="mt-6 text-lg leading-8 text-slate-300">The handoff package consolidates active stored outputs: master case context, timeline highlights, actor summary, case strategy, incidents, attack table, best evidence, precedent, prima facie summary, review flags, and exportable JSON.</p>
     </div>
-    <div class="mt-12 grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl border border-cyan-400/30 bg-cyan-400/10 p-8 shadow-xl shadow-cyan-950/20">
-        <div class="text-sm font-semibold text-cyan-200">Case Readiness Package</div>
-        <div class="mt-4 flex items-end gap-2"><span class="text-5xl font-semibold text-white">$500</span><span class="pb-1 text-sm text-slate-300">per case</span></div>
-        <p class="mt-4 text-sm leading-6 text-slate-200">For individuals who need to turn a messy dispute record into an organized case workspace and attorney handoff package.</p>
-        <ul class="mt-8 space-y-3 text-sm text-slate-100">
-          <li>Evidence upload, sync, and semantic search</li>
-          <li>Case spine, timeline, and actor summary</li>
-          <li>Claim review, attack table, and review flags</li>
-          <li>Research drafts and precedent context where available</li>
-          <li>Best-evidence, prima facie, and attorney handoff exports</li>
-        </ul>
-        <a href="mailto:hello@fulcrumagentics.com?subject=Trial%20Workbench%20case%20readiness" class="mt-8 inline-flex rounded-2xl bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200">Start Case Readiness</a>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Matter summary</h3><p class="mt-3 text-sm leading-6 text-slate-300">Title, dispute type, summary, harm statement, and relief items from master case context.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Timeline highlights</h3><p class="mt-3 text-sm leading-6 text-slate-300">Verified timeline rows with labels and source types.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Actor summary</h3><p class="mt-3 text-sm leading-6 text-slate-300">Actor names, roles, sides, and confidence scores.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Attack table</h3><p class="mt-3 text-sm leading-6 text-slate-300">Attack points, priorities, and confidence scores.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Precedent summary</h3><p class="mt-3 text-sm leading-6 text-slate-300">Stored precedent labels and linked precedent items where available.</p></div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6"><h3 class="text-lg font-semibold text-white">Review flags</h3><p class="mt-3 text-sm leading-6 text-slate-300">Known weaknesses and proof gaps for attorney or operator review.</p></div>
+    </div>
+  </section>
+
+  <section id="pricing" class="border-y border-white/10 bg-slate-900/60">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Pricing</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">A practical bridge between scattered records and professional review.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">Trial Workbench helps users organize the record, prepare reviewable outputs, and understand what is already supported before next legal decisions are made.</p>
       </div>
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <div class="text-sm font-semibold text-cyan-300">Professional / Attorney Intake</div>
-        <div class="mt-4 flex items-end gap-2"><span class="text-5xl font-semibold text-white">Custom</span></div>
-        <p class="mt-4 text-sm leading-6 text-slate-300">For attorneys, investigators, paralegals, and professionals who need repeatable intake, evidence review, research, and handoff workflows.</p>
-        <ul class="mt-8 space-y-3 text-sm text-slate-200">
-          <li>Multi-matter workspaces</li>
-          <li>Review states and pinned evidence controls</li>
-          <li>Research memo and theory scenario drafts</li>
-          <li>Case refresh and staged output approval</li>
-          <li>Export bundles for review</li>
-        </ul>
-        <a href="mailto:hello@fulcrumagentics.com?subject=Trial%20Workbench%20professional%20workflow" class="mt-8 inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">Discuss Professional Use</a>
+      <div class="mt-12 grid gap-6 lg:grid-cols-2">
+        <div class="rounded-3xl border border-cyan-400/30 bg-cyan-400/10 p-8 shadow-xl shadow-cyan-950/20">
+          <div class="text-sm font-semibold text-cyan-200">Case Readiness Package</div>
+          <div class="mt-4 flex items-end gap-2"><span class="text-5xl font-semibold text-white">$500</span><span class="pb-1 text-sm text-slate-300">per case</span></div>
+          <p class="mt-4 text-sm leading-6 text-slate-200">For individuals who need to turn a messy dispute record into an organized case workspace and attorney handoff package.</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-100">
+            <li>Evidence upload, sync, and semantic search</li>
+            <li>Case spine, timeline, and actor summary</li>
+            <li>Claim review, attack table, and review flags</li>
+            <li>Research drafts and precedent context where available</li>
+            <li>Best-evidence, prima facie, and attorney handoff exports</li>
+          </ul>
+          <a href="mailto:hello@fulcrumagentics.com?subject=Trial%20Workbench%20case%20readiness" class="mt-8 inline-flex rounded-2xl bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200">Start Case Readiness</a>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div class="text-sm font-semibold text-cyan-300">Professional / Attorney Intake</div>
+          <div class="mt-4 flex items-end gap-2"><span class="text-5xl font-semibold text-white">Custom</span></div>
+          <p class="mt-4 text-sm leading-6 text-slate-300">For attorneys, investigators, paralegals, and professionals who need repeatable intake, evidence review, research, and handoff workflows.</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-200">
+            <li>Multi-matter workspaces</li>
+            <li>Review states and pinned evidence controls</li>
+            <li>Research memo and theory scenario drafts</li>
+            <li>Case refresh and staged output approval</li>
+            <li>Export bundles for review</li>
+          </ul>
+          <a href="mailto:hello@fulcrumagentics.com?subject=Trial%20Workbench%20professional%20workflow" class="mt-8 inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">Discuss Professional Use</a>
+        </div>
       </div>
     </div>
   </section>
