@@ -61,14 +61,14 @@ export const workflowProofItems = [
   },
   {
     name: 'Trial Workbench',
-    tag: 'Case preparation and evidence readiness',
+    tag: 'Semantic case workspace and handoff exports',
     problem:
-      'Generic AI can make a user feel heard, but serious disputes require organized records, sourced research notes, clearly marked gaps, and a package a professional can review.',
+      'AI chats can make a user feel heard, but serious case preparation needs organized records, source-backed evidence, review flags, and exportable work product.',
     built:
-      'A semantic case workspace for evidence intake, chronology, research organization, claim-element review, and attorney handoff preparation.',
+      'A case workspace for intake, evidence upload and sync, semantic evidence search, research drafts, claim review, best evidence, prima facie review, and attorney handoff exports.',
     controls:
-      'The workflow keeps claims tied to pinned evidence, marks unsupported points, separates research notes from advice, and keeps the user oriented around preparation rather than promises.',
+      'The workflow keeps source records visible, surfaces known weaknesses and proof gaps, separates research notes from advice, and packages outputs for professional review.',
     output:
-      'Semantic case memory, chronology, evidence map, gap list, research notes, case readiness report, and attorney handoff package.',
+      'Matter summary, timeline highlights, actor summary, attack table summary, precedent summary where available, review flags, and attorney handoff markdown/json exports.',
   },
 ];
