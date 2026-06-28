@@ -28,6 +28,7 @@ export const siteConfig = {
   navigation: {
     links: [
       { name: 'Proof', href: '#proof' },
+      { name: 'Use Case', href: '/use-case/' },
       { name: 'Trial Workbench', href: '/trialworkbench/' },
       { name: 'Control', href: '#control' },
       { name: 'Why Fulcrum', href: '#why-fulcrum' },
@@ -159,6 +160,7 @@ export const siteConfig = {
         title: 'Proof',
         links: [
           { name: 'Built Workflows', href: '#proof' },
+          { name: 'Use Case', href: '/use-case/' },
           { name: 'Trial Workbench', href: '/trialworkbench/' },
           { name: 'Control Surfaces', href: '#control' },
           { name: 'Why Fulcrum', href: '#why-fulcrum' },
