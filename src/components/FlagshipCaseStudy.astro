@@ -67,19 +67,26 @@ const systems = [
               Your browser does not support HTML video.
             </video>
           ) : (
-            <div class="case-film-placeholder">
+            <figure class="case-film-placeholder workflow-graphic">
               <img
-                src="/assets/proof/route-authority-results.png"
-                alt="A controlled Fulcrum workflow showing reviewable results and operating states"
+                class="workflow-graphic__image workflow-graphic__image--day"
+                src="/assets/proof/fulcrum-communications-light.png"
+                alt="FulcrumAgentics order communication workflow from order receipt through AI research, Hermes orchestration, FedEx rating, human approval, processing, and follow-up"
+                width="1672"
+                height="941"
                 loading="lazy"
                 decoding="async"
               />
-              <div>
-                <span>Flagship operating proof</span>
-                <strong>From founder bottleneck to controlled AI office</strong>
-                <small>Built from real operating systems, review states, and production boundaries.</small>
-              </div>
-            </div>
+              <img
+                class="workflow-graphic__image workflow-graphic__image--night"
+                src="/assets/proof/fulcrum-communications-dark.png"
+                alt="FulcrumAgentics order communication workflow from order context through AI research, Hermes orchestration, FedEx rating, human approval, processing, and verified follow-up"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           )
         }
       </div>
@@ -168,53 +175,39 @@ const systems = [
     }
 
     .case-film-placeholder {
-      position: relative;
       background: var(--color-brand-navy);
+      margin: 0;
     }
 
-    .case-film-placeholder::after {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 28%, rgba(9, 24, 44, 0.92) 100%);
-      content: '';
-    }
-
-    .case-film-placeholder img {
+    .workflow-graphic__image {
+      display: block;
       width: 100%;
       height: 100%;
       min-height: 390px;
-      object-fit: cover;
-      object-position: top left;
-      opacity: 0.58;
+      background: var(--color-surface);
+      object-fit: contain;
     }
 
-    .case-film-placeholder div {
-      position: absolute;
-      right: 24px;
-      bottom: 24px;
-      left: 24px;
-      z-index: 1;
-      display: grid;
-      gap: 6px;
-      color: white;
+    .workflow-graphic__image--night {
+      display: none;
     }
 
-    .case-film-placeholder span {
-      color: var(--color-brand-amber);
-      font-size: 0.75rem;
-      font-weight: 850;
-      text-transform: uppercase;
+    :global(html.theme-dark) .workflow-graphic__image--day {
+      display: none;
     }
 
-    .case-film-placeholder strong {
-      font-size: clamp(1.35rem, 3vw, 2.2rem);
-      line-height: 1.1;
+    :global(html.theme-dark) .workflow-graphic__image--night {
+      display: block;
     }
 
-    .case-film-placeholder small {
-      max-width: 620px;
-      color: rgba(255, 255, 255, 0.76);
-      line-height: 1.45;
+    @media (prefers-color-scheme: dark) {
+      :global(html:not(.theme-light)) .workflow-graphic__image--day {
+        display: none;
+      }
+
+      :global(html:not(.theme-light)) .workflow-graphic__image--night {
+        display: block;
+      }
     }
 
     .flagship-principle {
