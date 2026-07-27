@@ -1,0 +1,199 @@
+---
+import { siteConfig } from '../config.ts';
+
+const offers = [
+  {
+    label: 'Fixed-scope starting point',
+    name: 'AI Workflow Diagnostic',
+    price: 'From $2,500',
+    timing: '10 business days',
+    description:
+      'Find the first workflow worth funding before buying more tools or committing to a large transformation.',
+    deliverables: [
+      'Workflow and system inventory',
+      'Opportunity and risk scorecard',
+      'Prioritized pilot business case',
+      '90-day AI roadmap',
+    ],
+  },
+  {
+    label: 'Prove one operating loop',
+    name: 'Controlled AI Pilot',
+    price: 'From $12,500',
+    timing: 'Typical scope: 4–8 weeks',
+    description:
+      'Build one production-shaped workflow on real data, with acceptance criteria and human control where consequences matter.',
+    deliverables: [
+      'System and source connections',
+      'Review and escalation path',
+      'Audited output and run history',
+      'Operating runbook and success readout',
+    ],
+  },
+  {
+    label: 'Ongoing executive ownership',
+    name: 'Fractional AI Office',
+    price: 'From $4,000/mo',
+    timing: 'Monthly operating engagement',
+    description:
+      'Give the company an accountable AI leader and implementation partner without assembling a full internal department.',
+    deliverables: [
+      'AI portfolio and governance',
+      'Vendor and model decisions',
+      'Training and adoption support',
+      'Executive ROI and risk reporting',
+    ],
+  },
+];
+---
+
+<section id="ai-office" class="section ai-office-section">
+  <div class="site-shell">
+    <div class="section-heading">
+      <p class="eyebrow">A marketable way to start</p>
+      <h2>Your AI office, from first decision to reliable operation.</h2>
+      <p>
+        Start with clarity. Prove one controlled workflow. Add ongoing leadership
+        only when the business case earns it.
+      </p>
+    </div>
+
+    <div class="offer-grid">
+      {
+        offers.map((offer) => (
+          <article class="offer-card">
+            <span class="offer-label">{offer.label}</span>
+            <h3>{offer.name}</h3>
+            <div class="offer-price">
+              <strong>{offer.price}</strong>
+              <span>{offer.timing}</span>
+            </div>
+            <p>{offer.description}</p>
+            <ul>
+              {offer.deliverables.map((deliverable) => <li>{deliverable}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="office-note">
+      <p>
+        <strong>Not every workflow should be automated.</strong>
+        The diagnostic is valuable when the right answer is to repair the source
+        process, keep a decision human, or postpone the build.
+      </p>
+      <a class="btn btn-primary" href={siteConfig.site.workflowMailto}>
+        Start a Workflow Diagnostic
+      </a>
+    </div>
+  </div>
+
+  <style>
+    .ai-office-section {
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .offer-card,
+    .office-note {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .offer-card {
+      padding: 26px;
+    }
+
+    .offer-label {
+      color: var(--color-brand-amber);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .offer-card h3 {
+      margin: 18px 0 0;
+      color: var(--color-text);
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .offer-price {
+      display: grid;
+      gap: 4px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0;
+    }
+
+    .offer-price strong {
+      color: var(--color-text);
+      font-size: 1.3rem;
+    }
+
+    .offer-price span,
+    .offer-card p,
+    .offer-card li,
+    .office-note p {
+      color: var(--color-text-muted);
+      line-height: 1.58;
+    }
+
+    .offer-card p {
+      margin: 18px 0 0;
+    }
+
+    .offer-card ul {
+      display: grid;
+      gap: 9px;
+      margin: 22px 0 0;
+      padding-left: 20px;
+    }
+
+    .office-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-top: 18px;
+      padding: 22px 26px;
+    }
+
+    .office-note p {
+      max-width: 780px;
+      margin: 0;
+    }
+
+    .office-note strong {
+      color: var(--color-text);
+    }
+
+    @media (max-width: 980px) {
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .offer-card {
+        padding: 22px;
+      }
+
+      .office-note {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+  </style>
+</section>
