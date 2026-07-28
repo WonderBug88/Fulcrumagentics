@@ -14,9 +14,10 @@ results.
 ## Website Asset
 
 - Final path: `public/assets/video/fulcrum-founder-transformation.mp4`
+- Poster path: `public/assets/video/fulcrum-founder-transformation-poster.jpg`
 - Format: MP4
 - Ratio: 16:9
-- Initial duration: 10 seconds
+- Duration: 25 seconds
 - Playback: user-controlled, inline, with no autoplay requirement
 - Text and calls to action stay in HTML, not inside generated footage
 

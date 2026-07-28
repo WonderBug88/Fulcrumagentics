@@ -62,7 +62,15 @@ const systems = [
       <div class="case-film">
         {
           hasVideo ? (
-            <video controls playsinline preload="metadata" aria-label="Fulcrum founder transformation film">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="/assets/video/fulcrum-founder-transformation-poster.jpg"
+              width="1920"
+              height="1080"
+              aria-label="Fulcrum founder transformation explainer film"
+            >
               <source src={videoPath} type="video/mp4" />
               Your browser does not support HTML video.
             </video>
