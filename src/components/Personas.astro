@@ -1,72 +1,51 @@
 ---
 const painPoints = [
   {
-    title: 'Demo-to-Deployment Cliff',
+    title: 'Founder Routing Tax',
     description:
-      'The first demo works because the problem is controlled. Real operations break when formats change, APIs fail, users enter bad data, or the edge case shows up.',
+      'Orders, exceptions, supplier questions, pricing decisions, and approvals keep routing through the founder because the operating context lives in one head.',
   },
   {
-    title: 'Botsitting Tax',
+    title: 'Competitor Speed Gap',
     description:
-      'The owner or best employee becomes the AI supervisor: approving, correcting, retrying, debugging, and asking what comes next all day.',
+      'Competitors are answering, repricing, publishing, and following up faster while your team is still assembling the context needed to act safely.',
   },
   {
-    title: 'Context Treadmill',
+    title: 'Disconnected AI Tools',
     description:
-      'Every session requires reloading the business rules, exceptions, customer history, source records, and desired output before useful work can happen.',
+      'Employees have AI subscriptions, but the tools are not connected to authoritative records, operating rules, approval paths, or measurable business outcomes.',
   },
   {
-    title: 'Trust Gap',
+    title: 'Automation Trust Gap',
     description:
-      'A 95% correct answer can still create work if the wrong 5% touches customers, inventory, legal evidence, shipping, money, or production systems.',
-  },
-  {
-    title: 'Workflow Drift',
-    description:
-      'Patch by patch, the AI app drifts away from the original job until nobody knows what it does, why it did it, or whether it should be trusted.',
+      'A fast answer is not enough when the wrong action touches customers, inventory, shipping, money, or a system of record.',
   },
 ];
 
 const personas = [
   {
-    name: 'The Operations Bottleneck Founder',
-    who: 'Ecommerce owners, distributors, manufacturers, hospitality operators, and service businesses.',
+    name: 'The Successful Commerce Founder',
+    who: 'Owner-led ecommerce companies, distributors, manufacturers, and hospitality suppliers.',
     pain:
-      'Too many spreadsheets, supplier updates, SKU decisions, pricing changes, inbox interruptions, and manual approvals.',
-    wants: 'Make the business run without touching every process personally.',
-    employee: 'Supplier intake, catalog QA, pricing review, publishing, reporting, and exception routing.',
+      'The company has traction, but growth keeps adding decisions and coordination to the founder instead of creating operating leverage.',
+    wants: 'Move as quickly as newer competitors without losing the judgment and customer trust that built the company.',
+    employee: 'An accountable AI office that prioritizes, connects, governs, and improves the first high-value workflows.',
   },
   {
-    name: 'The Evidence Worker',
-    who: 'Attorneys, insurance analysts, compliance teams, investigators, and document-heavy professionals.',
+    name: 'The Growth-Constrained Operator',
+    who: 'Commerce teams with ten to two hundred employees and more work than their current operating model can absorb.',
     pain:
-      'Thousands of pages, emails, attachments, timelines, claims, weak spots, and source records that must stay defensible.',
-    wants: 'Find the answer and show the proof.',
-    employee: 'Evidence search, chronology building, claim tables, source-backed summaries, and handoff exports.',
+      'Supplier intake, catalog QA, customer communication, fulfillment, and reporting compete for the same experienced people.',
+    wants: 'Increase capacity without adding headcount and management at the same rate.',
+    employee: 'Controlled workflow automation with clear exception queues, approvals, and operating ownership.',
   },
   {
-    name: 'The Growth-Constrained Team',
-    who: 'Ten to two-hundred person companies, regional operators, PE-backed businesses, and fast-growing teams.',
+    name: 'The Tribal-Knowledge Business',
+    who: 'Established family businesses, regional operators, and companies with long-tenured employees.',
     pain:
-      'They need more capacity, but another hire adds payroll, training, management, and risk before the process is stable.',
-    wants: 'Scale output without scaling headcount at the same rate.',
-    employee: 'Inbox triage, sales follow-up, customer workflows, reporting, data cleanup, and back-office coordination.',
-  },
-  {
-    name: 'The Tribal Knowledge Company',
-    who: 'Family businesses, legacy companies, multi-location teams, and organizations with long-tenured employees.',
-    pain:
-      'One person knows how everything works, but the knowledge lives in memory, email threads, old spreadsheets, and habits.',
-    wants: 'Turn tribal knowledge into a process the company can actually run.',
-    employee: 'SOP capture, knowledge routing, decision support, training support, and institutional memory workflows.',
-  },
-  {
-    name: 'The Compliance-Conscious Operator',
-    who: 'Healthcare, finance, legal, procurement, fulfillment, hospitality, and regulated or reputation-sensitive teams.',
-    pain:
-      'They want automation, but mistakes matter and AI cannot be allowed to run loose without review boundaries.',
-    wants: 'Automate safely without losing control.',
-    employee: 'Approval gates, audit trails, risk holds, permission checks, escalation rules, and accountable production writes.',
+      'Critical decisions depend on memory, old spreadsheets, inbox history, and habits that are difficult to teach or scale.',
+    wants: 'Turn operating knowledge into a process the team can run, review, and improve.',
+    employee: 'Source-backed decision support, institutional memory, permission rules, and human escalation.',
   },
 ];
 ---
@@ -75,11 +54,11 @@ const personas = [
   <div class="site-shell">
     <div class="section-heading section-heading-left">
       <p class="eyebrow">Who hires Fulcrum</p>
-      <h2>For teams that are tired of babysitting AI.</h2>
+      <h2>For successful companies whose operating model has become the constraint.</h2>
       <p>
-        The pain is not access to AI. The pain is turning AI into a dependable
-        business role that keeps working after the demo, after the exceptions,
-        and after the first rebuild.
+        The pain is not access to AI. The pain is choosing where it belongs,
+        connecting it to the business safely, and creating capacity without
+        losing the judgment that made the company successful.
       </p>
     </div>
 
@@ -94,7 +73,7 @@ const personas = [
 
     <div class="persona-heading">
       <p class="eyebrow">Best-fit buyers</p>
-      <h3>Fulcrum is strongest where AI touches real work, real systems, and real accountability.</h3>
+      <h3>Fulcrum is strongest in owner-led commerce operations where speed and trust must improve together.</h3>
     </div>
 
     <div class="persona-grid" aria-label="Fulcrum Agentics customer personas">
@@ -115,7 +94,7 @@ const personas = [
               <dd>{persona.wants}</dd>
             </div>
             <div>
-              <dt>AI employee</dt>
+              <dt>Fulcrum role</dt>
               <dd>{persona.employee}</dd>
             </div>
           </dl>

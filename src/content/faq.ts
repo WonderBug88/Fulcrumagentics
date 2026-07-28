@@ -1,23 +1,28 @@
 export const faqItems = [
   {
-    question: 'Is this software, services, or both?',
+    question: 'What is a fractional AI office?',
     answer:
-      'Both. Fulcrum Agentics builds the workflow software and helps operate the first production loop so the rules, evidence, approvals, and exception paths match the way your business actually works.',
+      'It gives your company accountable AI leadership, implementation, governance, and ongoing operational support without requiring a full internal AI department. Fulcrum prioritizes the opportunities, builds the controlled workflows, and stays responsible for how they perform.',
+  },
+  {
+    question: 'Is this the same as a fractional Chief AI Officer?',
+    answer:
+      'It includes that executive responsibility, but it does not stop at strategy. Fulcrum also provides the implementation and operating layer needed to connect systems, train the workflow, govern risk, and measure results.',
   },
   {
     question: 'Why hire Fulcrum when AI subscriptions are cheap?',
     answer:
-      'Cheap AI gives you access to intelligence. It does not automatically give you process design, source context, review screens, escalation rules, audit trails, write boundaries, or a workflow your employees can trust every day. Fulcrum makes AI employable.',
+      'A subscription gives employees access to a model. It does not decide which workflow is worth funding, establish source authority, connect company systems, create approval and escalation paths, measure value, or remain accountable when the process changes.',
   },
   {
-    question: 'What makes this different from a generic AI agent?',
+    question: 'Will Fulcrum connect our entire company to one AI?',
     answer:
-      'The workflow is explicit. It has a role, intake, source validation, deterministic checks, proposal states, review decisions, production boundaries, exception handling, and audit output. The agent is one part of a controlled operating system.',
+      'Not in one risky step. Fulcrum maps the whole business, then starts with one high-value operating loop. Each expansion has explicit data access, permissions, review boundaries, acceptance criteria, and an owner. The goal is a connected AI capability, not an uncontrolled super-agent.',
   },
   {
     question: 'Why not just use ChatGPT, Claude, or Codex?',
     answer:
-      'Use those tools for isolated tasks, drafts, exploration, and code help. Hire Fulcrum when the process touches real data, real customers, real money, legal evidence, fulfillment, publishing, or any workflow where the human should not spend all day babysitting prompts and approvals.',
+      'Use those tools for isolated tasks, drafts, exploration, and code help. Hire Fulcrum when the process touches real data, customers, money, fulfillment, publishing, or another workflow where the business needs repeatability, permissions, evidence, and accountability.',
   },
   {
     question: 'Will better models make this unnecessary?',
@@ -42,6 +47,6 @@ export const faqItems = [
   {
     question: 'What is the first conversation about?',
     answer:
-      'Bring one process that is manual, repetitive, and risky. We will map the source data, approval point, write target, escalation rules, and success measure, then decide whether it should become a digital employee, a staged workflow, or stay manual for now.',
+      'Bring one process that repeatedly comes back to the founder or best employee. We will discuss the systems it touches, the decision being made, the cost of delay or error, the approval boundary, and how a successful pilot would be measured.',
   },
 ];

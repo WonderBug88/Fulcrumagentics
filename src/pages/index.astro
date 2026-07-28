@@ -3,6 +3,8 @@ import '../styles/globals.css';
 import { siteConfig } from '../config.ts';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
+import FlagshipCaseStudy from '../components/FlagshipCaseStudy.astro';
+import Offers from '../components/Offers.astro';
 import Features from '../components/Features.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import BuiltWorkflows from '../components/BuiltWorkflows.astro';
@@ -12,6 +14,27 @@ import Engagement from '../components/Engagement.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const canonicalUrl = 'https://fulcrumagentics.com/';
+const socialImage = 'https://fulcrumagentics.com/assets/fulcrum-mark-og.png';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: siteConfig.site.name,
+  url: canonicalUrl,
+  logo: 'https://fulcrumagentics.com/assets/fulcrum-logo-full.png',
+  image: socialImage,
+  email: siteConfig.site.email,
+  description: siteConfig.site.description,
+  areaServed: 'US',
+  serviceType: [
+    'Fractional AI Office',
+    'Fractional Chief AI Officer',
+    'AI Workflow Diagnostic',
+    'Controlled AI Workflow Implementation',
+    'AI Governance and Operations',
+  ],
+};
 ---
 
 <!doctype html>
@@ -24,11 +47,13 @@ import Footer from '../components/Footer.astro';
     <title>{siteConfig.site.title}</title>
     <meta name="description" content={siteConfig.site.description} />
     <meta name="keywords" content={siteConfig.site.keywords} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:title" content={siteConfig.site.ogTitle} />
     <meta property="og:description" content={siteConfig.site.ogDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/fulcrum-mark-og.png" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1254" />
     <meta property="og:image:height" content="1254" />
 
@@ -38,7 +63,8 @@ import Footer from '../components/Footer.astro';
       name="twitter:description"
       content={siteConfig.site.twitterDescription}
     />
-    <meta name="twitter:image" content="/assets/fulcrum-mark-og.png" />
+    <meta name="twitter:image" content={socialImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
     <script is:inline>
       (() => {
@@ -66,6 +92,8 @@ import Footer from '../components/Footer.astro';
   <body>
     <Navigation />
     <Hero />
+    <FlagshipCaseStudy />
+    <Offers />
     <Features />
     <HowItWorks />
     <BuiltWorkflows />
