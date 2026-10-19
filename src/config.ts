@@ -46,7 +46,7 @@ export const siteConfig = {
     description:
       'We create reusable AI-powered software, mathematical decision systems and controlled automations for real operations. We are expanding that expertise into product R&D and small-batch electronics and plastics manufacturing—bridging digital intelligence with physical production.',
     cta: {
-      primary: { text: 'Start a Workflow Diagnostic', href: workflowMailto },
+      primary: { text: 'Discuss a Project', href: workflowMailto },
       secondary: { text: 'Explore Capabilities', href: '#capabilities' },
     },
     proofPoints: [
@@ -130,9 +130,9 @@ export const siteConfig = {
   },
 
   faq: {
-    title: 'Questions Founders And Operators Ask',
+    title: 'Questions About Our Services And R&D',
     subtitle:
-      'The point is not to connect everything overnight. It is to build the AI capability deliberately, prove value, and keep accountability clear.',
+      'From an AI workflow to a complex analytical model or physical product concept, scope and validation come before scale.',
   },
 
   contact: {
