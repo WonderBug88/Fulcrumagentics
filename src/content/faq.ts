@@ -1,5 +1,21 @@
 export const faqItems = [
   {
+    question: 'What does Fulcrum Agentics build?',
+    answer: 'We develop applied AI software, integrated business workflows, analytical and decision-support systems, and advanced reasoning tools. We are also developing a product R&D and small-batch contract manufacturing capability; that physical production offering is planned and subject to feasibility.',
+  },
+  {
+    question: 'Is the microfactory already operating?',
+    answer: 'Not yet. Formlabs 3D printing, LumenPnP electronics placement, APSX injection molding and CNC tooling are part of the proposed equipment stack. Equipment ownership, commissioning, part feasibility and available production capacity must be verified before accepting manufacturing orders.',
+  },
+  {
+    question: 'Are Hotels4Humanity and BacRub independent customers?',
+    answer: 'Both are affiliated businesses and application environments. Hotels4Humanity is an AI workflow customer, and BacRub LLC is an electronic product development and prospective manufacturing client. We distinguish this work from independent, unrelated third-party customer traction.',
+  },
+  {
+    question: 'Does Fulcrum operate a live trading product?',
+    answer: 'No such claim is made. Algorithmic trading is an area of quantitative research and development. Research models are not representations of verified live performance, investment returns or investment advice.',
+  },
+  {
     question: 'What is a fractional AI office?',
     answer:
       'It gives your company accountable AI leadership, implementation, governance, and ongoing operational support without requiring a full internal AI department. Fulcrum prioritizes the opportunities, builds the controlled workflows, and stays responsible for how they perform.',
