@@ -1,25 +1,19 @@
 # Fulcrum Agentics Website
 
-An Astro site for **Fulcrum Agentics**, an Arizona applied-AI engineering, software R&D and emerging advanced-manufacturing venture.
+Astro website for Fulcrum Agentics, an Arizona-based applied AI and software engineering venture.
 
-## Positioning
+## Current homepage
 
-Fulcrum builds reusable intelligence and practical operating systems. Its services span:
+The homepage is intentionally short and evidence-led:
 
-- **AI operations and integration** — workflow orchestration, data engineering, rules-driven approvals, supplier and order systems.
-- **Advanced analytics and applied research** — source-grounded analytical logic, mathematical optimization and quantitative research.
-- **Product R&D and contract micro-manufacturing (planned)** — prototype engineering, Formlabs additive manufacturing, Opulo LumenPnP electronics placement, APSX injection molding and compact CNC tooling. This is a proposed capability, **not yet a claim of installed equipment or available capacity**.
+- A clear statement of what Fulcrum builds.
+- Selected work developed in the affiliated **Hotels4Humanity** environment: Hermes, PAM ETL, Shipping Intelligence, Route Authority and Content Studio.
+- A concise explanation of the engineering focus, plus a carefully labeled reference to R&D.
+- A direct contact link for collaborations and introductions.
 
-### Selected work
+The website **does not market proposed micro-manufacturing facilities, equipment or future research projects as available commercial services**. Trial Workbench and quantitative systems remain in development and are not presented as finished commercial products.
 
-- **Hotels4Humanity (affiliated customer)** — Hermes, PAM ETL, shipping intelligence, Route Authority, automated content workflows, commerce analytics.
-- **Trial Workbench** — legal intelligence and evidence-backed analytical workflows (active development).
-- **Algorithmic trading models** — quantitative research (in development; no claims of live performance).
-- **BacRub LLC (affiliated R&D client)** — a prospective application for prototyping and manufacturing services.
-
-Affiliated companies are distinguished from independent third-party customer traction throughout the site.
-
-## Local development
+## Development
 
 ```bash
 npm ci
@@ -27,15 +21,15 @@ npm run dev
 npm run build
 ```
 
-The production site deploys to GitHub Pages from `master` via `.github/workflows/astro.yml`.
+GitHub Pages is configured to deploy from `master` via `.github/workflows/astro.yml`. Pull requests run build validation.
 
-## Main content
+## Site structure
 
-- `src/config.ts` — branding, metadata, navigation, hero and calls to action.
-- `src/components/Capabilities.astro` — capability lanes, planned microfactory and customer applications.
-- `src/components/Offers.astro` — ways to work with Fulcrum.
-- `src/content/workflows.ts` — working software and selected projects.
-- `src/content/faq.ts` — readiness and scope disclosures.
-- `src/styles/globals.css` — visual system, responsive layout and light/dark themes.
+- `src/pages/index.astro` — lean homepage with portfolio, about and contact.
+- `src/config.ts` — brand, metadata, navigation and contact copy.
+- `src/components/Navigation.astro` and `Footer.astro` — shared navigation and footer.
+- `src/styles/globals.css` — brand tokens and shared styles.
+- `src/pages/use-case.astro` — detailed historical ETL use-case page.
+- `src/pages/hermes-shipping-provider/` — Hermes resource pages.
 
-Existing privacy, legal and Hermes resource routes remain in place.
+Earlier expanded homepage components remain in the repository for reference but are not rendered on the public homepage.

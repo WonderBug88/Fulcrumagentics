@@ -2,38 +2,52 @@
 import '../styles/globals.css';
 import { siteConfig } from '../config.ts';
 import Navigation from '../components/Navigation.astro';
-import Hero from '../components/Hero.astro';
-import Capabilities from '../components/Capabilities.astro';
-import FlagshipCaseStudy from '../components/FlagshipCaseStudy.astro';
-import Offers from '../components/Offers.astro';
-import Features from '../components/Features.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import BuiltWorkflows from '../components/BuiltWorkflows.astro';
-import WhyFulcrum from '../components/WhyFulcrum.astro';
-import Engagement from '../components/Engagement.astro';
-import FAQ from '../components/FAQ.astro';
-import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
 const canonicalUrl = 'https://fulcrumagentics.com/';
 const socialImage = 'https://fulcrumagentics.com/assets/fulcrum-mark-og.png';
+
+const projects = [
+  {
+    number: '01',
+    name: 'Hermes',
+    type: 'Order orchestration',
+    description: 'Connects order information, supplier purchase-order preparation and shipping review in a controlled workflow.',
+  },
+  {
+    number: '02',
+    name: 'PAM ETL',
+    type: 'Supplier data',
+    description: 'Takes inconsistent vendor files through normalization, SKU checks and review before catalog updates.',
+  },
+  {
+    number: '03',
+    name: 'Shipping Intelligence',
+    type: 'Modeling & optimization',
+    description: 'Combines shipping rules, packaging constraints and predictive models to support more informed freight estimates.',
+  },
+  {
+    number: '04',
+    name: 'Route Authority',
+    type: 'Search operations',
+    description: 'Connects search-performance signals with website recommendations, routing and review before publishing.',
+  },
+  {
+    number: '05',
+    name: 'Content Studio',
+    type: 'AI-assisted publishing',
+    description: 'Turns research and structured inputs into blog drafts for editorial review and controlled publishing.',
+  },
+];
+
 const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
+  '@type': 'Organization',
   name: siteConfig.site.name,
   url: canonicalUrl,
   logo: 'https://fulcrumagentics.com/assets/fulcrum-logo-full.png',
-  image: socialImage,
-  email: siteConfig.site.email,
   description: siteConfig.site.description,
-  areaServed: 'US',
-  serviceType: [
-    'Applied AI and Software Engineering',
-    'AI Workflow Automation',
-    'Advanced Analytics and Mathematical Modeling',
-    'Product Research and Development',
-    'Planned Small-batch Contract Manufacturing',
-  ],
+  email: siteConfig.site.email,
 };
 ---
 
@@ -54,15 +68,10 @@ const structuredData = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content="1254" />
-    <meta property="og:image:height" content="1254" />
 
     <meta name="twitter:card" content={siteConfig.site.twitterCard} />
     <meta name="twitter:title" content={siteConfig.site.twitterTitle} />
-    <meta
-      name="twitter:description"
-      content={siteConfig.site.twitterDescription}
-    />
+    <meta name="twitter:description" content={siteConfig.site.twitterDescription} />
     <meta name="twitter:image" content={socialImage} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
@@ -70,12 +79,10 @@ const structuredData = {
       (() => {
         const key = 'fa-theme';
         const root = document.documentElement;
-
         let saved = 'light';
         try {
           saved = localStorage.getItem(key) === 'dark' ? 'dark' : 'light';
         } catch {}
-
         root.classList.remove('theme-light', 'theme-dark');
         root.classList.add(saved === 'dark' ? 'theme-dark' : 'theme-light');
       })();
@@ -91,37 +98,133 @@ const structuredData = {
 
   <body>
     <Navigation />
-    <Hero />
-    <Capabilities />
-    <FlagshipCaseStudy />
-    <Offers />
-    <Features />
-    <HowItWorks />
-    <BuiltWorkflows />
-    <WhyFulcrum />
-    <Engagement />
-    <FAQ />
-    <Contact />
-    <Footer />
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -100px 0px',
-        };
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, observerOptions);
-        const scrollFadeElements = document.querySelectorAll(
-          '.scroll-fade, .scroll-fade-up, .scroll-fade-down, .scroll-fade-left, .scroll-fade-right',
-        );
-        scrollFadeElements.forEach((el) => observer.observe(el));
-      });
-    </script>
+    <main>
+      <section class="home-hero" aria-labelledby="home-heading">
+        <div class="site-shell hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
+            <h1 id="home-heading">{siteConfig.hero.headline}</h1>
+            <p class="hero-lead">{siteConfig.hero.description}</p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href={siteConfig.hero.cta.primary.href}>{siteConfig.hero.cta.primary.text}</a>
+              <a class="btn btn-secondary" href={siteConfig.hero.cta.secondary.href}>{siteConfig.hero.cta.secondary.text}</a>
+            </div>
+          </div>
+
+          <aside class="hero-proof" aria-label="Examples of our applied AI work">
+            <div class="proof-topline"><span class="proof-dot" aria-hidden="true"></span> Working on real problems</div>
+            <div class="proof-row"><span>Supplier files</span><strong>Structured product data</strong></div>
+            <div class="proof-row"><span>Incoming orders</span><strong>Reviewable fulfillment steps</strong></div>
+            <div class="proof-row"><span>Shipping inputs</span><strong>Model-supported estimates</strong></div>
+            <p>Software shaped by the needs of an operating business, not a slide deck.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="work" class="section home-work" aria-labelledby="work-heading">
+        <div class="site-shell">
+          <div class="section-heading section-heading-left home-section-heading">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="work-heading">Built to solve specific problems.</h2>
+            <p>Examples of software developed for Hotels4Humanity, an affiliated business. These systems are at different stages of use and refinement.</p>
+          </div>
+
+          <div class="project-grid">
+            {projects.map((project) => (
+              <article class="project-card">
+                <div class="project-top"><span>{project.number}</span><span>{project.type}</span></div>
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section home-about" aria-labelledby="about-heading">
+        <div class="site-shell about-layout">
+          <div>
+            <p class="eyebrow">About Fulcrum</p>
+            <h2 id="about-heading">Small team. Complex problems. Practical solutions.</h2>
+          </div>
+          <div class="about-copy">
+            <p>We bring together AI, software engineering, data integration and mathematical modeling. The goal is straightforward: make complicated work more reliable, easier to review and less dependent on manual handoffs.</p>
+            <p>We also pursue independent R&D, including Trial Workbench and quantitative models. These are development projects—not services or finished products we're advertising today.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section home-contact" aria-labelledby="contact-heading">
+        <div class="site-shell contact-layout">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-heading">{siteConfig.contact.title}</h2>
+            <p>{siteConfig.contact.subtitle}</p>
+          </div>
+          <a class="btn btn-primary" href={siteConfig.contact.href}>{siteConfig.contact.cta}</a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
   </body>
 </html>
+
+<style>
+  .home-hero {
+    border-bottom: 1px solid var(--color-border);
+    background:
+      radial-gradient(circle at 90% 12%, color-mix(in srgb, var(--color-brand-amber) 11%, transparent), transparent 40%),
+      var(--color-bg);
+    padding: clamp(66px, 8vw, 112px) 0 clamp(56px, 7vw, 92px);
+  }
+  .hero-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(275px, .75fr); align-items: center; gap: clamp(25px, 5vw, 80px); }
+  .hero-content h1 {
+    max-width: 900px;
+    color: var(--color-text);
+    margin: 18px 0 0;
+    font-size: clamp(2.8rem, 6.2vw, 5.6rem);
+    letter-spacing: -.055em;
+    line-height: 1.03;
+    font-weight: 820;
+  }
+  .hero-lead { max-width: 680px; color: var(--color-text-muted); font-size: clamp(1.04rem, 1.6vw, 1.18rem); line-height: 1.68; margin: 23px 0 0; }
+  .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+  .hero-proof { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; box-shadow: var(--shadow-soft); padding: clamp(20px, 2.8vw, 28px); }
+  .proof-topline { font-size: .82rem; font-weight: 800; color: var(--color-text-muted); letter-spacing: .02em; margin-bottom: 24px; display: flex; align-items: center; gap: 9px; }
+  .proof-dot { display: inline-block; flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%; background: var(--color-brand-amber); }
+  .proof-row { padding: 13px 0; border-top: 1px solid var(--color-border); display: grid; gap: 4px; }
+  .proof-row span { color: var(--color-text-muted); font-size: .79rem; }
+  .proof-row strong { color: var(--color-text); font-size: 1rem; }
+  .hero-proof > p { color: var(--color-text-muted); font-size: .81rem; line-height: 1.6; margin: 22px 0 0; }
+  .home-work { scroll-margin-top: 95px; }
+  .home-section-heading { max-width: 750px; margin-bottom: 30px; }
+  .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .project-card { border: 1px solid var(--color-border); border-radius: 10px; padding: clamp(20px, 2.6vw, 28px); background: var(--color-surface); box-shadow: var(--shadow-soft); }
+  .project-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; color: var(--color-text-muted); font-size: .75rem; }
+  .project-top span:first-child { color: var(--color-brand-amber); font-weight: 800; }
+  .project-card h3 { font-size: 1.35rem; line-height: 1.2; color: var(--color-text); margin: 25px 0 0; }
+  .project-card p { color: var(--color-text-muted); line-height: 1.65; margin: 12px 0 0; font-size: .96rem; }
+  .home-about { scroll-margin-top: 90px; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); background: var(--color-surface-2); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(28px, 6vw, 90px); }
+  .about-layout h2, .contact-layout h2 { color: var(--color-text); line-height: 1.16; font-size: clamp(1.8rem, 3.2vw, 2.7rem); margin: 16px 0 0; }
+  .about-copy p, .contact-layout p:not(.eyebrow) { color: var(--color-text-muted); line-height: 1.72; margin: 0 0 14px; }
+  .home-contact { scroll-margin-top: 90px; }
+  .contact-layout { display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+  .contact-layout h2 { margin: 12px 0; }
+  .contact-layout p:not(.eyebrow) { max-width: 630px; }
+  .contact-layout .btn { flex-shrink: 0; }
+  @media (max-width: 900px) {
+    .hero-layout { grid-template-columns: 1fr; }
+    .hero-proof { max-width: 650px; }
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 650px) {
+    .home-hero { padding-top: 54px; }
+    .hero-content h1 { font-size: clamp(2.55rem, 11vw, 3.6rem); }
+    .project-grid, .about-layout { grid-template-columns: 1fr; }
+    .contact-layout { flex-direction: column; align-items: stretch; }
+    .contact-layout .btn { align-self: flex-start; }
+  }
+</style>
