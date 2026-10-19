@@ -1,41 +1,41 @@
 # Fulcrum Agentics Website
 
-Astro site for Fulcrum Agentics, positioned as the fractional AI office for
-owner-led commerce companies.
+An Astro site for **Fulcrum Agentics**, an Arizona applied-AI engineering, software R&D and emerging advanced-manufacturing venture.
 
-The homepage connects executive AI leadership to production implementation:
-identify the right opportunity, prove one controlled workflow, govern the
-operating boundary, and expand from measured results.
+## Positioning
 
-## Current Positioning
+Fulcrum builds reusable intelligence and practical operating systems. Its services span:
 
-- Fractional AI leadership plus implementation and ongoing operation
-- Commerce operations as the primary market entry point
-- A productized diagnostic, controlled pilot, and fractional AI office
-- Proof from built workflows: Route Authority, PAM ETL/SKU authority, Hermes fulfillment, GSC/GA4 freshness, marketplace staging, and Trial Workbench
-- Flagship founder-transformation case study with an optional Runway film
-- Email-first diagnostic CTA: `hello@fulcrumagentics.com`
-- No fake testimonials, fake pricing, or fake form submission
-- Clear buyer-objection answer: use AI tools for isolated work; hire Fulcrum
-  when the company needs prioritization, system connections, governance,
-  adoption, and accountable production operation
-- Dedicated "Why Fulcrum" section explaining why the same team owns strategy,
-  implementation, and operating results
+- **AI operations and integration** — workflow orchestration, data engineering, rules-driven approvals, supplier and order systems.
+- **Advanced analytics and applied research** — source-grounded analytical logic, mathematical optimization and quantitative research.
+- **Product R&D and contract micro-manufacturing (planned)** — prototype engineering, Formlabs additive manufacturing, Opulo LumenPnP electronics placement, APSX injection molding and compact CNC tooling. This is a proposed capability, **not yet a claim of installed equipment or available capacity**.
 
-## Development
+### Selected work
+
+- **Hotels4Humanity (affiliated customer)** — Hermes, PAM ETL, shipping intelligence, Route Authority, automated content workflows, commerce analytics.
+- **Trial Workbench** — legal intelligence and evidence-backed analytical workflows (active development).
+- **Algorithmic trading models** — quantitative research (in development; no claims of live performance).
+- **BacRub LLC (affiliated R&D client)** — a prospective application for prototyping and manufacturing services.
+
+Affiliated companies are distinguished from independent third-party customer traction throughout the site.
+
+## Local development
 
 ```bash
-npm install
+npm ci
 npm run dev
 npm run build
 ```
 
-The site deploys to GitHub Pages from `master` through `.github/workflows/astro.yml`.
+The production site deploys to GitHub Pages from `master` via `.github/workflows/astro.yml`.
 
-## Main Content Files
+## Main content
 
-- `src/config.ts` - site metadata, navigation, CTA, hero, engagement, contact, footer
-- `src/content/*.ts` - proof workflows, control features, process steps, FAQ
-- `src/components/*.astro` - rendered sections
-- `src/styles/globals.css` - brand tokens, theme support, responsive layout
-- `docs/flagship-case-study-video.md` - Runway brief, final asset path, and accessibility description
+- `src/config.ts` — branding, metadata, navigation, hero and calls to action.
+- `src/components/Capabilities.astro` — capability lanes, planned microfactory and customer applications.
+- `src/components/Offers.astro` — ways to work with Fulcrum.
+- `src/content/workflows.ts` — working software and selected projects.
+- `src/content/faq.ts` — readiness and scope disclosures.
+- `src/styles/globals.css` — visual system, responsive layout and light/dark themes.
+
+Existing privacy, legal and Hermes resource routes remain in place.
