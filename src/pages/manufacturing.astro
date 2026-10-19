@@ -1,0 +1,245 @@
+---
+import '../styles/globals.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Product R&D and Small-Batch Manufacturing | Fulcrum Agentics';
+const description = 'Fulcrum Agentics is developing an Arizona-based product engineering and micro-manufacturing service for inventors, startups, and manufacturers: rapid prototypes, PCB assembly planning, CNC tooling, and injection molding.';
+const email = 'mailto:hello@fulcrumagentics.com?subject=Product%20R%26D%20Feasibility%20Inquiry';
+const equipment = [
+  {
+    name: 'Formlabs resin 3D printing',
+    role: 'Rapid prototypes, fit checks, tooling trials and fixtures',
+    image: 'https://store.goengineer.com/cdn/shop/files/formlabs-form-4-3d-printer-01-bg.png?v=1761676475&width=1920',
+    alt: 'Actual Formlabs Form 4 resin 3D printer; distributor reference product photograph',
+    url: 'https://formlabs.com/3d-printers/form-4/',
+    credit: 'Formlabs Form 4 / GoEngineer product photo',
+  },
+  {
+    name: 'Opulo LumenPnP',
+    role: 'Automated surface-mount component placement for electronic prototypes',
+    image: 'https://www.opulo.io/cdn/shop/files/v4-ortho-hero.png?height=4000&v=1724515103',
+    alt: 'Actual Opulo LumenPnP v4 electronic-component pick-and-place machine',
+    url: 'https://www.opulo.io/products/lumenpnp',
+    credit: 'Opulo manufacturer photograph',
+  },
+  {
+    name: 'APSX-PIM injection molding',
+    role: 'Molded enclosure feasibility and repeatable thermoplastic pilot parts',
+    image: 'https://apsx.com/images/thumbs/0002243_apsx-pim-v3-plastic-injection-machine.jpeg',
+    alt: 'Actual APSX-PIM V3 desktop plastic injection molding machine',
+    url: 'https://apsx.com/desktop-injection-molding-machine',
+    credit: 'APSX manufacturer photograph',
+  },
+];
+const gates = [
+  { number: '01', title: 'Feasibility review', copy: 'Review CAD and STEP files, materials, tolerances, geometry, electronics, test requirements, and target quantities.' },
+  { number: '02', title: 'Prototype & iteration', copy: 'Plan printed parts and test fixtures; document revisions, component choices, failure modes, and engineering decisions.' },
+  { number: '03', title: 'Tooling & PCB readiness', copy: 'Evaluate mold fit, machine capacity, PCB fabrication, placement, reflow, firmware, and functional test fixtures.' },
+  { number: '04', title: 'Pilot release', copy: 'Agree on inspection, approvals, traceability, per-unit economics, and a realistic small-batch production plan.' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://fulcrumagentics.com/manufacturing/" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fulcrumagentics.com/manufacturing/" />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        let theme = 'light';
+        try { theme = localStorage.getItem('fa-theme') === 'dark' ? 'dark' : 'light'; } catch {}
+        root.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <section class="section manufacturing-hero">
+        <div class="site-shell manufacturing-hero-layout">
+          <div>
+            <p class="eyebrow">Fulcrum Agentics / Product engineering</p>
+            <h1>From a design file to a testable product.</h1>
+            <p class="manufacturing-intro">We're developing an Arizona-based R&amp;D and small-batch contract manufacturing service for outside inventors, startups, and manufacturers. A practical path through mechanical prototypes, electronics, tooling, testing, and pilot builds—with AI coordinating the documentation and decisions.</p>
+            <div class="manufacturing-actions">
+              <a class="btn btn-primary" href={email}>Request a feasibility discussion</a>
+              <a class="btn btn-secondary" href="#technical-references">See real technical references</a>
+            </div>
+            <p class="manufacturing-disclosure"><strong>Development status:</strong> This equipment is being evaluated and the manufacturing service is not advertised as an operational production facility. Product scope and launch dates require confirmation.</p>
+          </div>
+          <figure class="manufacturing-hero-image">
+            <img src="https://www.opulo.io/cdn/shop/files/v4-ortho-hero.png?height=4000&amp;v=1724515103" alt="Opulo LumenPnP machine from the manufacturer's product documentation, shown as a possible equipment reference" width="900" height="650" loading="eager" decoding="async" />
+            <figcaption>Manufacturer equipment reference—not an image of Fulcrum-owned machinery. <a href="https://www.opulo.io/products/lumenpnp" target="_blank" rel="noopener noreferrer">Opulo source ↗</a></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section manufacturing-model">
+        <div class="site-shell">
+          <div class="section-heading section-heading-left">
+            <p class="eyebrow">Service architecture</p>
+            <h2>Physical product development backed by controlled software.</h2>
+            <p>Engineering work should be traceable: who requested a change, which drawing is authoritative, what material or part number is approved, and whether the prototype passed inspection.</p>
+          </div>
+          <div class="manufacturing-model-grid">
+            <article><span>01 / DESIGN</span><h3>R&amp;D and CAD iteration</h3><p>Design review, dimensional feasibility, resin prints, fixtures, fit tests, and manufacturing-ready documentation.</p></article>
+            <article><span>02 / ELECTRONICS</span><h3>PCB and device development</h3><p>Component selection, BOM control, board-assembly planning, firmware programming, inspection, and functional tests.</p></article>
+            <article><span>03 / TOOLING</span><h3>Molds and pilot production</h3><p>Small CNC tooling, injection molding feasibility, enclosure revisions, assembly plans, and pilot-run quality controls.</p></article>
+            <article><span>04 / AGENTIC OPERATIONS</span><h3>AI-assisted production control</h3><p>Quoting, versioned design records, procurement tracking, approval gates, test evidence, and exception routing.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section equipment-section" id="equipment">
+        <div class="site-shell">
+          <div class="section-heading section-heading-left">
+            <p class="eyebrow">Actual machines / referenced equipment</p>
+            <h2>Real tools. Specific engineering constraints.</h2>
+            <p>These photographs show manufacturers' actual equipment under consideration, not stock images, a completed Fulcrum facility, or installed production capacity.</p>
+          </div>
+          <div class="equipment-grid">
+            {equipment.map((item) => (
+              <figure class="equipment-card">
+                <a href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`View manufacturer specifications for ${item.name}`}>
+                  <img src={item.image} alt={item.alt} width="800" height="600" loading="lazy" decoding="async" />
+                </a>
+                <figcaption>
+                  <h3>{item.name}</h3>
+                  <p>{item.role}</p>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">Specs &amp; photo source ↗</a>
+                  <small>{item.credit} · Reference only</small>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p class="equipment-cnc">CNC mold milling is a planned capability; spindle, travel, workholding, material removal, and tooling accuracy will determine the machine selection. We will not imply that all production molds can be made on a general-purpose desktop CNC.</p>
+        </div>
+      </section>
+
+      <section class="section technical-section" id="technical-references">
+        <div class="site-shell">
+          <div class="section-heading section-heading-left">
+            <p class="eyebrow">Engineering source material</p>
+            <h2>Technical drawings and real PCB references—not decorative AI schematics.</h2>
+            <p>These are vendor-published technical resources. They inform design feasibility; they are not Fulcrum's confidential engineering files or proof of in-house builds.</p>
+          </div>
+          <div class="technical-grid">
+            <figure class="technical-reference">
+              <a href="https://apsx.com/desktop-injection-molding-machine" target="_blank" rel="noopener noreferrer">
+                <img src="https://apsx.com/images/uploaded/APSX-PIM%20Specs.png" alt="Original APSX manufacturer technical diagram listing desktop injection-molding machine footprint, mold size, shot capacity and cycle-time reference" width="900" height="600" loading="lazy" decoding="async" />
+              </a>
+              <figcaption><strong>APSX-PIM mechanical specification diagram</strong><span>Actual manufacturer drawing. Confirm mold envelope, runner geometry and clamping constraints against customer STEP files.</span><a href="https://apsx.com/desktop-injection-molding-machine" target="_blank" rel="noopener noreferrer">Original technical source ↗</a></figcaption>
+            </figure>
+            <figure class="technical-reference">
+              <a href="https://github.com/opulo-inc/lumenpnp/blob/main/pnp/pcb/ftp/ftp.kicad_sch" target="_blank" rel="noopener noreferrer">
+                <img src="https://docs.opulo.io/openpnp/v4/ftp/1-board-setup/images/mountedftp.webp" alt="Actual Opulo PCB fixture showing test circuit board and component placements, linking to the source KiCad schematic" width="900" height="600" loading="lazy" decoding="async" />
+              </a>
+              <figcaption><strong>Opulo PCB example and source schematic</strong><span>Real component-placement test board and publicly available KiCad schematic. Follow the original design source rather than a fabricated wiring diagram.</span><a href="https://github.com/opulo-inc/lumenpnp/blob/main/pnp/pcb/ftp/ftp.kicad_sch" target="_blank" rel="noopener noreferrer">Open actual KiCad schematic ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="technical-credit">Technical illustrations and equipment imagery credited to their respective publishers and linked to original sources. Manufacturer product and brand names do not imply sponsorship, authorization, or equipment ownership. Permission should be verified before permanent local redistribution of third-party assets.</p>
+        </div>
+      </section>
+
+      <section class="section gates-section">
+        <div class="site-shell">
+          <div class="section-heading section-heading-left">
+            <p class="eyebrow">Project method</p>
+            <h2>Four gates from inquiry to pilot readiness.</h2>
+          </div>
+          <div class="gates-grid">
+            {gates.map((gate) => (
+              <article><span>{gate.number}</span><h3>{gate.title}</h3><p>{gate.copy}</p></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section clients-section">
+        <div class="site-shell clients-grid">
+          <div>
+            <p class="eyebrow">Designed for outside manufacturers</p>
+            <h2>One technical partner, distinct client projects.</h2>
+            <p>Fulcrum is being structured to serve independent businesses needing a prototype, a controlled production workflow, or a documented pilot build. Affiliated projects help test the process, but are not presented as unrelated customer validation.</p>
+          </div>
+          <div class="client-examples">
+            <article><strong>BacRub LLC</strong><span>Affiliated hardware development customer: sensor electronics, enclosure and pilot-build feasibility.</span></article>
+            <article><strong>Hotels4Humanity</strong><span>Affiliated AI automation customer: supplier, catalog, order and fulfillment workflows—not a manufacturing customer.</span></article>
+            <article><strong>Outside customers</strong><span>Independent inventors, small manufacturers and technology startups; project acceptance subject to capability and feasibility review.</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section inquiry-section">
+        <div class="site-shell inquiry-panel">
+          <div><p class="eyebrow">Start with feasibility</p><h2>Have a design that needs to become a product?</h2><p>Send the product concept, CAD or STEP status, PCB complexity if applicable, intended material, desired volume, and target date. We will identify what can be evaluated now versus what requires equipment or external production partners.</p></div>
+          <a class="btn btn-primary" href={email}>Email the R&amp;D team</a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .manufacturing-hero { background: var(--color-bg); }
+  .manufacturing-hero-layout { display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:42px;align-items:center; }
+  .manufacturing-hero h1 {color:var(--color-text);font-size:clamp(2.4rem,5.5vw,5.2rem);line-height:1.02;letter-spacing:-.05em;max-width:800px;margin:12px 0 24px;}
+  .manufacturing-intro {font-size:clamp(1rem,1.6vw,1.18rem);line-height:1.65;color:var(--color-text-muted);max-width:760px;}
+  .manufacturing-actions {display:flex;gap:12px;flex-wrap:wrap;margin:25px 0;}
+  .manufacturing-disclosure {font-size:.85rem;line-height:1.6;color:var(--color-text-muted);border-left:3px solid var(--color-brand-amber);padding-left:14px;max-width:700px;}
+  .manufacturing-disclosure strong {color:var(--color-text);}
+  .manufacturing-hero-image {margin:0;overflow:hidden;border:1px solid var(--color-border);border-radius:10px;background:#f5f6f7;}
+  .manufacturing-hero-image img {width:100%;height:auto;display:block;object-fit:contain;}
+  .manufacturing-hero-image figcaption {background:var(--color-surface);color:var(--color-text-muted);font-size:.75rem;line-height:1.5;padding:12px 16px;}
+  .manufacturing-hero-image figcaption a {text-decoration:underline;}
+  .manufacturing-model,.technical-section,.clients-section {background:var(--color-surface);border-block:1px solid var(--color-border);}
+  .manufacturing-model-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+  .manufacturing-model-grid article,.gates-grid article {padding:24px;border-radius:9px;border:1px solid var(--color-border);background:var(--color-bg);}
+  .manufacturing-model-grid article span,.gates-grid article span {color:var(--color-brand-amber);font-size:.72rem;font-weight:850;letter-spacing:.06em;}
+  .manufacturing-model-grid h3,.gates-grid h3 {font-size:1.12rem;line-height:1.3;color:var(--color-text);margin:16px 0 10px;}
+  .manufacturing-model-grid p,.gates-grid p {font-size:.9rem;line-height:1.58;color:var(--color-text-muted);margin:0;}
+  .equipment-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .equipment-card,.technical-reference {margin:0;overflow:hidden;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface);box-shadow:var(--shadow-soft);}
+  .equipment-card>a,.technical-reference>a {display:block;background:#f3f4f6;}
+  .equipment-card img {width:100%;height:270px;display:block;object-fit:contain;padding:12px;}
+  .equipment-card figcaption {padding:20px;display:grid;gap:10px;}
+  .equipment-card h3 {margin:0;color:var(--color-text);font-size:1.16rem;}
+  .equipment-card p {margin:0;color:var(--color-text-muted);line-height:1.5;}
+  .equipment-card figcaption a,.technical-reference figcaption a {text-decoration:underline;text-underline-offset:4px;font-weight:730;color:var(--color-text);}
+  .equipment-card small {color:var(--color-text-muted);font-size:.72rem;}
+  .equipment-cnc,.technical-credit {color:var(--color-text-muted);line-height:1.55;font-size:.84rem;margin:24px 0 0;max-width:960px;}
+  .technical-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+  .technical-reference img {display:block;width:100%;height:310px;object-fit:contain;padding:12px;}
+  .technical-reference figcaption {display:grid;gap:10px;padding:20px;}
+  .technical-reference strong {color:var(--color-text);font-size:1.12rem;}
+  .technical-reference span {color:var(--color-text-muted);line-height:1.5;}
+  .gates-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+  .clients-grid {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;}
+  .clients-grid h2 {color:var(--color-text);font-size:clamp(1.8rem,3vw,2.7rem);line-height:1.14;}
+  .clients-grid p {color:var(--color-text-muted);line-height:1.65;}
+  .client-examples {display:grid;gap:12px;}
+  .client-examples article {display:grid;gap:8px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;padding:20px;}
+  .client-examples strong {color:var(--color-text);}
+  .client-examples span {color:var(--color-text-muted);line-height:1.5;font-size:.92rem;}
+  .inquiry-panel {background:var(--color-brand-navy);color:#fff;padding:clamp(26px,4vw,50px);display:flex;align-items:center;justify-content:space-between;gap:30px;border-radius:12px;}
+  .inquiry-panel h2 {font-size:clamp(1.7rem,3vw,2.6rem);line-height:1.2;margin:12px 0;color:#fff;}
+  .inquiry-panel p:not(.eyebrow) {color:#dce2ea;line-height:1.58;max-width:720px;}
+  .inquiry-panel .eyebrow {color:#e6bc70;}
+  .inquiry-panel a {flex-shrink:0;}
+  @media(max-width:980px) { .manufacturing-model-grid,.gates-grid {grid-template-columns:repeat(2,minmax(0,1fr));} .manufacturing-hero-layout {grid-template-columns:1fr;} .clients-grid {grid-template-columns:1fr;} }
+  @media(max-width:750px) { .equipment-grid,.technical-grid,.manufacturing-model-grid,.gates-grid {grid-template-columns:1fr;} .inquiry-panel {flex-direction:column;align-items:flex-start;} .manufacturing-hero-image img {max-height:400px;} }
+</style>
