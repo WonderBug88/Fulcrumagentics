@@ -1,5 +1,21 @@
 export const workflowProofItems = [
   {
+    name: 'Shipping Intelligence',
+    tag: 'Mathematical shipping models and configuration',
+    problem: 'Freight and parcel estimates are difficult when carton dimensions, case packs, shipment types and historical rates disagree.',
+    built: 'Shipping configuration logic with dimensional and packaging rules, predictive cost estimation and advanced mathematical modeling.',
+    controls: 'Known physical constraints and historical rate evidence frame estimates; exceptions and high-risk decisions remain reviewable.',
+    output: 'Estimated shipping costs, configuration decisions, model-supported comparisons and logistics planning signals.',
+  },
+  {
+    name: 'Automated Content Studio',
+    tag: 'Drafting and review workflows',
+    problem: 'Maintaining a commerce content program creates repetitive research, drafting and publishing coordination work.',
+    built: 'An AI-assisted blog writing and content workflow that prepares structured drafts for editorial review.',
+    controls: 'Research, factual claims and publishing decisions require source checks and human oversight.',
+    output: 'Reusable content drafts and repeatable publishing workflows.',
+  },
+  {
     name: 'Route Authority',
     tag: 'Search + internal-link workflow',
     problem:
@@ -61,11 +77,11 @@ export const workflowProofItems = [
   },
   {
     name: 'Trial Workbench',
-    tag: 'Semantic case workspace and handoff exports',
+    tag: 'Legal intelligence · active development',
     problem:
       'AI chats can make a user feel heard, but serious case preparation needs organized records, source-backed evidence, review flags, and exportable work product.',
     built:
-      'A case workspace for intake, evidence upload and sync, semantic evidence search, research drafts, claim review, best evidence, prima facie review, and attorney handoff exports.',
+      'An actively developed case workspace for intake, evidence upload, semantic evidence search, advanced analytical logic, claim review, research drafts and attorney handoff exports.',
     controls:
       'The workflow keeps source records visible, surfaces known weaknesses and proof gaps, separates research notes from advice, and packages outputs for professional review.',
     output:
