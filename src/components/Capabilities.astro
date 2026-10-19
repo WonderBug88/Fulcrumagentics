@@ -1,0 +1,114 @@
+---
+const capabilities = [
+  {
+    label: 'In use and ongoing development',
+    title: 'AI systems & business operations',
+    detail: 'Connected software that works with authoritative business records, applies rules and models, and keeps consequential actions reviewable.',
+    examples: ['Hermes order and fulfillment orchestration', 'PAM ETL supplier data and SKU authority', 'Shipping cost modeling and configuration', 'Route Authority and automated content workflows'],
+  },
+  {
+    label: 'Research & active development',
+    title: 'Advanced logic & quantitative intelligence',
+    detail: 'Source-grounded reasoning, structured retrieval, mathematical optimization and research-oriented decision systems.',
+    examples: ['Trial Workbench: litigation evidence and analytical logic', 'Algorithmic trading research and strategy development', 'Valuation, forecasting and operational decision models', 'Reusable software components rather than one-off prompts'],
+  },
+];
+
+const productionSteps = [
+  { title: 'Product R&D', description: 'Requirements, design iteration, engineering prototypes and validation plans.' },
+  { title: 'Additive prototyping', description: 'Planned Formlabs 3D printing for prototypes, fixtures and tooling experiments.' },
+  { title: 'Electronics assembly', description: 'Planned LumenPnP component placement with soldering, inspection and test workflows.' },
+  { title: 'Tooling & molded parts', description: 'Planned compact CNC mold machining and APSX injection molding for feasible small runs.' },
+];
+---
+
+<section id="capabilities" class="section capability-section">
+  <div class="site-shell">
+    <div class="section-heading section-heading-left">
+      <p class="eyebrow">What we build</p>
+      <h2>Applied intelligence, built into the operation.</h2>
+      <p>Fulcrum Agentics develops software and analytical systems for real business processes. Our next area of investment brings that engineering approach into physical product development.</p>
+    </div>
+
+    <div class="capability-grid">
+      {capabilities.map((capability) => (
+        <article class="capability-card">
+          <span class="capability-label">{capability.label}</span>
+          <h3>{capability.title}</h3>
+          <p>{capability.detail}</p>
+          <ul>{capability.examples.map((example) => <li>{example}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+
+    <div id="manufacturing" class="manufacturing-panel">
+      <div class="manufacturing-intro">
+        <p class="eyebrow">Planned capability · advanced manufacturing</p>
+        <h3>From digital engineering to physical production.</h3>
+        <p>We are developing a small-batch contract R&D and micro-manufacturing offering for startups, inventors and established manufacturers. The proposed equipment stack includes Formlabs printers, LumenPnP pick-and-place, APSX injection molding and a compact CNC for mold tooling.</p>
+        <p class="status-note">This is a planned expansion, not an assertion that equipment has been acquired, a facility is operating, or production capacity is available today. Scope and lead times will depend on feasibility, validation and commissioning.</p>
+        <a class="btn btn-secondary" href="mailto:hello@fulcrumagentics.com?subject=Product%20R%26D%20Inquiry">Discuss a product-development project</a>
+      </div>
+      <div class="production-grid">
+        {productionSteps.map((step, index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h4>{step.title}</h4>
+            <p>{step.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="applications">
+      <div>
+        <p class="eyebrow">Real-world applications</p>
+        <h3>Built around operating businesses.</h3>
+      </div>
+      <div class="application-grid">
+        <article>
+          <strong>Hotels4Humanity</strong>
+          <span>Affiliated AI workflow customer</span>
+          <p>Commerce systems for supplier onboarding, order fulfillment, shipping estimates, search operations and publishing.</p>
+        </article>
+        <article>
+          <strong>BacRub LLC</strong>
+          <span>Affiliated hardware R&D client</span>
+          <p>An electronics and enclosure development use case for the proposed prototyping and small-batch manufacturing capability.</p>
+        </article>
+      </div>
+      <p class="affiliation-note">These are affiliated companies and application environments; they should not be interpreted as independent third-party customer validation.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .capability-section { border-top: 1px solid var(--color-border); background: var(--color-bg); }
+  .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .capability-card, .manufacturing-panel, .applications { border: 1px solid var(--color-border); background: var(--color-surface); border-radius: 12px; box-shadow: var(--shadow-soft); }
+  .capability-card { padding: clamp(22px, 3vw, 34px); }
+  .capability-label { color: var(--color-brand-amber); font-size: .75rem; font-weight: 850; text-transform: uppercase; letter-spacing: .06em; }
+  .capability-card h3, .manufacturing-panel h3, .applications h3 { margin: 16px 0 0; color: var(--color-text); font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.2; }
+  .capability-card p, .manufacturing-panel p, .applications p { color: var(--color-text-muted); line-height: 1.65; }
+  .capability-card ul { margin: 23px 0 0; padding-left: 20px; display: grid; gap: 10px; color: var(--color-text); }
+  .capability-card li::marker { color: var(--color-brand-amber); }
+  .manufacturing-panel { margin-top: 20px; padding: clamp(22px, 3vw, 34px); display: grid; grid-template-columns: .95fr 1.05fr; gap: 28px; scroll-margin-top: 100px; }
+  .manufacturing-intro h3 { margin-top: 10px; }
+  .manufacturing-intro .btn { margin-top: 12px; }
+  .manufacturing-panel .status-note { font-size: .89rem; border-left: 3px solid var(--color-brand-amber); padding-left: 14px; }
+  .production-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+  .production-grid article { background: var(--color-surface-2); border: 1px solid var(--color-border); padding: 20px; border-radius: 8px; }
+  .production-grid article span { color: var(--color-brand-amber); font-weight: 850; font-size: .8rem; }
+  .production-grid h4 { margin: 12px 0 0; font-size: 1.05rem; color: var(--color-text); }
+  .production-grid p { font-size: .89rem; margin: 9px 0 0; }
+  .applications { margin-top: 20px; padding: clamp(22px, 3vw, 34px); }
+  .applications h3 { margin-top: 10px; }
+  .application-grid { margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  .application-grid article { padding: 20px; background: var(--color-surface-2); border-radius: 8px; }
+  .application-grid strong { display: block; font-size: 1.15rem; color: var(--color-text); }
+  .application-grid span { display: block; margin-top: 6px; color: var(--color-brand-amber); font-weight: 750; font-size: .82rem; }
+  .application-grid p { margin-bottom: 0; }
+  .applications .affiliation-note { margin: 16px 0 0; font-size: .85rem; }
+  @media (max-width: 980px) { .manufacturing-panel { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .capability-grid, .application-grid, .production-grid { grid-template-columns: 1fr; } }
+</style>
