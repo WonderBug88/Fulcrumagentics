@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import { siteConfig } from '../config.ts';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
+import ServicesOverview from '../components/ServicesOverview.astro';
 import FlagshipCaseStudy from '../components/FlagshipCaseStudy.astro';
 import Offers from '../components/Offers.astro';
 import Features from '../components/Features.astro';
@@ -33,6 +34,9 @@ const structuredData = {
     'AI Workflow Diagnostic',
     'Controlled AI Workflow Implementation',
     'AI Governance and Operations',
+    'Product Research and Development',
+    'Electronics Prototyping and Feasibility',
+    'Small-Batch Contract Manufacturing Planning',
   ],
 };
 ---
@@ -92,6 +96,7 @@ const structuredData = {
   <body>
     <Navigation />
     <Hero />
+    <ServicesOverview />
     <FlagshipCaseStudy />
     <Offers />
     <Features />

@@ -1,13 +1,20 @@
 # Fulcrum Agentics Website
 
-Astro site for Fulcrum Agentics, positioned as the fractional AI office for
-owner-led commerce companies.
+Astro site for Fulcrum Agentics, offering controlled AI workflows and developing an Arizona-based product R&D and small-batch contract manufacturing service for independent and affiliated clients.
 
 The homepage connects executive AI leadership to production implementation:
 identify the right opportunity, prove one controlled workflow, govern the
 operating boundary, and expand from measured results.
 
 ## Current Positioning
+
+- Two service lines: established controlled AI workflows and **developing** hardware R&D / pilot manufacturing
+- Hardware customer reference: BacRub LLC (affiliated); AI workflow reference: Hotels4Humanity (affiliated)
+- Hardware equipment is under evaluation, not represented as installed or available for production
+- Real manufacturer reference photographs, APSX technical specification diagram, and Opulo public KiCad schematic links on `/manufacturing/`
+- Third-party images are remotely linked with credits and sources; obtain permission before republishing locally
+- Manufacturing availability and volume must be evaluated per customer project
+
 
 - Fractional AI leadership plus implementation and ongoing operation
 - Commerce operations as the primary market entry point
@@ -37,5 +44,7 @@ The site deploys to GitHub Pages from `master` through `.github/workflows/astro.
 - `src/config.ts` - site metadata, navigation, CTA, hero, engagement, contact, footer
 - `src/content/*.ts` - proof workflows, control features, process steps, FAQ
 - `src/components/*.astro` - rendered sections
+- `src/components/ServicesOverview.astro` - dual service lines on homepage
+- `src/pages/manufacturing.astro` - equipment references and engineering feasibility landing page
 - `src/styles/globals.css` - brand tokens, theme support, responsive layout
 - `docs/flagship-case-study-video.md` - Runway brief, final asset path, and accessibility description
