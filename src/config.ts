@@ -1,5 +1,6 @@
 const contactEmail = 'hello@fulcrumagentics.com';
 const workflowMailto = `mailto:${contactEmail}?subject=AI Workflow Diagnostic`;
+const projectMailto = `mailto:${contactEmail}?subject=AI%20or%20Hardware%20Project%20Inquiry`;
 
 export const siteConfig = {
   site: {
@@ -9,55 +10,55 @@ export const siteConfig = {
       alt: 'Fulcrum Agentics',
       height: 32,
     },
-    title: 'Fulcrum Agentics | Fractional AI Office for Commerce Operations',
+    title: 'Fulcrum Agentics | AI Workflows & Product R&D',
     description:
-      'Fulcrum Agentics gives owner-led commerce companies an accountable AI office: strategy, controlled workflow implementation, governance, and ongoing operation.',
+      'Fulcrum Agentics builds controlled AI workflows for businesses and is developing product R&D and small-batch contract manufacturing services for outside companies in Arizona.',
     keywords:
-      'fractional chief AI officer, fractional AI office, commerce AI operations, ecommerce AI automation, AI workflow diagnostic, controlled AI workflows, BigCommerce automation, catalog automation, fulfillment automation, human in the loop AI, AI governance',
+      'AI workflow automation, AI agents, business system integration, product research and development, contract manufacturing Arizona, electronics prototyping, injection molding, small batch manufacturing, CNC tooling, PCB assembly, Fulcrum Agentics',
     email: contactEmail,
     workflowMailto,
-    ogTitle: 'Fulcrum Agentics - Your Fractional AI Office',
+    ogTitle: 'Fulcrum Agentics - AI Workflows and Product Engineering',
     ogDescription:
-      'AI strategy, implementation, governance, and ongoing operation for owner-led commerce companies.',
+      'Controlled AI operations for businesses, plus an emerging Arizona R&D and prototype-to-pilot manufacturing service.',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Fulcrum Agentics',
     twitterDescription:
-      'Turn the work that keeps landing on the founder into controlled AI workflows.',
+      'From controlled AI business workflows to testable physical-product prototypes.',
   },
 
   navigation: {
     links: [
-      { name: 'Flagship Case', href: '#flagship' },
+      { name: 'Services', href: '#services' },
       { name: 'AI Office', href: '#ai-office' },
+      { name: 'R&D + Manufacturing', href: '/manufacturing/' },
       { name: 'Proof', href: '#proof' },
-      { name: 'Use Case', href: '/use-case/' },
       { name: 'FAQ', href: '#faq' },
     ],
     cta: {
-      text: 'Start a Workflow Diagnostic',
-      href: workflowMailto,
+      text: 'Discuss a Project',
+      href: projectMailto,
     },
   },
 
   hero: {
-    eyebrow: 'Fractional AI office for owner-led commerce companies',
-    headline: 'Turn the work that keeps landing on your desk into controlled AI workflows.',
-    headlineLines: ['Turn the work', 'that keeps landing', 'on your desk into', 'controlled AI workflows.'],
+    eyebrow: 'AI business automation • Product R&D • Pilot manufacturing',
+    headline: 'Build smarter workflows. Build real products.',
+    headlineLines: ['Build smarter', 'workflows.', 'Build real products.'],
     description:
-      'Your company is successful. The problem is that competitors are responding faster while catalog decisions, fulfillment exceptions, analytics, and approvals still route through you. Fulcrum provides the AI leadership and implementation team to change that—one proven operating loop at a time.',
+      'Fulcrum Agentics designs controlled AI workflows for businesses and is developing an Arizona-based R&D and small-batch contract manufacturing practice. From back-office automation to electronics prototypes and tooling feasibility, every project starts with defined engineering and review checkpoints.',
     cta: {
-      primary: { text: 'Start a Workflow Diagnostic', href: workflowMailto },
-      secondary: { text: 'See the Flagship Story', href: '#flagship' },
+      primary: { text: 'Explore Our Services', href: '#services' },
+      secondary: { text: 'See Product R&D', href: '/manufacturing/' },
     },
     proofPoints: [
-      'Prioritize AI investments around measurable business value',
-      'Connect existing systems without surrendering human control',
-      'Build capacity while your people stay focused on customers',
+      'Deploy AI workflows with evidence, approvals, and audit trails',
+      'Prototype hardware with real CAD, electronics, and manufacturing methods',
+      'Serve outside manufacturers alongside affiliated business clients',
     ],
     stats: [
-      { value: 'Strategy to system', label: 'one accountable AI office' },
-      { value: 'One workflow first', label: 'prove value before expanding' },
-      { value: 'Human controlled', label: 'approval stays where risk lives' },
+      { value: 'AI systems', label: 'working, review-first automation' },
+      { value: 'Hardware R&D', label: 'prototype-to-pilot capability in development' },
+      { value: 'Client focused', label: 'independent and affiliated projects' },
     ],
     console: {
       title: 'Fractional AI office operating loop',
@@ -136,26 +137,28 @@ export const siteConfig = {
   },
 
   contact: {
-    title: 'Start with the workflow that keeps coming back to you.',
+    title: 'Start with a process or product worth improving.',
     subtitle:
-      'Send the process, the systems it touches, the decision you still make personally, and what faster execution would change for the business.',
+      'For AI work, tell us which systems and approvals slow you down. For hardware R&D, share a concept, CAD or STEP status, materials, quantities, and target date.',
     benefits: [
-      'A focused workflow and risk discussion',
-      'A clear recommendation on what should remain human',
-      'A paid diagnostic only when there is a credible path to value',
+      'AI automation and integration projects',
+      'Product feasibility, prototypes, and pilot-run planning',
+      'A scoped next step with clear technical limitations',
     ],
     email: contactEmail,
-    href: workflowMailto,
-    cta: 'Start a Workflow Diagnostic',
+    href: projectMailto,
+    cta: 'Discuss Your Project',
   },
 
   footer: {
     tagline:
-      'The fractional AI office for owner-led commerce companies: strategy, controlled implementation, governance, and ongoing operation.',
+      'AI workflow engineering and emerging product R&D and small-batch manufacturing services for outside businesses.',
     columns: [
       {
         title: 'Proof',
         links: [
+          { name: 'Services', href: '#services' },
+          { name: 'Hardware R&D + Manufacturing', href: '/manufacturing/' },
           { name: 'Built Workflows', href: '#proof' },
           { name: 'Use Case', href: '/use-case/' },
           { name: 'Trial Workbench', href: '/trialworkbench/' },
