@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import { siteConfig } from '../config.ts';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
+import Capabilities from '../components/Capabilities.astro';
 import FlagshipCaseStudy from '../components/FlagshipCaseStudy.astro';
 import Offers from '../components/Offers.astro';
 import Features from '../components/Features.astro';
@@ -28,11 +29,11 @@ const structuredData = {
   description: siteConfig.site.description,
   areaServed: 'US',
   serviceType: [
-    'Fractional AI Office',
-    'Fractional Chief AI Officer',
-    'AI Workflow Diagnostic',
-    'Controlled AI Workflow Implementation',
-    'AI Governance and Operations',
+    'Applied AI and Software Engineering',
+    'AI Workflow Automation',
+    'Advanced Analytics and Mathematical Modeling',
+    'Product Research and Development',
+    'Planned Small-batch Contract Manufacturing',
   ],
 };
 ---
@@ -92,6 +93,7 @@ const structuredData = {
   <body>
     <Navigation />
     <Hero />
+    <Capabilities />
     <FlagshipCaseStudy />
     <Offers />
     <Features />
